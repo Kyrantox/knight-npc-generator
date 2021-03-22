@@ -9,7 +9,7 @@
   },
   "scripts": {
     "prebuild": "rm -rf dist && mkdir dist",
-    "build": "cp src/main/index.html dist/index.html && npx webpack-cli build --mode development"
+    "build": "cp src/main/index.html dist/index.html && cp lib/bootstrap.min.css dist/bootstrap.min.css && npx webpack-cli build --mode development"
   },
   "devDependencies": {
     "css-loader": "^5.1.3",
