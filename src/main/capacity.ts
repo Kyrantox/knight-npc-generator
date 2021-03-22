@@ -1,4 +1,4 @@
-class Capacity {
+export class Capacity {
   name: string;
   description: string;
   tags: string[];

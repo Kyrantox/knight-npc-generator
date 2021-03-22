@@ -1,4 +1,4 @@
-class Effect {
+export class Effect {
   name: string;
   tags: string[];
 
