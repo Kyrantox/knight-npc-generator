@@ -4,5 +4,5 @@ import Generator, { GenerateOptions } from './Generator';
 import './index.scss';
 
 window.addEventListener('DOMContentLoaded', () => {
-  console.log(new Generator().generate(new GenerateOptions()));
+  console.log(new Generator(new GenerateOptions()).generate());
 });

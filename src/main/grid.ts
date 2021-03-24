@@ -35,6 +35,7 @@ const GRID = {
 				"min": 10,
 				"max": 10
 			},
+      "resilience": 0,
 			"capacities": 2
 		},
 		[INITIE]: {
@@ -70,6 +71,7 @@ const GRID = {
 				"min": 20,
 				"max": 20
 			},
+      "resilience": 0,
 			"capacities": 3
 		},
 		[HEROS]: {
@@ -105,6 +107,7 @@ const GRID = {
 				"min": 20,
 				"max": 40
 			},
+      "resilience": 0,
 			"capacities": 5
 		}
 	},
@@ -142,6 +145,7 @@ const GRID = {
 				"min": 20,
 				"max": 30
 			},
+      "resilience": 0,
 			"capacities": 3
 		},
 		[INITIE]: {
@@ -177,6 +181,7 @@ const GRID = {
 				"min": 30,
 				"max": 50
 			},
+      "resilience": 0,
 			"capacities": 4
 		},
 		[HEROS]: {
@@ -212,6 +217,7 @@ const GRID = {
 				"min": 50,
 				"max": 100
 			},
+      "resilience": 0,
 			"capacities": 6
 		}
 	},
@@ -249,6 +255,7 @@ const GRID = {
 				"min": 10,
 				"max": 50
 			},
+      "resilience": 0.033,
 			"capacities": 5
 		},
 		[INITIE]: {
@@ -284,6 +291,7 @@ const GRID = {
 				"min": 50,
 				"max": 100
 			},
+      "resilience": 0.05,
 			"capacities": 7
 		},
 		[HEROS]: {
@@ -319,6 +327,7 @@ const GRID = {
 				"min": 100,
 				"max": 200
 			},
+      "resilience": 0.1,
 			"capacities": 9
 		}
 	},
@@ -356,6 +365,7 @@ const GRID = {
 				"min": 10,
 				"max": 50
 			},
+      "resilience": 0.1,
 			"capacities": 5
 		},
 		[INITIE]: {
@@ -391,6 +401,7 @@ const GRID = {
 				"min": 50,
 				"max": 100
 			},
+      "resilience": 0.2,
 			"capacities": 7
 		},
 		[HEROS]: {
@@ -426,6 +437,7 @@ const GRID = {
 				"min": 100,
 				"max": 200
 			},
+      "resilience": 0.3,
 			"capacities": 9
 		}
 	},
@@ -463,6 +475,7 @@ const GRID = {
 				"min": 0,
 				"max": 0
 			},
+      "resilience": 0,
 			"capacities": 2,
 			"outbreak": {
 				"min": 4,
@@ -504,6 +517,7 @@ const GRID = {
 				"min": 0,
 				"max": 0
 			},
+      "resilience": 0,
 			"capacities": 3,
 			"outbreak": {
 				"min": 8,
@@ -545,6 +559,7 @@ const GRID = {
 				"min": 0,
 				"max": 0
 			},
+      "resilience": 0,
 			"capacities": 5,
 			"outbreak": {
 				"min": 8,
@@ -588,6 +603,7 @@ const GRID = {
 				"min": 0,
 				"max": 0
 			},
+      "resilience": 0.1,
 			"capacities": 2
 		},
 		[INITIE]: {
@@ -623,6 +639,7 @@ const GRID = {
 				"min": 10,
 				"max": 50
 			},
+      "resilience": 0.2,
 			"capacities": 4
 		},
 		[HEROS]: {
@@ -658,6 +675,7 @@ const GRID = {
 				"min": 50,
 				"max": 100
 			},
+      "resilience": 0.3,
 			"capacities": 6
 		}
 	}
