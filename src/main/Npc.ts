@@ -12,9 +12,10 @@ export const HEROS = 'héros';
 export const HOSTILE = 'hostile';
 export const SALOPARD = 'salopard';
 export const PATRON = 'patron';
-export const COLOSSUS = 'colosse';
+export const COLOSSE = 'colosse';
 export const BANDE = 'bande';
-export const PATRON_COLOSSUS = 'patron colosse';
+export const PATRON_COLOSSE = 'patron colosse';
+export const ALLIE = 'allié';
 export const CONTACT = 'contact';
 export const COURTE = 'courte';
 export const MOYENNE = 'moyenne';
@@ -70,6 +71,7 @@ export class Npc {
   weakness: string[] = [];
   capacities: Capacity[] = [];
   weapons: Weapon[] = [];
+  resilience: number = 0;
 
   constructor(base?: Npc) {
     if (base) {
@@ -89,6 +91,7 @@ export class Npc {
       this.weakness = [...base.weakness];
       this.capacities = [...base.capacities];
       this.weapons = base.weapons.map(w => new Weapon(w));
+      this.resilience = base.resilience;
     }
   }
 

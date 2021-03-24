@@ -56,7 +56,6 @@ const CAPACITIES = [
   "Implacable | recrue - salopard - colosse - patron | Si le PNJ n’utilise pas son action de déplacement durant son tour, il peut effectuer une attaque supplémentaire.",
   "Indestructible | héros - patron | Seules les armes avec l’effet anti-véhicule peuvent infliger des dégâts au PNJ. La violence des armes avec l’effet anti-véhicule font aussi baisser ses PS.",
   "Indestructible | héros - bande | Seules les armes avec l’effet anti-véhicule peuvent infliger de la violence au PNJ. Les dégâts des armes avec l’effet anti-véhicule font aussi baisser ses PS.",
-  "Ignore CdF | recrue - bande | Le PNJ bénéficie de l'équivalent de l'effet Ignore CdF.",
   "Infiltré | initié - salopard - colosse - patron - bande | Le PNJ peut se retrouver partout et est difficilement identifiable et différentiable d’humains communs, même quand il n’est pas seul. Seul un test base Perception ou Instinct difficulté délicat (4) peut permettre de le repérer.",
   "Intangible | héros - hostile - salopard - patron | Tant qu’il est intangible, le PNJ reste insensible à la violence ou aux dégâts des armes, sauf si ceux-ci bénéficient de l’effet anti-Anathème. Tant qu’il est intangible, il ne peut cependant pas agir contre les personnages en méta-armures. L’intangibilité peut s’activer ou se désactiver une seule fois par tour en phase de conflit.",
   "Invisibilité | héros - hostile - salopard - patron | Le PNJ bénéficie de la même capacité que la méta-armure Rogue, sous les mêmes conditions.",
