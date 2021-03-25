@@ -1,20 +1,22 @@
 import CAPACITIES from './capacity';
 import EFFECTS from './effect';
 import GRID from './grid';
-import { HOSTILE, Npc, RECRUE, BANDE, BETE, MASQUE, MACHINE } from './Npc';
+import { HOSTILE, Npc, RECRUE, BANDE, BETE, MASQUE, MACHINE, INITIE, HEROS, SALOPARD } from './Npc';
 
 export class GenerateOptions {
   name: string = '';
-  type: string = HOSTILE;
-  level: string = RECRUE;
+  type: string = SALOPARD;
+  level: string = INITIE;
   power: number = 0.5;
-  balances: number[] = [5, 5, 5, 5, 5];
+  balances: number[] = [10, 10, 3, 6, 3];
   forcefield: boolean = false;
   shield: boolean = true;
   armor: boolean = false;
   robot: boolean = false;
   energy: boolean = false;
   resilience: boolean = false;
+  other: boolean = false;
+  weakness: string[] = [];
 }
 
 export default class Generator {
@@ -43,6 +45,7 @@ export default class Generator {
     npc.name = this.options.name;
     npc.type = this.options.type;
     npc.level = this.options.level;
+    npc.weakness = [...this.options.weakness];
 
     const total = this.options.balances.reduce((previous, current) => current + previous, 0);
     const infos = GRID[this.options.type][this.options.level];
@@ -129,6 +132,50 @@ export default class Generator {
       npc.initiative = Math.floor(npc.aspects[MASQUE].score / 2) + npc.aspects[MASQUE].minor;
     }
 
+    // Capacities
+    const tags = [this.options.type, this.options.level];
+
+    if (this.options.other) {
+      tags.push('autre');
+    }
+
+    if (this.options.level === INITIE) {
+      tags.push(RECRUE);
+    } else if (this.options.level === HEROS) {
+      tags.push(RECRUE, INITIE);
+    }
+
+    const capacities = CAPACITIES.filter(c => {
+      if (c.tags.includes('élite')) {
+        return false;
+      }
+
+      if (this.options.other && !c.tags.includes('autre')) {
+        return false;
+      }
+
+      if (!c.tags.includes(this.options.type)) {
+        return false;
+      }
+
+      if (this.options.level === RECRUE) {
+        return c.tags.includes(RECRUE);
+      } else if (this.options.level === INITIE) {
+        return c.tags.includes(RECRUE) || c.tags.includes(INITIE);
+      } else if (this.options.level === HEROS) {
+        return c.tags.includes(RECRUE) || c.tags.includes(INITIE) || c.tags.includes(HEROS);
+      }
+    });
+    shuffle(capacities);
+
+    for (let i = 0; i < infos.capacities; ++i) {
+      if (!capacities.length) {
+        break;
+      }
+
+      npc.capacities.push(capacities.shift()!);
+    }
+
     return npc;
   }
 
@@ -140,4 +187,17 @@ export default class Generator {
     return base;
   }
 
+}
+
+function shuffle(array: any[]) {
+  let j : number;
+  let x : number;
+  let i : number;
+  for (i = array.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = array[i];
+      array[i] = array[j];
+      array[j] = x;
+  }
+  return array;
 }
