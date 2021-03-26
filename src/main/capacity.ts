@@ -23,7 +23,6 @@ const CAPACITIES = [
   "Actions multiples (4) | initié - hostile - salopard - colosse - patron | Le PNJ possède 4 actions de combat en plus de son action de déplacement et de combat de base. Ces actions sont à effectuer à son initiative.",
   "Actions multiples (5 ou plus) | héros - hostile - salopard - colosse - patron | Le PNJ possède 5 ou plus actions de combat en plus de son action de déplacement et de combat de base. Ces actions sont à effectuer à son initiative.",
   "Anathème | recrue - hostile - salopard - colosse - bande | Le PNJ peut décider d’infliger ses dégâts sur les points d’espoir plutôt que sur les points de santé. Le CdF fonctionne, mais pas les points d’armure. Si le PNJ est tué, les PJ ayant subi cet effet récuèrent 1D6 points d’espoir par tranche complète de 6 points d’espoir perdus.",
-  "Anti-véhicule | initié - salopard - colosse - patron - bande | Les dégâts infligés par le PNJ sont considérés comme ayant l’effet anti-véhicule.",
   "Armes multiples (1 à 3 standards) | recrue - hostile - salopard - colosse - patron | Le PNJ peut être doté de 3 armes jusqu’à standards de l’arsenal.",
   "Armes multiples (1 à 3 avancées) | initié - hostile - salopard - colosse - patron | Le PNJ peut être doté de 3 armes jusqu’à avancées de l’arsenal.",
   "Armes multiples (1 à 3 rares) | héros - hostile - salopard - colosse - patron | Le PNJ peut être doté de 3 armes jusqu’à rares de l’arsenal.",
@@ -112,7 +111,7 @@ const CAPACITIES = [
   "Intouchable | élite - héros - hostile - salopard - colosse - patron - élite | Le PNJ est insensible aux attaques qui nécessitent de dépasser sa réaction (incompatible avec insaisissable).",
   "Insaisissable | élite - héros - hostile - salopard - colosse - patron - élite | Le PNJ est insensible aux attaques qui nécessitent de dépasser sa défense (incompatible avec intouchable).",
   "Il est partout | élite - initié - salopard - colosse - patron - élite | Les attaques du PNJ ciblent automatiquement tous les PJ impliqués dans le conflit (sauf ceux cachés ou invisibles), peu importe leur distance ou leur attitude.",
-  // "Phase 2 | élite - recrue - patron - élite | Lorsque le PNJ a été mis à l’agonie une première fois, il récupère la totalité de ses PS, PA et PE (s’il en a) et reprend le combat. Il ne peut utiliser cette capacité qu’une seule fois. Le reste de la phase 2 doit être définie par le MJ."
+  "Phase 2 | élite - recrue - patron - élite | Lorsque le PNJ a été mis à l’agonie une première fois, il récupère la totalité de ses PS, PA et PE (s’il en a) et reprend le combat. Il ne peut utiliser cette capacité qu’une seule fois. Le reste de la phase 2 doit être définie par le MJ."
 ].map(data => new Capacity(data));
 
 export default CAPACITIES;
