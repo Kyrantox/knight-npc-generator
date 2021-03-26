@@ -1,18 +1,25 @@
-export class Capacity {
-  name: string;
-  description: string;
-  tags: string[];
+export const CHAIR = 0;
+export const BETE = 1;
+export const MACHINE = 2;
+export const DAME = 3;
+export const MASQUE = 4;
+export const RECRUE = 'recrue';
+export const INITIE = 'initié';
+export const HEROS = 'héros';
+export const HOSTILE = 'hostile';
+export const SALOPARD = 'salopard';
+export const PATRON = 'patron';
+export const COLOSSE = 'colosse';
+export const BANDE = 'bande';
+export const PATRON_COLOSSE = 'patron colosse';
+export const ALLIE = 'allié';
+export const CONTACT = 'contact';
+export const COURTE = 'courte';
+export const MOYENNE = 'moyenne';
+export const LONGUE = 'longue';
+export const LOINTAINE = 'lointaine';
 
-  constructor(data: string) {
-    const [name, tags, description] = data.split(' | ');
-
-    this.name = name;
-    this.description = description;
-    this.tags = tags.split(' - ');
-  }
-}
-
-const CAPACITIES = [
+export const CAPACITIES = [
   "Abysse | héros - salopard - colosse - patron | Tous les dégâts infligés par le PNJ à un PJ sont retirés aux points d’espoir et non aux points de santé ou points d’armure.",
   "Abyssal | héros - salopard - colosse - patron | Le PNJ est insensible à tous les types de dégâts sauf ceux avec l’effet anti-Anathème et lumière X.",
   "À coup sûr (contact) | héros - salopard - patron | Le PNJ, lorsqu’il attaque au contact, ne rate jamais sa cible. La défense du personnage ciblé est systématiquement ramenée à 0 pour chacune de ses attaques.",
@@ -112,6 +119,718 @@ const CAPACITIES = [
   "Insaisissable | élite - héros - hostile - salopard - colosse - patron - élite | Le PNJ est insensible aux attaques qui nécessitent de dépasser sa défense (incompatible avec intouchable).",
   "Il est partout | élite - initié - salopard - colosse - patron - élite | Les attaques du PNJ ciblent automatiquement tous les PJ impliqués dans le conflit (sauf ceux cachés ou invisibles), peu importe leur distance ou leur attitude.",
   "Phase 2 | élite - recrue - patron - élite | Lorsque le PNJ a été mis à l’agonie une première fois, il récupère la totalité de ses PS, PA et PE (s’il en a) et reprend le combat. Il ne peut utiliser cette capacité qu’une seule fois. Le reste de la phase 2 doit être définie par le MJ."
-].map(data => new Capacity(data));
+];
 
-export default CAPACITIES;
+export const EFFECTS = [
+  "Anti-Anathème | recrue - hostile - salopard - colosse - patron - autre | 20",
+  "Anti-véhicule | recrue - hostile - salopard - colosse - patron - bande | 20",
+  "Choc 1 | recrue - hostile - salopard - colosse - patron | 5",
+  "Choc 2 | initié - hostile - salopard - colosse - patron | 10",
+  "Choc 4 | héros - hostile - salopard - colosse - patron | 15",
+  "Choc 6 | héros - hostile - salopard - colosse - patron | 20",
+  "Dispersion 2 | recrue - hostile - salopard - colosse - patron | 5",
+  "Dispersion 3 | initié - hostile - salopard - colosse - patron | 10",
+  "Dispersion 6 | héros - hostile - salopard - colosse - patron | 20",
+  "Dégâts continus 3 | recrue - hostile - salopard - colosse - patron | 5",
+  "Dégâts continus 6 | initié - hostile - salopard - colosse - patron | 15",
+  "Dégâts continus 9 | héros - hostile - salopard - colosse - patron | 20",
+  "Descructeur | recrue - hostile - salopard - colosse - patron - bande | 10",
+  "Ignore Armure | initié - hostile - salopard - colosse - patron - bande | 20",
+  "Ignore CdF | initié - hostile - salopard - colosse - patron - bande | 20",
+  "Lumière 2 | recrue - hostile - salopard - colosse - patron - autre - bande | 5",
+  "Lumière 4 | initié - hostile - salopard - colosse - patron - autre - bande | 15",
+  "Lumière 6 | héros - hostile - salopard - colosse - patron - autre - bande | 20",
+  "Meutrier | recrue - hostile - salopard - colosse - patron - bande | 10",
+  "Parasitage 1 | recrue - hostile - salopard - colosse - patron | 5",
+  "Parasitage 2 | initié - hostile - salopard - colosse - patron | 10",
+  "Parasitage 4 | héros - hostile - salopard - colosse - patron | 15",
+  "Parasitage 6 | héros - hostile - salopard - colosse - patron | 20",
+  "Pénétrant 5 | initié - hostile - salopard - colosse - patron - bande | 5",
+  "Pénétrant 10 | héros - hostile - salopard - colosse - patron - bande | 10",
+  "Perce Armure 20 | recrue - hostile - salopard - colosse - patron - bande | 5",
+  "Perce Armure 40 | initié - hostile - salopard - colosse - patron - bande | 10",
+  "Perce Armure 60 | héros - hostile - salopard - colosse - patron - bande | 15",
+  "Silencieux | recrue - hostile - salopard - colosse - patron | 10",
+  "Soumission | recrue - hostile - salopard - colosse - patron | 15"
+];
+
+export const GRID = {
+	[HOSTILE]: {
+		[RECRUE]: {
+			"aspects": {
+				"min": 12,
+				"max": 24,
+				"limit": 8
+			},
+			"aspects_exceptionals": {
+				"min": 2,
+				"max": 6,
+				"limit": 3,
+				"major_min": 0,
+				"major_max": 0
+			},
+			"health": {
+				"min": 1,
+				"max": 30
+			},
+			"armor": {
+				"min": 0,
+				"max": 0
+			},
+			"forcefield": {
+				"min": 0,
+				"max": 0
+			},
+			"shield": {
+				"min": 0,
+				"max": 0
+			},
+			"energy": {
+				"min": 10,
+				"max": 10
+			},
+      "resilience": 0,
+			"capacities": 2
+		},
+		[INITIE]: {
+			"aspects": {
+				"min": 25,
+				"max": 42,
+				"limit": 12
+			},
+			"aspects_exceptionals": {
+				"min": 3,
+				"max": 8,
+				"limit": 6,
+				"major_min": 0,
+				"major_max": 0
+			},
+			"health": {
+				"min": 30,
+				"max": 60
+			},
+			"armor": {
+				"min": 1,
+				"max": 10
+			},
+			"forcefield": {
+				"min": 5,
+				"max": 5
+			},
+			"shield": {
+				"min": 5,
+				"max": 5
+			},
+			"energy": {
+				"min": 20,
+				"max": 20
+			},
+      "resilience": 0,
+			"capacities": 3
+		},
+		[HEROS]: {
+			"aspects": {
+				"min": 43,
+				"max": 52,
+				"limit": 14
+			},
+			"aspects_exceptionals": {
+				"min": 9,
+				"max": 15,
+				"limit": 9,
+				"major_min": 1,
+				"major_max": 1
+			},
+			"health": {
+				"min": 40,
+				"max": 80
+			},
+			"armor": {
+				"min": 10,
+				"max": 40
+			},
+			"forcefield": {
+				"min": 10,
+				"max": 10
+			},
+			"shield": {
+				"min": 10,
+				"max": 10
+			},
+			"energy": {
+				"min": 20,
+				"max": 40
+			},
+      "resilience": 0,
+			"capacities": 5
+		}
+	},
+	[SALOPARD]: {
+		[RECRUE]: {
+			"aspects": {
+				"min": 33,
+				"max": 40,
+				"limit": 12
+			},
+			"aspects_exceptionals": {
+				"min": 7,
+				"max": 13,
+				"limit": 6,
+				"major_min": 1,
+				"major_max": 1
+			},
+			"health": {
+				"min": 60,
+				"max": 100
+			},
+			"armor": {
+				"min": 0,
+				"max": 40
+			},
+			"forcefield": {
+				"min": 5,
+				"max": 5
+			},
+			"shield": {
+				"min": 0,
+				"max": 0
+			},
+			"energy": {
+				"min": 20,
+				"max": 30
+			},
+      "resilience": 0,
+			"capacities": 3
+		},
+		[INITIE]: {
+			"aspects": {
+				"min": 41,
+				"max": 52,
+				"limit": 14
+			},
+			"aspects_exceptionals": {
+				"min": 8,
+				"max": 16,
+				"limit": 8,
+				"major_min": 1,
+				"major_max": 1
+			},
+			"health": {
+				"min": 100,
+				"max": 150
+			},
+			"armor": {
+				"min": 40,
+				"max": 60
+			},
+			"forcefield": {
+				"min": 10,
+				"max": 10
+			},
+			"shield": {
+				"min": 5,
+				"max": 10
+			},
+			"energy": {
+				"min": 30,
+				"max": 50
+			},
+      "resilience": 0,
+			"capacities": 4
+		},
+		[HEROS]: {
+			"aspects": {
+				"min": 52,
+				"max": 70,
+				"limit": 16
+			},
+			"aspects_exceptionals": {
+				"min": 9,
+				"max": 19,
+				"limit": 10,
+				"major_min": 2,
+				"major_max": 2
+			},
+			"health": {
+				"min": 150,
+				"max": 300
+			},
+			"armor": {
+				"min": 60,
+				"max": 100
+			},
+			"forcefield": {
+				"min": 15,
+				"max": 30
+			},
+			"shield": {
+				"min": 15,
+				"max": 20
+			},
+			"energy": {
+				"min": 50,
+				"max": 100
+			},
+      "resilience": 0,
+			"capacities": 6
+		}
+	},
+	[PATRON]: {
+		[RECRUE]: {
+			"aspects": {
+				"min": 52,
+				"max": 70,
+				"limit": 20
+			},
+			"aspects_exceptionals": {
+				"min": 12,
+				"max": 37,
+				"limit": 10,
+				"major_min": 2,
+				"major_max": 4
+			},
+			"health": {
+				"min": 160,
+				"max": 600
+			},
+			"armor": {
+				"min": 40,
+				"max": 100
+			},
+			"forcefield": {
+				"min": 10,
+				"max": 10
+			},
+			"shield": {
+				"min": 10,
+				"max": 10
+			},
+			"energy": {
+				"min": 10,
+				"max": 50
+			},
+      "resilience": 0.033,
+			"capacities": 5
+		},
+		[INITIE]: {
+			"aspects": {
+				"min": 71,
+				"max": 90,
+				"limit": 20
+			},
+			"aspects_exceptionals": {
+				"min": 18,
+				"max": 45,
+				"limit": 10,
+				"major_min": 2,
+				"major_max": 4
+			},
+			"health": {
+				"min": 300,
+				"max": 700
+			},
+			"armor": {
+				"min": 100,
+				"max": 200
+			},
+			"forcefield": {
+				"min": 10,
+				"max": 20
+			},
+			"shield": {
+				"min": 10,
+				"max": 30
+			},
+			"energy": {
+				"min": 50,
+				"max": 100
+			},
+      "resilience": 0.05,
+			"capacities": 7
+		},
+		[HEROS]: {
+			"aspects": {
+				"min": 90,
+				"max": 100,
+				"limit": 20
+			},
+			"aspects_exceptionals": {
+				"min": 25,
+				"max": 50,
+				"limit": 10,
+				"major_min": 3,
+				"major_max": 5
+			},
+			"health": {
+				"min": 400,
+				"max": 1000
+			},
+			"armor": {
+				"min": 150,
+				"max": 300
+			},
+			"forcefield": {
+				"min": 20,
+				"max": 50
+			},
+			"shield": {
+				"min": 20,
+				"max": 40
+			},
+			"energy": {
+				"min": 100,
+				"max": 200
+			},
+      "resilience": 0.1,
+			"capacities": 9
+		}
+	},
+	[PATRON_COLOSSE]: {
+		[RECRUE]: {
+			"aspects": {
+				"min": 52,
+				"max": 70,
+				"limit": 20
+			},
+			"aspects_exceptionals": {
+				"min": 12,
+				"max": 37,
+				"limit": 10,
+				"major_min": 2,
+				"major_max": 4
+			},
+			"health": {
+				"min": 160,
+				"max": 600
+			},
+			"armor": {
+				"min": 40,
+				"max": 100
+			},
+			"forcefield": {
+				"min": 10,
+				"max": 10
+			},
+			"shield": {
+				"min": 10,
+				"max": 10
+			},
+			"energy": {
+				"min": 10,
+				"max": 50
+			},
+      "resilience": 0.1,
+			"capacities": 5
+		},
+		[INITIE]: {
+			"aspects": {
+				"min": 71,
+				"max": 90,
+				"limit": 20
+			},
+			"aspects_exceptionals": {
+				"min": 18,
+				"max": 45,
+				"limit": 10,
+				"major_min": 2,
+				"major_max": 4
+			},
+			"health": {
+				"min": 300,
+				"max": 700
+			},
+			"armor": {
+				"min": 100,
+				"max": 200
+			},
+			"forcefield": {
+				"min": 10,
+				"max": 20
+			},
+			"shield": {
+				"min": 10,
+				"max": 30
+			},
+			"energy": {
+				"min": 50,
+				"max": 100
+			},
+      "resilience": 0.2,
+			"capacities": 7
+		},
+		[HEROS]: {
+			"aspects": {
+				"min": 90,
+				"max": 100,
+				"limit": 20
+			},
+			"aspects_exceptionals": {
+				"min": 25,
+				"max": 50,
+				"limit": 10,
+				"major_min": 3,
+				"major_max": 5
+			},
+			"health": {
+				"min": 400,
+				"max": 1000
+			},
+			"armor": {
+				"min": 150,
+				"max": 300
+			},
+			"forcefield": {
+				"min": 20,
+				"max": 50
+			},
+			"shield": {
+				"min": 20,
+				"max": 40
+			},
+			"energy": {
+				"min": 100,
+				"max": 200
+			},
+      "resilience": 0.3,
+			"capacities": 9
+		}
+	},
+	[BANDE]: {
+		[RECRUE]: {
+			"aspects": {
+				"min": 18,
+				"max": 37,
+				"limit": 10
+			},
+			"aspects_exceptionals": {
+				"min": 0,
+				"max": 8,
+				"limit": 8,
+				"major_min": 1,
+				"major_max": 1
+			},
+			"health": {
+				"min": 50,
+				"max": 150
+			},
+			"armor": {
+				"min": 0,
+				"max": 0
+			},
+			"forcefield": {
+				"min": 0,
+				"max": 0
+			},
+			"shield": {
+				"min": 0,
+				"max": 0
+			},
+			"energy": {
+				"min": 0,
+				"max": 0
+			},
+      "resilience": 0,
+			"capacities": 2,
+			"outbreak": {
+				"min": 4,
+				"max": 9,
+				"effects_min": 0,
+				"effects_max": 1
+			}
+		},
+		[INITIE]: {
+			"aspects": {
+				"min": 38,
+				"max": 46,
+				"limit": 12
+			},
+			"aspects_exceptionals": {
+				"min": 0,
+				"max": 10,
+				"limit": 8,
+				"major_min": 1,
+				"major_max": 1
+			},
+			"health": {
+				"min": 200,
+				"max": 400
+			},
+			"armor": {
+				"min": 0,
+				"max": 0
+			},
+			"forcefield": {
+				"min": 0,
+				"max": 0
+			},
+			"shield": {
+				"min": 0,
+				"max": 0
+			},
+			"energy": {
+				"min": 0,
+				"max": 0
+			},
+      "resilience": 0,
+			"capacities": 3,
+			"outbreak": {
+				"min": 8,
+				"max": 12,
+				"effects_min": 1,
+				"effects_max": 2
+			}
+		},
+		[HEROS]: {
+			"aspects": {
+				"min": 39,
+				"max": 56,
+				"limit": 15
+			},
+			"aspects_exceptionals": {
+				"min": 4,
+				"max": 18,
+				"limit": 8,
+				"major_min": 1,
+				"major_max": 2
+			},
+			"health": {
+				"min": 400,
+				"max": 600
+			},
+			"armor": {
+				"min": 0,
+				"max": 0
+			},
+			"forcefield": {
+				"min": 5,
+				"max": 10
+			},
+			"shield": {
+				"min": 5,
+				"max": 10
+			},
+			"energy": {
+				"min": 0,
+				"max": 0
+			},
+      "resilience": 0,
+			"capacities": 5,
+			"outbreak": {
+				"min": 8,
+				"max": 15,
+				"effects_min": 2,
+				"effects_max": 4
+			}
+		}
+	},
+	[COLOSSE]: {
+		[RECRUE]: {
+			"aspects": {
+				"min": 28,
+				"max": 37,
+				"limit": 14
+			},
+			"aspects_exceptionals": {
+				"min": 4,
+				"max": 10,
+				"limit": 8,
+				"major_min": 1,
+				"major_max": 1
+			},
+			"health": {
+				"min": 100,
+				"max": 200
+			},
+			"armor": {
+				"min": 20,
+				"max": 40
+			},
+			"forcefield": {
+				"min": 0,
+				"max": 0
+			},
+			"shield": {
+				"min": 0,
+				"max": 0
+			},
+			"energy": {
+				"min": 0,
+				"max": 0
+			},
+      "resilience": 0.1,
+			"capacities": 2
+		},
+		[INITIE]: {
+			"aspects": {
+				"min": 38,
+				"max": 52,
+				"limit": 16
+			},
+			"aspects_exceptionals": {
+				"min": 10,
+				"max": 20,
+				"limit": 10,
+				"major_min": 2,
+				"major_max": 2
+			},
+			"health": {
+				"min": 200,
+				"max": 400
+			},
+			"armor": {
+				"min": 30,
+				"max": 50
+			},
+			"forcefield": {
+				"min": 5,
+				"max": 5
+			},
+			"shield": {
+				"min": 5,
+				"max": 10
+			},
+			"energy": {
+				"min": 10,
+				"max": 50
+			},
+      "resilience": 0.2,
+			"capacities": 4
+		},
+		[HEROS]: {
+			"aspects": {
+				"min": 52,
+				"max": 70,
+				"limit": 18
+			},
+			"aspects_exceptionals": {
+				"min": 20,
+				"max": 30,
+				"limit": 10,
+				"major_min": 3,
+				"major_max": 3
+			},
+			"health": {
+				"min": 400,
+				"max": 600
+			},
+			"armor": {
+				"min": 50,
+				"max": 100
+			},
+			"forcefield": {
+				"min": 10,
+				"max": 10
+			},
+			"shield": {
+				"min": 10,
+				"max": 20
+			},
+			"energy": {
+				"min": 50,
+				"max": 100
+			},
+      "resilience": 0.3,
+			"capacities": 6
+		}
+	}
+};
