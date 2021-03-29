@@ -2,6 +2,7 @@ import { CONTACT } from '../constants';
 import Effect from './Effect';
 
 export default class Weapon {
+  name: string = '';
   contact: boolean = true;
   dices: number = 0;
   raw: number = 0;

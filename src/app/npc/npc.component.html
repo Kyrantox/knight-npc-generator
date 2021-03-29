@@ -184,7 +184,40 @@
 
   <div class="npc-line" *ngFor="let weapon of npc.weapons">
     <div class="npc-line-title">
-      Arme
+      {{ weapon.contact ? 'Arme de contact' : 'Arme à distance' }}
+    </div>
+
+    <div class="npc-weapon-name">
+      {{ weapon.name }}
+    </div>
+
+    <div class="npc-weapon-stats">
+      <div class="npc-line-value">
+        <div class="npc-line-value-header">
+          Dégâts
+        </div>
+        <div class="npc-line-value-value">
+          {{ weapon.dices }}D6 + {{ weapon.raw }}
+        </div>
+      </div>
+
+      <div class="npc-line-value">
+        <div class="npc-line-value-header">
+          Portée
+        </div>
+        <div class="npc-line-value-value">
+          {{ weapon.range }}
+        </div>
+      </div>
+
+      <div class="npc-line-value">
+        <div class="npc-line-value-header">
+          {{ weapon.effects.length > 1 ? 'Effects' : 'Effect' }}
+        </div>
+        <div class="npc-line-value-value">
+          {{ weapon.effects.join(' / ') }}
+        </div>
+      </div>
     </div>
   </div>
 
