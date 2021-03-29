@@ -1,175 +1,181 @@
 <div class="npc">
-  <div class="npc-header">{{ npc.name }}</div>
+  <div class="npc-header"><span>{{ npc.name }}</span></div>
 
-  <div class="npc-line">
+  <div class="npc-line npc-aspects">
     <div class="npc-line-title">
       Aspects
     </div>
 
-    <div class="npc-line-value">
-      <div class="npc-line-value-header">
-        Chair
+    <div class="npc-line-values">
+      <div class="npc-line-value">
+        <div class="npc-line-value-header">
+          Chair
+        </div>
+        <div class="npc-line-value-value">
+          {{ npc.aspects[0].score || '-' }}
+        </div>
       </div>
-      <div class="npc-line-value-value">
-        {{ npc.aspects[0].score || '-' }}
-      </div>
-    </div>
 
-    <div class="npc-line-value">
-      <div class="npc-line-value-header">
-        Bête
+      <div class="npc-line-value">
+        <div class="npc-line-value-header">
+          Bête
+        </div>
+        <div class="npc-line-value-value">
+          {{ npc.aspects[1].score || '-' }}
+        </div>
       </div>
-      <div class="npc-line-value-value">
-        {{ npc.aspects[1].score || '-' }}
-      </div>
-    </div>
 
-    <div class="npc-line-value">
-      <div class="npc-line-value-header">
-        Machine
+      <div class="npc-line-value">
+        <div class="npc-line-value-header">
+          Machine
+        </div>
+        <div class="npc-line-value-value">
+          {{ npc.aspects[2].score || '-' }}
+        </div>
       </div>
-      <div class="npc-line-value-value">
-        {{ npc.aspects[2].score || '-' }}
-      </div>
-    </div>
 
-    <div class="npc-line-value">
-      <div class="npc-line-value-header">
-        Dame
+      <div class="npc-line-value">
+        <div class="npc-line-value-header">
+          Dame
+        </div>
+        <div class="npc-line-value-value">
+          {{ npc.aspects[3].score || '-' }}
+        </div>
       </div>
-      <div class="npc-line-value-value">
-        {{ npc.aspects[3].score || '-' }}
-      </div>
-    </div>
 
-    <div class="npc-line-value">
-      <div class="npc-line-value-header">
-        Masque
-      </div>
-      <div class="npc-line-value-value">
-        {{ npc.aspects[4].score || '-' }}
+      <div class="npc-line-value">
+        <div class="npc-line-value-header">
+          Masque
+        </div>
+        <div class="npc-line-value-value">
+          {{ npc.aspects[4].score || '-' }}
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="npc-line">
+  <div class="npc-line npc-aspects-exceptionals">
     <div class="npc-line-title">
       Aspects exceptionnels
     </div>
 
-    <div class="npc-line-value" *ngFor="let aspect of npc.aspects">
-      <div class="npc-line-value-value">
-        {{ aspect.major ? 'Majeur (' + aspect.major + ')' : aspect.minor ? 'Mineur (' + aspect.minor + ')' : '-' }}
-      </div>
-    </div>
-
-    <div class="npc-line-value" *ngIf="npc.weakness.length">
-      <div class="npc-line-value-header">
-        Point fabile
-      </div>
-      <div class="npc-line-value-value">
-        {{ npc.weakness.join(' / ') }}
+    <div class="npc-line-values">
+      <div class="npc-line-value" *ngFor="let aspect of npc.aspects">
+        <div class="npc-line-value-value">
+          {{ aspect.major ? 'Majeur (' + aspect.major + ')' : aspect.minor ? 'Mineur (' + aspect.minor + ')' : '-' }}
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="npc-line">
+  <div class="npc-line npc-derived">
     <div class="npc-line-title">
-      Valeur dérivées
+      Valeurs dérivées
     </div>
 
-    <div class="npc-line-value">
-      <div class="npc-line-value-header">
-        Défense
+    <div class="npc-line-values">
+      <div class="npc-line-value">
+        <div class="npc-line-value-header">
+          Défense
+        </div>
+        <div class="npc-line-value-value">
+          {{ npc.defense || '-' }}
+        </div>
       </div>
-      <div class="npc-line-value-value">
-        {{ npc.defense || '-' }}
-      </div>
-    </div>
 
-    <div class="npc-line-value">
-      <div class="npc-line-value-header">
-        Réaction
+      <div class="npc-line-value">
+        <div class="npc-line-value-header">
+          Réaction
+        </div>
+        <div class="npc-line-value-value">
+          {{ npc.reaction || '-' }}
+        </div>
       </div>
-      <div class="npc-line-value-value">
-        {{ npc.reaction || '-' }}
-      </div>
-    </div>
 
-    <div class="npc-line-value">
-      <div class="npc-line-value-header">
-        Initiative
+      <div class="npc-line-value">
+        <div class="npc-line-value-header">
+          Initiative
+        </div>
+        <div class="npc-line-value-value">
+          {{ npc.initiative || '-' }}
+        </div>
       </div>
-      <div class="npc-line-value-value">
-        {{ npc.initiative || '-' }}
-      </div>
-    </div>
 
-    <div class="npc-line-value" *ngIf="npc.health">
-      <div class="npc-line-value-header">
-        {{ npc.type === 'Bande' ? 'Cohésion' : 'PS' }}
+      <div class="npc-line-value" *ngIf="npc.health">
+        <div class="npc-line-value-header">
+          {{ npc.type === 'Bande' ? 'Cohésion' : 'PS' }}
+        </div>
+        <div class="npc-line-value-value">
+          {{ npc.health }}
+        </div>
       </div>
-      <div class="npc-line-value-value">
-        {{ npc.health }}
-      </div>
-    </div>
 
-    <div class="npc-line-value" *ngIf="npc.resilience">
-      <div class="npc-line-value-header">
-        Résilience
+      <div class="npc-line-value" *ngIf="npc.resilience">
+        <div class="npc-line-value-header">
+          Résilience
+        </div>
+        <div class="npc-line-value-value">
+          {{ npc.resilience }}
+        </div>
       </div>
-      <div class="npc-line-value-value">
-        {{ npc.resilience }}
-      </div>
-    </div>
 
-    <div class="npc-line-value" *ngIf="npc.armor">
-      <div class="npc-line-value-header">
-        PA
+      <div class="npc-line-value" *ngIf="npc.armor">
+        <div class="npc-line-value-header">
+          PA
+        </div>
+        <div class="npc-line-value-value">
+          {{ npc.armor }}
+        </div>
       </div>
-      <div class="npc-line-value-value">
-        {{ npc.armor }}
-      </div>
-    </div>
 
-    <div class="npc-line-value" *ngIf="npc.outbreak">
-      <div class="npc-line-value-header">
-        Débordement
+      <div class="npc-line-value" *ngIf="npc.outbreak">
+        <div class="npc-line-value-header">
+          Débordement
+        </div>
+        <div class="npc-line-value-value">
+          {{ npc.outbreak }}
+        </div>
       </div>
-      <div class="npc-line-value-value">
-        {{ npc.outbreak }}
-      </div>
-    </div>
 
-    <div class="npc-line-value" *ngIf="npc.shield">
-      <div class="npc-line-value-header">
-        Bouclier
+      <div class="npc-line-value" *ngIf="npc.shield">
+        <div class="npc-line-value-header">
+          Bouclier
+        </div>
+        <div class="npc-line-value-value">
+          {{ npc.shield }}
+        </div>
       </div>
-      <div class="npc-line-value-value">
-        {{ npc.shield }}
-      </div>
-    </div>
 
-    <div class="npc-line-value" *ngIf="npc.forcefield">
-      <div class="npc-line-value-header">
-        CdF
+      <div class="npc-line-value" *ngIf="npc.forcefield">
+        <div class="npc-line-value-header">
+          CdF
+        </div>
+        <div class="npc-line-value-value">
+          {{ npc.forcefield }}
+        </div>
       </div>
-      <div class="npc-line-value-value">
-        {{ npc.forcefield }}
-      </div>
-    </div>
 
-    <div class="npc-line-value" *ngIf="npc.energy">
-      <div class="npc-line-value-header">
-        PE
+      <div class="npc-line-value" *ngIf="npc.energy">
+        <div class="npc-line-value-header">
+          PE
+        </div>
+        <div class="npc-line-value-value">
+          {{ npc.energy }}
+        </div>
       </div>
-      <div class="npc-line-value-value">
-        {{ npc.energy }}
+
+      <div class="npc-line-value npc-weakness" *ngIf="npc.weakness.length">
+        <div class="npc-line-value-header">
+          Point faible
+        </div>
+        <div class="npc-line-value-value">
+          {{ npc.weakness.join(' / ') }}
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="npc-line">
+  <div class="npc-line" *ngIf="npc.capacities.length">
     <div class="npc-line-title">
       Capacités
     </div>
@@ -182,40 +188,42 @@
     </div>
   </div>
 
-  <div class="npc-line" *ngFor="let weapon of npc.weapons">
+  <div class="npc-line npc-weapons" *ngFor="let weapon of npc.weapons">
     <div class="npc-line-title">
       {{ weapon.contact ? 'Arme de contact' : 'Arme à distance' }}
     </div>
 
-    <div class="npc-weapon-name">
-      {{ weapon.name }}
-    </div>
-
-    <div class="npc-weapon-stats">
-      <div class="npc-line-value">
-        <div class="npc-line-value-header">
-          Dégâts
-        </div>
-        <div class="npc-line-value-value">
-          {{ weapon.dices }}D6 + {{ weapon.raw }}
-        </div>
+    <div class="npc-weapon">
+      <div class="npc-weapon-name">
+        {{ weapon.name }}
       </div>
 
-      <div class="npc-line-value">
-        <div class="npc-line-value-header">
-          Portée
+      <div class="npc-weapon-stats">
+        <div class="npc-line-value">
+          <div class="npc-line-value-header">
+            Dégâts
+          </div>
+          <div class="npc-line-value-value">
+            {{ weapon.dices }}D6 + {{ weapon.raw }}
+          </div>
         </div>
-        <div class="npc-line-value-value">
-          {{ weapon.range }}
-        </div>
-      </div>
 
-      <div class="npc-line-value">
-        <div class="npc-line-value-header">
-          {{ weapon.effects.length > 1 ? 'Effects' : 'Effect' }}
+        <div class="npc-line-value">
+          <div class="npc-line-value-header">
+            Portée
+          </div>
+          <div class="npc-line-value-value npc-weapon-range">
+            {{ weapon.range }}
+          </div>
         </div>
-        <div class="npc-line-value-value">
-          {{ weapon.effects.join(' / ') }}
+
+        <div class="npc-line-value npc-weapon-effects">
+          <div class="npc-line-value-header">
+            {{ weapon.effects.length > 1 ? 'Effets' : 'Effet' }}
+          </div>
+          <div class="npc-line-value-value">
+            {{ weapon.effects.join(' / ') }}
+          </div>
         </div>
       </div>
     </div>

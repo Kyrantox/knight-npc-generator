@@ -1,0 +1,205 @@
+.npc {
+  display: inline-block;
+  width: 793px;
+  background-color: #d3181f;
+  color: #ffffff;
+  font-size: 12px;
+  font-family: 'Segoe UI Regular';
+  padding-bottom: 2px;
+
+  &-header {
+    background-color: #2e2a31;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-family: 'Segoe UI Bold';
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  &-line {
+    margin-top: 2px;
+    display: flex;
+    flex-direction: row;
+
+    &-title {
+      text-transform: uppercase;
+      width: 123px;
+      font-family: 'Segoe UI Bold';
+      font-weight: bold;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-direction: column;
+      padding-left: 7px;
+      padding-right: 7px;
+    }
+
+    &-values {
+      display: flex;
+      flex-direction: row;
+      width: 670px;
+      flex-wrap: wrap;
+    }
+
+    &-value {
+      text-align: center;
+      padding-right: 2px;
+      width: 134px;
+      display: flex;
+      flex-direction: column;
+
+      &-header {
+        text-transform: uppercase;
+        font-family: 'Segoe UI Bold Italic';
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+      }
+
+      &-value {
+        background-color: #42505a;
+        font-size: 16px;
+        font-family: 'Segoe UI Bold';
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+    }
+  }
+
+  &-aspects {
+    .npc-line {
+      &-title {
+        height: 57px;
+      }
+
+      &-value {
+        height: 57px;
+
+        &-header {
+          height: 29px;
+        }
+
+        &-value {
+          height: 26px;
+        }
+      }
+    }
+  }
+
+  &-aspects-exceptionals {
+    .npc-line {
+      &-value {
+        height: 44px;
+
+        &-value {
+          height: 44px;
+        }
+      }
+    }
+  }
+
+  &-weakness {
+    height: 71px;
+    width: auto;
+
+    .npc-line-value-header {
+      text-align: center;
+      height: 30px;
+    }
+
+    .npc-line-value-value {
+      text-align: left;
+      height: 39px;
+      font-family: 'Segoe UI Bold Italic';
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+
+  &-derived {
+    .npc-line {
+      &-value {
+        height: 70px;
+
+        &-header {
+          height: 30px;
+        }
+
+        &-value {
+          height: 39px;
+        }
+      }
+    }
+  }
+
+  &-capacities {
+    background-color: #42505a;
+    width: 668px;
+    padding: 0 5px 5px 5px;
+    font-size: 16px;
+
+    .npc-capacity {
+      text-align: justify;
+      margin-top: 5px;
+
+      &-name {
+        font-family: 'Segoe UI Bold';
+      }
+    }
+  }
+
+  &-weapon {
+    .npc-line {
+      &-value {
+        min-height: 59px;
+
+        &-header {
+          height: 30px;
+        }
+
+        &-value {
+          min-height: 29px;
+        }
+      }
+    }
+  }
+
+  &-weapon-name {
+    width: 668px;
+    padding-left: 5px;
+    height: 29px;
+    text-transform: uppercase;
+    font-family: 'Segoe UI Bold';
+    background-color: #42505a;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    font-size: 16px;
+  }
+
+  &-weapon-stats {
+    display: flex;
+    flex-direction: row;
+    width: 670px;
+  }
+
+  &-weapon-effects {
+    width: 402px;
+  }
+
+  &-weapon-range {
+    text-transform: capitalize;
+  }
+}

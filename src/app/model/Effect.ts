@@ -10,4 +10,8 @@ export default class Effect {
     this.tags = tags.split(' - ');
     this.cost = Number(cost);
   }
+
+  toString() {
+    return this.name;
+  }
 }

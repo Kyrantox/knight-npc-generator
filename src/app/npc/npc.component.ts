@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BETE, CAPACITIES, CHAIR, DAME, EFFECTS, LOINTAINE, MACHINE, MASQUE } from '../constants';
+import Capacity from '../model/Capacity';
+import Effect from '../model/Effect';
 import { Npc } from '../model/Npc';
+import Weapon from '../model/Weapon';
 
 @Component({
   selector: 'app-npc',
@@ -11,7 +15,6 @@ export class NpcComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }
