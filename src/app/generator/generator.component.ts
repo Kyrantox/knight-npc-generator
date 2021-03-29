@@ -8,6 +8,7 @@ import { Npc } from '../model/Npc';
 })
 export class GeneratorComponent implements OnInit {
   npc: Npc = new Npc();
+  elite: Npc = new Npc();
 
   constructor() { }
 

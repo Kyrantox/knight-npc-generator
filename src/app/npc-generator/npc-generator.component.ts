@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Npc } from '../model/Npc';
 
 @Component({
   selector: 'app-npc-generator',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./npc-generator.component.scss']
 })
 export class NpcGeneratorComponent implements OnInit {
+  @Input() npc: Npc = new Npc();
 
   constructor() { }
 

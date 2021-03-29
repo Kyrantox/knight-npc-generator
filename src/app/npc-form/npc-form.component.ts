@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Npc } from '../model/Npc';
 
 @Component({
   selector: 'app-npc-form',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./npc-form.component.scss']
 })
 export class NpcFormComponent implements OnInit {
+  @Input() npc: Npc = new Npc();
 
   constructor() { }
 
