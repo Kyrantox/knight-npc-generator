@@ -1,4 +1,4 @@
-import { HOSTILE, RECRUE } from '../constants';
+import { GRID, HOSTILE, RECRUE } from '../constants';
 import Aspect from './Aspect';
 import Capacity from './Capacity';
 import Weapon from './Weapon';
@@ -44,4 +44,29 @@ export class Npc {
     }
   }
 
+  elite() {
+    const npc = new Npc(this);
+
+    npc.name += ' (élite)';
+
+    return npc;
+  }
+
+}
+
+export interface NpcGrid {
+  aspects: { min: number; max: number; limit: number; };
+  aspects_exceptionals: { min: number; max: number; limit: number; major_min: number; major_max: number };
+  health: { min: number; max: number; };
+  armor: { min: number; max: number; };
+  forcefield: { min: number; max: number; };
+  shield: { min: number; max: number; };
+  energy: { min: number; max: number; };
+  resilience: number;
+  capacities: number;
+  outbreak: { min: number; max: number; effects_min: number; effects_max: number };
+}
+
+export function grid(type: string, level: string) {
+  return <NpcGrid> (<any> GRID)[type][level];
 }
