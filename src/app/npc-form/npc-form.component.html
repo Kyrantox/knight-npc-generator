@@ -1,0 +1,20 @@
+<div class="row">
+  <label class="col-2">Nom</label>
+  <input [(ngModel)]="npc.name" type="text" class="form-control col-10" />
+</div>
+
+<div class="row">
+  <label class="col-2">Aspects</label>
+  <input *ngFor="let i of [0, 1, 2, 3, 4]"  [(ngModel)]="npc.aspects[i].score" type="number" class="form-control col-2" />
+</div>
+
+<div class="row">
+  <label class="col-2">Aspects exceptionnels</label>
+  <div *ngFor="let i of [0, 1, 2, 3, 4]" class="col-2">
+    <div class="row">
+      <input [(ngModel)]="npc.aspects[i].exceptional" type="number" class="form-control col-10" />
+      <input [(ngModel)]="npc.aspects[i].major" type="checkbox" class="form-control col-2" />
+    </div>
+  </div>
+</div>
+

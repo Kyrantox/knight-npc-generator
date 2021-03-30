@@ -7,6 +7,7 @@ import { NpcComponent } from './npc/npc.component';
 import { GeneratorComponent } from './generator/generator.component';
 import { NpcFormComponent } from './npc-form/npc-form.component';
 import { NpcGeneratorComponent } from './npc-generator/npc-generator.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NpcGeneratorComponent } from './npc-generator/npc-generator.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -62,7 +62,7 @@
     <div class="npc-line-values">
       <div class="npc-line-value" *ngFor="let aspect of npc.aspects">
         <div class="npc-line-value-value">
-          {{ aspect.major ? 'Majeur (' + aspect.major + ')' : aspect.minor ? 'Mineur (' + aspect.minor + ')' : '-' }}
+          {{ aspect.exceptional ? ((aspect.major ? 'Majeur' : 'Mineur') + ' (' + aspect.exceptional + ')') : '-' }}
         </div>
       </div>
     </div>

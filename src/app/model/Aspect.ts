@@ -1,12 +1,12 @@
 export default class Aspect {
   score: number = 0;
-  minor: number = 0;
-  major: number = 0;
+  exceptional: number = 0;
+  major: boolean = false;
 
   constructor(base?: Aspect) {
     if (base) {
       this.score = base.score;
-      this.minor = base.minor;
+      this.exceptional = base.exceptional;
       this.major = base.major;
     }
   }

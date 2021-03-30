@@ -1,5 +1,17 @@
-<app-npc-generator [npc]="npc"></app-npc-generator>
-<app-npc-form [npc]="npc"></app-npc-form>
-<app-npc [npc]="npc"></app-npc>
-<app-npc-form [npc]="elite"></app-npc-form>
-<app-npc [npc]="elite"></app-npc>
+<div class="page-header">
+  <h1>Knight NPC generator</h1>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <app-npc-generator [npc]="npc"></app-npc-generator>
+      <app-npc-form [npc]="npc"></app-npc-form>
+      <app-npc [npc]="npc"></app-npc>
+    </div>
+    <div class="col-6">
+      <app-npc-form [npc]="elite"></app-npc-form>
+      <app-npc [npc]="elite"></app-npc>
+    </div>
+  </div>
+</div>
