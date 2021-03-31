@@ -12,8 +12,6 @@ export class GeneratorComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    this.npc.name = "Coucou";
-  }
+  ngOnInit(): void { }
 
 }

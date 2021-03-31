@@ -7,48 +7,12 @@
     </div>
 
     <div class="npc-line-values">
-      <div class="npc-line-value">
+      <div class="npc-line-value" *ngFor="let aspect of npc.aspects">
         <div class="npc-line-value-header">
-          Chair
+          {{ aspect.name }}
         </div>
         <div class="npc-line-value-value">
-          {{ npc.aspects[0].score || '-' }}
-        </div>
-      </div>
-
-      <div class="npc-line-value">
-        <div class="npc-line-value-header">
-          Bête
-        </div>
-        <div class="npc-line-value-value">
-          {{ npc.aspects[1].score || '-' }}
-        </div>
-      </div>
-
-      <div class="npc-line-value">
-        <div class="npc-line-value-header">
-          Machine
-        </div>
-        <div class="npc-line-value-value">
-          {{ npc.aspects[2].score || '-' }}
-        </div>
-      </div>
-
-      <div class="npc-line-value">
-        <div class="npc-line-value-header">
-          Dame
-        </div>
-        <div class="npc-line-value-value">
-          {{ npc.aspects[3].score || '-' }}
-        </div>
-      </div>
-
-      <div class="npc-line-value">
-        <div class="npc-line-value-header">
-          Masque
-        </div>
-        <div class="npc-line-value-value">
-          {{ npc.aspects[4].score || '-' }}
+          {{ aspect.score || '-' }}
         </div>
       </div>
     </div>
@@ -169,7 +133,7 @@
           Point faible
         </div>
         <div class="npc-line-value-value">
-          {{ npc.weakness.join(' / ') }}
+          {{ npc.weakness }}
         </div>
       </div>
     </div>

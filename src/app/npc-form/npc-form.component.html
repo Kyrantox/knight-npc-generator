@@ -1,20 +1,126 @@
-<div class="row">
-  <label class="col-2">Nom</label>
-  <input [(ngModel)]="npc.name" type="text" class="form-control col-10" />
-</div>
+<div class="npc-form">
+  <div class="row">
+    <div class="col-6">
+      <input [(ngModel)]="npc.name" type="text" class="form-control" placeholder="Nom" />
+    </div>
 
-<div class="row">
-  <label class="col-2">Aspects</label>
-  <input *ngFor="let i of [0, 1, 2, 3, 4]"  [(ngModel)]="npc.aspects[i].score" type="number" class="form-control col-2" />
-</div>
+    <div class="w-100"></div>
 
-<div class="row">
-  <label class="col-2">Aspects exceptionnels</label>
-  <div *ngFor="let i of [0, 1, 2, 3, 4]" class="col-2">
-    <div class="row">
-      <input [(ngModel)]="npc.aspects[i].exceptional" type="number" class="form-control col-10" />
-      <input [(ngModel)]="npc.aspects[i].major" type="checkbox" class="form-control col-2" />
+    <div class="col-6">
+      <input [(ngModel)]="npc.weakness" type="text" class="form-control" placeholder="Point faible" />
+    </div>
+
+    <div class="w-100"></div>
+
+    <div class="col-4">
+      <div class="row npc-form-group" *ngFor="let aspect of npc.aspects">
+        <div class="col-3">
+          <label>{{ aspect.name }}</label>
+        </div>
+        <div class="col-9 npc-form-aspects">
+          <input [(ngModel)]="aspect.score" type="number" class="form-control" />
+          <input [(ngModel)]="aspect.exceptional" type="number" class="form-control" />
+          <input [(ngModel)]="aspect.major" type="checkbox" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="row npc-form-group">
+        <div class="col-3">
+          <label>PS</label>
+        </div>
+        <div class="col-9">
+          <input [(ngModel)]="npc.health" type="number" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row npc-form-group">
+        <div class="col-3">
+          <label>Défense</label>
+        </div>
+        <div class="col-9">
+          <input [(ngModel)]="npc.defense" type="number" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row npc-form-group">
+        <div class="col-3">
+          <label>Réaction</label>
+        </div>
+        <div class="col-9">
+          <input [(ngModel)]="npc.reaction" type="number" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row npc-form-group">
+        <div class="col-3">
+          <label>Bouclier</label>
+        </div>
+        <div class="col-9">
+          <input [(ngModel)]="npc.shield" type="number" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row npc-form-group">
+        <div class="col-3">
+          <label>Initiative</label>
+        </div>
+        <div class="col-9">
+          <input [(ngModel)]="npc.initiative" type="number" class="form-control" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="row npc-form-group">
+        <div class="col-4">
+          <label>Résilience</label>
+        </div>
+        <div class="col-8">
+          <input [(ngModel)]="npc.resilience" type="number" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row npc-form-group">
+        <div class="col-4">
+          <label>Débordement</label>
+        </div>
+        <div class="col-8">
+          <input [(ngModel)]="npc.outbreak" type="number" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row npc-form-group">
+        <div class="col-4">
+          <label>Armure</label>
+        </div>
+        <div class="col-8">
+          <input [(ngModel)]="npc.armor" type="number" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row npc-form-group">
+        <div class="col-4">
+          <label>CdF</label>
+        </div>
+        <div class="col-8">
+          <input [(ngModel)]="npc.forcefield" type="number" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row npc-form-group">
+        <div class="col-4">
+          <label>Énergie</label>
+        </div>
+        <div class="col-8">
+          <input [(ngModel)]="npc.energy" type="number" class="form-control" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+
     </div>
   </div>
 </div>
-

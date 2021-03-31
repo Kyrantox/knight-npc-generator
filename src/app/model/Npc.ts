@@ -1,4 +1,4 @@
-import { GRID, HOSTILE, RECRUE } from '../constants';
+import { ASPECTS_LABELS, GRID, HOSTILE, RECRUE } from '../constants';
 import Aspect from './Aspect';
 import Capacity from './Capacity';
 import Weapon from './Weapon';
@@ -17,7 +17,7 @@ export class Npc {
   reaction: number = 0;
   initiative: number = 0;
   outbreak: number = 0;
-  weakness: string[] = [];
+  weakness: string = '';
   capacities: Capacity[] = [];
   weapons: Weapon[] = [];
   resilience: number = 0;
@@ -37,10 +37,14 @@ export class Npc {
       this.reaction = base.reaction;
       this.initiative = base.initiative;
       this.outbreak = base.outbreak;
-      this.weakness = [...base.weakness];
+      this.weakness = base.weakness
       this.capacities = [...base.capacities];
       this.weapons = base.weapons.map(w => new Weapon(w));
       this.resilience = base.resilience;
+    } else {
+      for (let i = 0; i < 5; ++i) {
+        this.aspects[i].name = ASPECTS_LABELS[i];
+      }
     }
   }
 

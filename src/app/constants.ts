@@ -3,6 +3,7 @@ export const BETE = 1;
 export const MACHINE = 2;
 export const DAME = 3;
 export const MASQUE = 4;
+export const ASPECTS_LABELS = ['chair', 'bête', 'machine', 'dame', 'masque'];
 export const RECRUE = 'recrue';
 export const INITIE = 'initié';
 export const HEROS = 'héros';
