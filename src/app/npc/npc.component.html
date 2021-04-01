@@ -146,7 +146,7 @@
 
     <div class="npc-capacities">
       <div class="npc-capacity" *ngFor="let capacity of npc.capacities">
-        <span class="npc-capacity-name">{{ capacity.name }}&nbsp;: </span>
+        <span class="npc-capacity-name">{{ capacity.name ? capacity.name + ' : ' : '' }}</span>
         <span class="npc-capacity-description">{{ capacity.description }}</span>
       </div>
     </div>

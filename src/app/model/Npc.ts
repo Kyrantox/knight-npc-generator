@@ -38,7 +38,7 @@ export class Npc {
       this.initiative = base.initiative;
       this.outbreak = base.outbreak;
       this.weakness = base.weakness
-      this.capacities = [...base.capacities];
+      this.capacities = base.capacities.map(c => new Capacity(c));
       this.weapons = base.weapons.map(w => new Weapon(w));
       this.resilience = base.resilience;
     } else {
@@ -54,6 +54,22 @@ export class Npc {
     npc.name += ' (élite)';
 
     return npc;
+  }
+
+  addWeapon() {
+    this.weapons.push(new Weapon());
+  }
+
+  addCapacity() {
+    this.capacities.push(new Capacity());
+  }
+
+  removeWeapon(weapon: Weapon) {
+    this.weapons = this.weapons.filter(w => w !== weapon);
+  }
+
+  removeCapacity(capacity: Capacity) {
+    this.capacities = this.capacities.filter(c => c !== capacity);
   }
 
 }

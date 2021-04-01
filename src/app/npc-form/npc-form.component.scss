@@ -1,25 +1,25 @@
 .npc-form {
-  input[type="number"] {
-    width: 60px;
-    margin-top: 5px;
-  }
-
-  input[type="text"] {
-    margin-top: 5px;
-  }
-
   label {
     text-transform: capitalize;
-    margin: 0;
+
+    &.input-group-text {
+      width: 120px;
+    }
   }
 
-  &-aspects {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+  .btn-primary {
+    margin-bottom: 5px;
   }
 
-  &-group {
-    align-items: center;
+  .input-group {
+    margin-bottom: 5px;
+  }
+
+  &-weapon, &-capacity {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #fafafa;
   }
 }

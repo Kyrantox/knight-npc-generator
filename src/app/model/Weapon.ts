@@ -15,7 +15,15 @@ export default class Weapon {
       this.dices = base.dices;
       this.raw = base.raw;
       this.range = base.range;
-      this.effects = [...base.effects];
+      this.effects = base.effects.map(e => new Effect(e));
     }
+  }
+
+  addEffect() {
+    this.effects.push(new Effect());
+  }
+
+  removeEffect(effect: Effect) {
+    this.effects = this.effects.filter(e => e !== effect);
   }
 }
