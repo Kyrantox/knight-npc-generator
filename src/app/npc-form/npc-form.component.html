@@ -62,10 +62,10 @@
       <div class="input-group" *ngFor="let aspect of npc.aspects">
         <label class="input-group-text">{{ aspect.name }}</label>
         <input [(ngModel)]="aspect.score" type="number" class="form-control" />
-          <input [(ngModel)]="aspect.exceptional" type="number" class="form-control" />
-          <div class="input-group-text">
-            <input [(ngModel)]="aspect.major" type="checkbox" class="form-check-input mt-0" />
-          </div>
+        <input [(ngModel)]="aspect.exceptional" type="number" class="form-control" />
+        <div class="input-group-text">
+          <input [(ngModel)]="aspect.major" type="checkbox" class="form-check-input mt-0" />
+        </div>
       </div>
     </div>
 
