@@ -195,13 +195,7 @@ export class Npc {
 
     aspect.score += boost;
 
-    if (aspect.id === CHAIR) {
-      for (const weapon of this.weapons) {
-        if (weapon.contact) {
-          weapon.raw += Math.floor(boost * 0.5);
-        }
-      }
-    } else if (aspect.id === BETE) {
+    if (aspect.id === BETE) {
       this.defense += Math.floor(boost * 0.5);
 
       if (aspect.exceptional && aspect.major) {
