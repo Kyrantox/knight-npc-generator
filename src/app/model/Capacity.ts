@@ -24,6 +24,10 @@ export default class Capacity {
     this.description = base.description;
     this.tags = [...base.tags];
   }
+
+  raw() {
+    return this.name.replace(/\(.+\)/g, '').trim();
+  }
 }
 
 export const capacities = CAPACITIES.map(data => new Capacity(data));

@@ -10,11 +10,10 @@
       <button class="btn btn-primary" (click)="convertToElite()">Élite</button>
       <button class="btn btn-primary" (click)="save(npc)">Sauvegarder</button>
     </div>
-    <div class="col-6">
-      <app-npc-generator [npc]="npc"></app-npc-generator>
+    <div class="col-md-12 col-xxl-6">
       <app-npc-form [npc]="npc"></app-npc-form>
     </div>
-    <div class="col-6">
+    <div class="col-md-12 col-xxl-6">
       <app-npc [npc]="npc"></app-npc>
     </div>
     <div class="col-12 npc-header" [hidden]="!toElite">
@@ -22,10 +21,10 @@
 
       <button class="btn btn-primary" (click)="save(elite)">Sauvegarder</button>
     </div>
-    <div class="col-6" [hidden]="!toElite">
+    <div class="col-md-12 col-xxl-6" [hidden]="!toElite">
       <app-npc-form [npc]="elite" ></app-npc-form>
     </div>
-    <div class="col-6" [hidden]="!toElite">
+    <div class="col-md-12 col-xxl-6" [hidden]="!toElite">
       <app-npc [npc]="elite"></app-npc>
     </div>
   </div>
@@ -33,7 +32,7 @@
   <hr />
 
   <div class="row npc-list">
-    <div class="col-6 npc-block" *ngFor="let npc of list">
+    <div class="col-md-12 col-xxl-6 npc-block" *ngFor="let npc of list">
       <button class="btn btn-primary" (click)="load(npc)">Charger</button>
       <button class="btn btn-danger" (click)="delete(npc)">Supprimer</button>
       <app-npc [npc]="npc"></app-npc>

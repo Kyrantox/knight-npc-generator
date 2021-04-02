@@ -169,7 +169,7 @@
             Dégâts
           </div>
           <div class="npc-line-value-value">
-            {{ weapon.dices }}D6 + {{ weapon.raw }}
+            {{ weapon.dices }}D6{{ weapon.raw ? ' + ' + weapon.raw : '' }}
           </div>
         </div>
 

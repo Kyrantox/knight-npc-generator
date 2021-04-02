@@ -30,7 +30,9 @@ export class NpcFormComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+
+  }
 
   changed(val: string, target: { name: string }) {
     target.name = val;

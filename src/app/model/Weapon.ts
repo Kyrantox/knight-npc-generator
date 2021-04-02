@@ -11,6 +11,7 @@ export default class Weapon {
 
   constructor(base?: Weapon) {
     if (base) {
+      this.name = base.name;
       this.contact = base.contact;
       this.dices = base.dices;
       this.raw = base.raw;

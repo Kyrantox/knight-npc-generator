@@ -107,19 +107,19 @@ export const CAPACITIES = [
   "Union | initié - hostile - salopard - colosse | Deux PNJ possédant le même nom peuvent s’unir, fusionner et disparaître pour former une entité plus puissante, possédant le même nom et le même type que celles d’origine. Les aspects de la nouvelle entité ainsi créée sont augmentés de 2, ses dégâts sont augmentés de 3D6 à 5D6 (au choix du MJ) et ses points de santé sont doublés. Par contre, sa défense et sa réaction sont divisées par 2. Une entité déjà issue d’une union peut s’unir à d’autres entités du même nom pour devenir encore plus forte.",
   "Vol | initié - hostile - salopard - colosse - patron - bande | Le PNJ peut voler sur une distance équivalente à portée longue par tour (une vitesse égale à 3 si on la compare à celle des véhicules).",
   "Terreur | initié - hostile - salopard - colosse - patron - bande | Chaque début de tour, les personnages doivent réussir un test base Hargne combo Sang-Froid difficulté difficile (6) pour pouvoir agir, sinon, ils restent pétrifiés.",
-  "Affidé du Seigneur | élite - recrue - hostile - salopard - colosse - patron - élite | Le PNJ ajoute le score de l’aspect de son Seigneur multiplié par 5 à son total de PS (ou de PA). L’aspect exceptionnel n’ajoute pas de PS supplémentaires.",
-  "Protégé du Seigneur | élite - recrue - hostile - salopard - colosse - patron - élite | Les attaques portées sur le PNJ dont la base ou le combo comporte une caractéristique qui dépend de l’aspect du Seigneur de la créature infligent leurs dégâts divisés par deux.",
-  "Serviteur du Seigneur | élite - recrue - hostile - salopard - colosse - patron - élite | Lorsque le PNJ attaque un PJ disposant d’un score dans l’aspect de son Seigneur égal à 7 ou plus (14 ou plus dans le cas d’un PNJ), ses dégâts sont augmentés d’une valeur fixe égale à son score dans l’aspect de son Seigneur (le score de l’aspect exceptionnel est ignoré dans ce calcul).",
-  "Tueur du Seigneur | élite - recrue - hostile - salopard - colosse - patron - élite | Lorsque le PNJ attaque un PJ disposant d’un score dans l’aspect de son Seigneur égal à 7 ou plus (14 ou plus dans le cas d’un PNJ), ses dégâts sont augmentés d’une valeur fixe égale à son score dans l’aspect de son Seigneur (le score de l’aspect exceptionnel est ignoré dans ce calcul).",
-  "Élu du Seigneur | élite - recrue - hostile - salopard - colosse - patron - élite | Le PNJ peut dépasser un score d’aspect de 20 et un score d’aspect exceptionnel de 10 uniquement dans l’aspect de son Seigneur. Ces scores ne peuvent excéder 40 pour l’aspect et 20 pour l’aspect exceptionnel.",
-  "Accablant | élite - initié - hostile - salopard - colosse - patron - bande - élite | Si un PJ détruit le PNJ, il doit réussir un test base Hargne combo Sang-Froid (difficulté au choix du MJ) pour ne pas perdre 3D6 points d’espoir.",
-  "Aura de souffrance | élite - initié - hostile - salopard - colosse - patron - élite | Un PJ (ou un PNJ) réussissant une attaque sur le PNJ subit automatiquement 2D6 points de dégâts avec les effets ignore armure et ignore CdF.",
-  "Dévorant | élite - initié - hostile - salopard - colosse - patron - élite | Lorsque ce PNJ attaque un PJ au contact et le rate, alors l’arme en main du PJ (ou une des armes en main au choix du MJ) est détruite. Après la première destruction lors d’une phase de conflit, le PJ subissant l’effet peut choisir de ne pas se défendre et de recevoir automatiquement les dégâts sans que son arme soit détruite. Cet capacité ne fonctionne pas sur le armes de prestige et les armes possédant l’amélioration élément alpha. Une arme détruite est récupérée après la mission en cours. Pour symboliser cette perte, le PJ ayant perdu son arme peut subir un malus de 5 PG à son total gagné à la fin de la mission.",
-  "Hybridation | élite - initié - hostile - salopard - colosse - patron - élite | Le PNJ est au service de deux Seigneurs. Pour lui, les capacités « du Seigneur » fonctionnent sur deux aspects (au choix du MJ) au lieu d’un seul.",
-  "Intouchable | élite - héros - hostile - salopard - colosse - patron - élite | Le PNJ est insensible aux attaques qui nécessitent de dépasser sa réaction (incompatible avec insaisissable).",
-  "Insaisissable | élite - héros - hostile - salopard - colosse - patron - élite | Le PNJ est insensible aux attaques qui nécessitent de dépasser sa défense (incompatible avec intouchable).",
-  "Il est partout | élite - initié - salopard - colosse - patron - élite | Les attaques du PNJ ciblent automatiquement tous les PJ impliqués dans le conflit (sauf ceux cachés ou invisibles), peu importe leur distance ou leur attitude.",
-  "Phase 2 | élite - recrue - patron - élite | Lorsque le PNJ a été mis à l’agonie une première fois, il récupère la totalité de ses PS, PA et PE (s’il en a) et reprend le combat. Il ne peut utiliser cette capacité qu’une seule fois. Le reste de la phase 2 doit être définie par le MJ."
+  "Affidé du Seigneur | élite - recrue - hostile - salopard - colosse - patron | Le PNJ ajoute le score de l’aspect de son Seigneur multiplié par 5 à son total de PS (ou de PA). L’aspect exceptionnel n’ajoute pas de PS supplémentaires.",
+  "Protégé du Seigneur | élite - recrue - hostile - salopard - colosse - patron | Les attaques portées sur le PNJ dont la base ou le combo comporte une caractéristique qui dépend de l’aspect du Seigneur de la créature infligent leurs dégâts divisés par deux.",
+  "Serviteur du Seigneur | élite - recrue - hostile - salopard - colosse - patron | Lorsque le PNJ attaque un PJ disposant d’un score dans l’aspect de son Seigneur égal à 7 ou plus (14 ou plus dans le cas d’un PNJ), ses dégâts sont augmentés d’une valeur fixe égale à son score dans l’aspect de son Seigneur (le score de l’aspect exceptionnel est ignoré dans ce calcul).",
+  "Tueur du Seigneur | élite - recrue - hostile - salopard - colosse - patron | Lorsque le PNJ attaque un PJ disposant d’un score dans l’aspect de son Seigneur égal à 7 ou plus (14 ou plus dans le cas d’un PNJ), ses dégâts sont augmentés d’une valeur fixe égale à son score dans l’aspect de son Seigneur (le score de l’aspect exceptionnel est ignoré dans ce calcul).",
+  "Élu du Seigneur | élite - recrue - hostile - salopard - colosse - patron | Le PNJ peut dépasser un score d’aspect de 20 et un score d’aspect exceptionnel de 10 uniquement dans l’aspect de son Seigneur. Ces scores ne peuvent excéder 40 pour l’aspect et 20 pour l’aspect exceptionnel.",
+  "Accablant | élite - initié - hostile - salopard - colosse - patron - bande | Si un PJ détruit le PNJ, il doit réussir un test base Hargne combo Sang-Froid (difficulté au choix du MJ) pour ne pas perdre 3D6 points d’espoir.",
+  "Aura de souffrance | élite - initié - hostile - salopard - colosse - patron | Un PJ (ou un PNJ) réussissant une attaque sur le PNJ subit automatiquement 2D6 points de dégâts avec les effets ignore armure et ignore CdF.",
+  "Dévorant | élite - initié - hostile - salopard - colosse - patron | Lorsque ce PNJ attaque un PJ au contact et le rate, alors l’arme en main du PJ (ou une des armes en main au choix du MJ) est détruite. Après la première destruction lors d’une phase de conflit, le PJ subissant l’effet peut choisir de ne pas se défendre et de recevoir automatiquement les dégâts sans que son arme soit détruite. Cet capacité ne fonctionne pas sur le armes de prestige et les armes possédant l’amélioration élément alpha. Une arme détruite est récupérée après la mission en cours. Pour symboliser cette perte, le PJ ayant perdu son arme peut subir un malus de 5 PG à son total gagné à la fin de la mission.",
+  "Hybridation | élite - initié - hostile - salopard - colosse - patron | Le PNJ est au service de deux Seigneurs. Pour lui, les capacités « du Seigneur » fonctionnent sur deux aspects (au choix du MJ) au lieu d’un seul.",
+  "Intouchable | élite - héros - hostile - salopard - colosse - patron | Le PNJ est insensible aux attaques qui nécessitent de dépasser sa réaction (incompatible avec insaisissable).",
+  "Insaisissable | élite - héros - hostile - salopard - colosse - patron | Le PNJ est insensible aux attaques qui nécessitent de dépasser sa défense (incompatible avec intouchable).",
+  "Il est partout | élite - initié - salopard - colosse - patron | Les attaques du PNJ ciblent automatiquement tous les PJ impliqués dans le conflit (sauf ceux cachés ou invisibles), peu importe leur distance ou leur attitude.",
+  "Phase 2 | spécial | Lorsque le PNJ a été mis à l’agonie une première fois, il récupère la totalité de ses PS, PA et PE (s’il en a) et reprend le combat. Il ne peut utiliser cette capacité qu’une seule fois. Le reste de la phase 2 doit être définie par le MJ."
 ];
 
 export const EFFECTS = [
@@ -191,7 +191,11 @@ export const GRID = {
 				"max": 10
 			},
       "resilience": 0,
-			"capacities": 2
+			"capacities": 2,
+			"elite": {
+				"major_aspects": 1,
+				"capacities": 1
+			}
 		},
 		[INITIE]: {
 			"aspects": {
@@ -227,7 +231,11 @@ export const GRID = {
 				"max": 20
 			},
       "resilience": 0,
-			"capacities": 3
+			"capacities": 3,
+			"elite": {
+				"major_aspects": 1,
+				"capacities": 1
+			}
 		},
 		[HEROS]: {
 			"aspects": {
@@ -263,7 +271,11 @@ export const GRID = {
 				"max": 40
 			},
       "resilience": 0,
-			"capacities": 5
+			"capacities": 5,
+			"elite": {
+				"major_aspects": 1,
+				"capacities": 1
+			}
 		}
 	},
 	[SALOPARD]: {
@@ -301,7 +313,11 @@ export const GRID = {
 				"max": 30
 			},
       "resilience": 0,
-			"capacities": 3
+			"capacities": 3,
+			"elite": {
+				"major_aspects": 2,
+				"capacities": 2
+			}
 		},
 		[INITIE]: {
 			"aspects": {
@@ -337,7 +353,11 @@ export const GRID = {
 				"max": 50
 			},
       "resilience": 0,
-			"capacities": 4
+			"capacities": 4,
+			"elite": {
+				"major_aspects": 2,
+				"capacities": 2
+			}
 		},
 		[HEROS]: {
 			"aspects": {
@@ -373,7 +393,11 @@ export const GRID = {
 				"max": 100
 			},
       "resilience": 0,
-			"capacities": 6
+			"capacities": 6,
+			"elite": {
+				"major_aspects": 2,
+				"capacities": 2
+			}
 		}
 	},
 	[PATRON]: {
@@ -411,7 +435,11 @@ export const GRID = {
 				"max": 50
 			},
       "resilience": 0.033,
-			"capacities": 5
+			"capacities": 5,
+			"elite": {
+				"major_aspects": 2,
+				"capacities": 4
+			}
 		},
 		[INITIE]: {
 			"aspects": {
@@ -447,7 +475,11 @@ export const GRID = {
 				"max": 100
 			},
       "resilience": 0.05,
-			"capacities": 7
+			"capacities": 7,
+			"elite": {
+				"major_aspects": 2,
+				"capacities": 4
+			}
 		},
 		[HEROS]: {
 			"aspects": {
@@ -483,7 +515,11 @@ export const GRID = {
 				"max": 200
 			},
       "resilience": 0.1,
-			"capacities": 9
+			"capacities": 9,
+			"elite": {
+				"major_aspects": 2,
+				"capacities": 4
+			}
 		}
 	},
 	[PATRON_COLOSSE]: {
@@ -521,7 +557,11 @@ export const GRID = {
 				"max": 50
 			},
       "resilience": 0.1,
-			"capacities": 5
+			"capacities": 5,
+			"elite": {
+				"major_aspects": 2,
+				"capacities": 4
+			}
 		},
 		[INITIE]: {
 			"aspects": {
@@ -557,7 +597,11 @@ export const GRID = {
 				"max": 100
 			},
       "resilience": 0.2,
-			"capacities": 7
+			"capacities": 7,
+			"elite": {
+				"major_aspects": 2,
+				"capacities": 4
+			}
 		},
 		[HEROS]: {
 			"aspects": {
@@ -593,7 +637,11 @@ export const GRID = {
 				"max": 200
 			},
       "resilience": 0.3,
-			"capacities": 9
+			"capacities": 9,
+			"elite": {
+				"major_aspects": 2,
+				"capacities": 4
+			}
 		}
 	},
 	[BANDE]: {
@@ -637,6 +685,10 @@ export const GRID = {
 				"max": 9,
 				"effects_min": 0,
 				"effects_max": 1
+			},
+			"elite": {
+				"major_aspects": 1,
+				"capacities": 1
 			}
 		},
 		[INITIE]: {
@@ -679,6 +731,10 @@ export const GRID = {
 				"max": 12,
 				"effects_min": 1,
 				"effects_max": 2
+			},
+			"elite": {
+				"major_aspects": 1,
+				"capacities": 1
 			}
 		},
 		[HEROS]: {
@@ -721,6 +777,10 @@ export const GRID = {
 				"max": 15,
 				"effects_min": 2,
 				"effects_max": 4
+			},
+			"elite": {
+				"major_aspects": 1,
+				"capacities": 1
 			}
 		}
 	},
@@ -759,7 +819,11 @@ export const GRID = {
 				"max": 0
 			},
       "resilience": 0.1,
-			"capacities": 2
+			"capacities": 2,
+			"elite": {
+				"major_aspects": 2,
+				"capacities": 3
+			}
 		},
 		[INITIE]: {
 			"aspects": {
@@ -795,7 +859,11 @@ export const GRID = {
 				"max": 50
 			},
       "resilience": 0.2,
-			"capacities": 4
+			"capacities": 4,
+			"elite": {
+				"major_aspects": 2,
+				"capacities": 3
+			}
 		},
 		[HEROS]: {
 			"aspects": {
@@ -831,7 +899,11 @@ export const GRID = {
 				"max": 100
 			},
       "resilience": 0.3,
-			"capacities": 6
+			"capacities": 6,
+			"elite": {
+				"major_aspects": 2,
+				"capacities": 3
+			}
 		}
 	}
 };

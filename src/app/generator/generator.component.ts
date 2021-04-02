@@ -25,7 +25,8 @@ export class GeneratorComponent implements OnInit {
 
   convertToElite() {
     this.toElite = true;
-    this.elite = this.npc.elite();
+    this.elite = new Npc(this.npc);
+    this.elite.elite();
   }
 
   load(npc: Npc) {

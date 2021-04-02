@@ -85,6 +85,7 @@
           <ng-autocomplete
           [data]="capacities"
           searchKeyword="name"
+          [initialValue]="capacity"
           [customFilter]="filter"
           [itemTemplate]="itemTemplate"
           (inputChanged)="changed($event, capacity)"
@@ -132,6 +133,7 @@
               <ng-autocomplete
                 [data]="effects"
                 searchKeyword="name"
+                [initialValue]="effect"
                 [customFilter]="filter"
                 [itemTemplate]="itemTemplate"
                 (inputChanged)="changed($event, effect)"
