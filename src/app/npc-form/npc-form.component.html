@@ -37,9 +37,11 @@
           <ng-autocomplete
           [data]="capacities"
           searchKeyword="name"
+          [customFilter]="filter"
           [itemTemplate]="itemTemplate"
-          (inputChanged)="capacityChanged($event, capacity)"
-          (selected)="capacitySelected($event, capacity)"
+          (inputChanged)="changed($event, capacity)"
+          (selected)="selected($event, capacity)"
+          [focusFirst]="true"
         ></ng-autocomplete>
           <button class="btn btn-danger" (click)="npc.removeCapacity(capacity)">X</button>
         </div>
@@ -82,9 +84,11 @@
               <ng-autocomplete
                 [data]="effects"
                 searchKeyword="name"
+                [customFilter]="filter"
                 [itemTemplate]="itemTemplate"
-                (inputChanged)="effectChanged($event, effect)"
-                (selected)="effectSelected($event, effect)"
+                (inputChanged)="changed($event, effect)"
+                (selected)="selected($event, effect)"
+                [focusFirst]="true"
               ></ng-autocomplete>
               <button class="btn btn-danger" (click)="weapon.removeEffect(effect)">X</button>
             </div>
@@ -96,5 +100,5 @@
 </div>
 
 <ng-template #itemTemplate let-item>
-  <a [innerHTML]="item.name"></a>
+  <a><strong [innerHTML]="item.name"></strong><br/><small>{{ item.tags.join(' ') }}</small></a>
 </ng-template>

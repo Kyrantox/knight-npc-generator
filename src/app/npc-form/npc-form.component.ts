@@ -32,20 +32,16 @@ export class NpcFormComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  effectChanged(val: string, effect: Effect) {
-    effect.name = val;
+  changed(val: string, target: { name: string }) {
+    target.name = val;
   }
 
-  effectSelected(item: Effect, effect: Effect) {
-    effect.copy(item);
+  selected<T extends (Effect | Capacity)>(item: T, target: T) {
+    target.copy(<any> item);
   }
 
-  capacityChanged(val: string, capacity: Capacity) {
-    capacity.name = val;
-  }
-
-  capacitySelected(item: Capacity, capacity: Capacity) {
-    capacity.copy(item);
+  filter(items: (Effect | Capacity)[], query: string) {
+    return items.filter(e => e.index.includes(query.toLowerCase()));
   }
 
 }

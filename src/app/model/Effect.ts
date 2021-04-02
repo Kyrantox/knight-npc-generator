@@ -2,6 +2,7 @@ import { EFFECTS } from '../constants';
 
 export default class Effect {
   name: string = '';
+  index: string = '';
   tags: string[] = [];
   cost: number = 0;
 
@@ -12,6 +13,7 @@ export default class Effect {
       this.name = name;
       this.tags = tags.split(' - ');
       this.cost = Number(cost);
+      this.index = (this.name + ' ' + this.tags.join(' ')).toLowerCase();
     } else if (data instanceof Effect) {
       this.copy(data);
     }

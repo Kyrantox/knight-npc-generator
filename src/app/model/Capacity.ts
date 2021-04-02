@@ -2,6 +2,7 @@ import { CAPACITIES } from '../constants';
 
 export default class Capacity {
   name: string = '';
+  index: string = '';
   description: string = '';
   tags: string[] = [];
 
@@ -12,6 +13,7 @@ export default class Capacity {
       this.name = name;
       this.description = description;
       this.tags = tags.split(' - ');
+      this.index = (this.name + ' ' + this.tags.join(' ')).toLowerCase();
     } else if (data instanceof Capacity) {
       this.copy(data);
     }
