@@ -42,6 +42,7 @@ export class Npc {
       this.capacities = base.capacities.map(c => new Capacity(c));
       this.weapons = base.weapons.map(w => new Weapon(w));
       this.resilience = base.resilience;
+      this.color = base.color;
     } else {
       for (let i = 0; i < 5; ++i) {
         this.aspects[i].name = ASPECTS_LABELS[i];

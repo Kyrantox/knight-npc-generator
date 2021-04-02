@@ -29,7 +29,7 @@ export class GeneratorComponent implements OnInit {
   }
 
   load(npc: Npc) {
-    this.npc = npc;
+    this.npc = new Npc(npc);
     this.toElite = false;
   }
 
@@ -38,7 +38,8 @@ export class GeneratorComponent implements OnInit {
       return;
     }
 
-    this.list.push(npc);
+    this.list.push(new Npc(npc));
+    this.list.sort((a, b) => a.name.localeCompare(b.name));
     localStorage.setItem('list', JSON.stringify(this.list));
   }
 

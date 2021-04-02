@@ -7,7 +7,7 @@
     <div class="col-12 npc-header">
       <h2>Version normale</h2>
 
-      <button class="btn btn-primary">Élite</button>
+      <button class="btn btn-primary" (click)="convertToElite()">Élite</button>
       <button class="btn btn-primary" (click)="save(npc)">Sauvegarder</button>
     </div>
     <div class="col-6">
@@ -32,10 +32,10 @@
 
   <hr />
 
-  <div class="row">
-    <div class="col-6" *ngFor="let npc of list">
-      <button class="btn btn-primary">Charger</button>
-      <button class="btn btn-danger">Supprimer</button>
+  <div class="row npc-list">
+    <div class="col-6 npc-block" *ngFor="let npc of list">
+      <button class="btn btn-primary" (click)="load(npc)">Charger</button>
+      <button class="btn btn-danger" (click)="delete(npc)">Supprimer</button>
       <app-npc [npc]="npc"></app-npc>
     </div>
   </div>
