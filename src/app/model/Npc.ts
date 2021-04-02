@@ -95,6 +95,8 @@ export class Npc {
     this.armor = Math.floor(this.armor * 1.5);
     this.energy = Math.floor(this.energy * 1.5);
     this.forcefield = Math.floor(this.forcefield * 1.5);
+    this.outbreak = Math.floor(this.outbreak * 1.5);
+    this.resilience = Math.floor(this.resilience * 1.5);
 
     if (!this.forcefield) {
       this.shield = Math.max(10, Math.floor(this.shield * 1.5));
@@ -159,9 +161,14 @@ export class Npc {
     }
 
     const query = this.query();
-    query.on.push('élite');
+    query.required.push('élite');
 
-    const filteredCapacities = capacities.filter(c => query.on.every(tag => c.tags.includes(tag)) && query.off.every(tag => !c.tags.includes(tag)));
+    const filteredCapacities = capacities.filter(c =>
+      query.required.every(tag => c.tags.includes(tag)) &&
+      query.excluded.every(tag => !c.tags.includes(tag)) &&
+      query.one.some(tag => c.tags.includes(tag))
+    );
+
     shuffle(filteredCapacities);
     for (let i = 0; i < info.elite.capacities && i < filteredCapacities.length; ++i) {
       this.capacities.push(new Capacity(filteredCapacities[i]));
@@ -169,21 +176,23 @@ export class Npc {
   }
 
   query() {
-    const on = [];
+    const required: string[] = [];
+
+    required.push(this.type);
+
+    const excluded = ['autre'];
+
+    const one: string[] = [];
 
     if (this.level === RECRUE) {
-      on.push(RECRUE);
+      one.push(RECRUE);
     } else if (this.level === INITIE) {
-      on.push(RECRUE, INITIE);
+      one.push(RECRUE, INITIE);
     } else if (this.level === HEROS) {
-      on.push(RECRUE, INITIE, HEROS);
+      one.push(RECRUE, INITIE, HEROS);
     }
 
-    on.push(this.type);
-
-    const off = ['autre'];
-
-    return { on, off };
+    return { required, excluded, one };
   }
 
   boost(aspect: Aspect) {
