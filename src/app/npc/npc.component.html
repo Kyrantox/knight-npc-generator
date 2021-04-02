@@ -1,5 +1,6 @@
-<div class="npc">
+<div class="npc" [style.background-color]="npc.color">
   <div class="npc-header"><span>{{ npc.name }}</span></div>
+  <div class="npc-header-sub"><span>{{ npc.type }} ({{ npc.level }})</span></div>
 
   <div class="npc-line npc-aspects">
     <div class="npc-line-title">

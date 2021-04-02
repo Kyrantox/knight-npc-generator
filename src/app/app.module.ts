@@ -9,6 +9,7 @@ import { NpcFormComponent } from './npc-form/npc-form.component';
 import { NpcGeneratorComponent } from './npc-generator/npc-generator.component';
 import { FormsModule } from '@angular/forms';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AutocompleteLibModule
+    AutocompleteLibModule,
+    ColorPickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

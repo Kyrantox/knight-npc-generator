@@ -21,6 +21,7 @@ export class Npc {
   capacities: Capacity[] = [];
   weapons: Weapon[] = [];
   resilience: number = 0;
+  color: string = '#d3181f';
 
   constructor(base?: Npc) {
     if (base) {

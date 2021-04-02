@@ -14,7 +14,7 @@ export default class Effect {
       this.tags = tags.split(' - ');
       this.cost = Number(cost);
       this.index = (this.name + ' ' + this.tags.join(' ')).toLowerCase();
-    } else if (data instanceof Effect) {
+    } else if (data) {
       this.copy(data);
     }
   }

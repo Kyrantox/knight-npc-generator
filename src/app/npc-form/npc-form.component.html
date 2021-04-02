@@ -1,13 +1,61 @@
 <div class="npc-form">
   <div class="row">
-    <div class="col-12 input-group">
-      <label class="input-group-text">Nom</label>
-      <input [(ngModel)]="npc.name" type="text" class="form-control" placeholder="Nom" />
+    <div class="col-6">
+      <div class="input-group">
+        <label class="input-group-text">Nom</label>
+        <input [(ngModel)]="npc.name" type="text" class="form-control" placeholder="Nom" />
+      </div>
     </div>
 
-    <div class="col-12 input-group">
-      <label class="input-group-text">Point faible</label>
-      <input [(ngModel)]="npc.weakness" type="text" class="form-control" placeholder="Point faible" />
+    <div class="col-6">
+      <div class="input-group">
+        <label class="input-group-text">Type</label>
+        <select [(ngModel)]="npc.type" class="form-control">
+          <option value="hostile">Hostile</option>
+          <option value="salopard">Salopard</option>
+          <option value="colosse">Colosse</option>
+          <option value="patron">Patron</option>
+          <option value="patron colosse">Patron colosse</option>
+          <option value="bande">Bande</option>
+          <option value="allie">Allié</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="input-group">
+        <label class="input-group-text">Point faible</label>
+        <input [(ngModel)]="npc.weakness" type="text" class="form-control" placeholder="Point faible" />
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="input-group">
+        <label class="input-group-text">Niveau</label>
+        <select [(ngModel)]="npc.level" class="form-control">
+          <option value="recrue">Recrue</option>
+          <option value="initié">Initié</option>
+          <option value="héros">Héros</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="row">
+        <div class="col-3">
+          <div class="input-group">
+            <label class="input-group-text">Couleur</label>
+            <button class="btn npc-form-colorpicker" [(colorPicker)]="npc.color" [style.background-color]="npc.color">&nbsp;</button>
+          </div>
+        </div>
+
+        <div class="col-9 npc-form-colors">
+          <button class="btn" *ngFor="let color of ['#d3181f', '#f25a1e', '#9b1a25', '#556abc', '#69bfdc', '#70aa6c', '#40bd97', '#364379', '#cacd40', '#321619', '#ab1d94']"
+            [style.background-color]="color"
+            (click)="npc.color = color"
+          >&nbsp;</button>
+        </div>
+      </div>
     </div>
 
     <div class="col-4">
@@ -29,7 +77,7 @@
     </div>
 
     <div class="col-6">
-      <button class="btn btn-primary" (click)="npc.addCapacity()">+ capacité</button>
+      <button class="btn btn-secondary" (click)="npc.addCapacity()">+ Capacité</button>
 
       <div class="npc-form-capacity" *ngFor="let capacity of npc.capacities">
         <div class="input-group">
@@ -51,7 +99,7 @@
     </div>
 
     <div class="col-6">
-      <button class="btn btn-primary" (click)="npc.addWeapon()">+ arme</button>
+      <button class="btn btn-secondary" (click)="npc.addWeapon()">+ Arme</button>
 
       <div class="npc-form-weapon" *ngFor="let weapon of npc.weapons">
         <div class="input-group">
@@ -76,7 +124,7 @@
           </select>
         </div>
 
-        <button class="btn btn-primary" (click)="weapon.addEffect()">+ effet</button>
+        <button class="btn btn-secondary" (click)="weapon.addEffect()">+ Effet</button>
 
         <div class="row">
           <div class="col-6" *ngFor="let effect of weapon.effects">

@@ -4,8 +4,11 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 npc-header">
       <h2>Version normale</h2>
+
+      <button class="btn btn-primary">Élite</button>
+      <button class="btn btn-primary" (click)="save(npc)">Sauvegarder</button>
     </div>
     <div class="col-6">
       <app-npc-generator [npc]="npc"></app-npc-generator>
@@ -14,14 +17,26 @@
     <div class="col-6">
       <app-npc [npc]="npc"></app-npc>
     </div>
-    <div class="col-12" [hidden]="true">
+    <div class="col-12 npc-header" [hidden]="!toElite">
       <h2>Version élite</h2>
+
+      <button class="btn btn-primary" (click)="save(elite)">Sauvegarder</button>
     </div>
-    <div class="col-6" [hidden]="true">
+    <div class="col-6" [hidden]="!toElite">
       <app-npc-form [npc]="elite" ></app-npc-form>
     </div>
-    <div class="col-6" [hidden]="true">
+    <div class="col-6" [hidden]="!toElite">
       <app-npc [npc]="elite"></app-npc>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="row">
+    <div class="col-6" *ngFor="let npc of list">
+      <button class="btn btn-primary">Charger</button>
+      <button class="btn btn-danger">Supprimer</button>
+      <app-npc [npc]="npc"></app-npc>
     </div>
   </div>
 </div>

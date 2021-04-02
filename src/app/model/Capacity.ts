@@ -14,7 +14,7 @@ export default class Capacity {
       this.description = description;
       this.tags = tags.split(' - ');
       this.index = (this.name + ' ' + this.tags.join(' ')).toLowerCase();
-    } else if (data instanceof Capacity) {
+    } else if (data) {
       this.copy(data);
     }
   }
