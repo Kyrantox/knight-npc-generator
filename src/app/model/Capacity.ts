@@ -6,17 +6,21 @@ export default class Capacity {
   tags: string[] = [];
 
   constructor(data?: string | Capacity) {
-    if (data instanceof String) {
+    if (typeof data === 'string' || data instanceof String) {
       const [name, tags, description] = data.split(' | ');
 
       this.name = name;
       this.description = description;
       this.tags = tags.split(' - ');
     } else if (data instanceof Capacity) {
-      this.name = data.name;
-      this.description = data.description;
-      this.tags = [...data.tags];
+      this.copy(data);
     }
+  }
+
+  copy(base: Capacity) {
+    this.name = base.name;
+    this.description = base.description;
+    this.tags = [...base.tags];
   }
 }
 

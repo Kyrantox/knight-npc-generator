@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { capacities } from '../model/Capacity';
-import { effects } from '../model/Effect';
+import Capacity, { capacities } from '../model/Capacity';
+import Effect, { effects } from '../model/Effect';
 import { Npc } from '../model/Npc';
 
 @Component({
@@ -31,5 +31,21 @@ export class NpcFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void { }
+
+  effectChanged(val: string, effect: Effect) {
+    effect.name = val;
+  }
+
+  effectSelected(item: Effect, effect: Effect) {
+    effect.copy(item);
+  }
+
+  capacityChanged(val: string, capacity: Capacity) {
+    capacity.name = val;
+  }
+
+  capacitySelected(item: Capacity, capacity: Capacity) {
+    capacity.copy(item);
+  }
 
 }

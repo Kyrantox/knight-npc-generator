@@ -34,7 +34,13 @@
       <div class="npc-form-capacity" *ngFor="let capacity of npc.capacities">
         <div class="input-group">
           <label class="input-group-text">Nom</label>
-          <input [(ngModel)]="capacity.name" type="text" class="form-control" />
+          <ng-autocomplete
+          [data]="capacities"
+          searchKeyword="name"
+          [itemTemplate]="itemTemplate"
+          (inputChanged)="capacityChanged($event, capacity)"
+          (selected)="capacitySelected($event, capacity)"
+        ></ng-autocomplete>
           <button class="btn btn-danger" (click)="npc.removeCapacity(capacity)">X</button>
         </div>
 
@@ -73,7 +79,13 @@
         <div class="row">
           <div class="col-6" *ngFor="let effect of weapon.effects">
             <div class="input-group">
-              <input [(ngModel)]="effect.name" class="form-control" type="text" />
+              <ng-autocomplete
+                [data]="effects"
+                searchKeyword="name"
+                [itemTemplate]="itemTemplate"
+                (inputChanged)="effectChanged($event, effect)"
+                (selected)="effectSelected($event, effect)"
+              ></ng-autocomplete>
               <button class="btn btn-danger" (click)="weapon.removeEffect(effect)">X</button>
             </div>
           </div>
@@ -82,3 +94,7 @@
     </div>
   </div>
 </div>
+
+<ng-template #itemTemplate let-item>
+  <a [innerHTML]="item.name"></a>
+</ng-template>

@@ -6,17 +6,21 @@ export default class Effect {
   cost: number = 0;
 
   constructor(data?: string | Effect) {
-    if (data instanceof String) {
+    if (typeof data === 'string' || data instanceof String) {
       const [name, tags, cost] = data.split(' | ');
 
       this.name = name;
       this.tags = tags.split(' - ');
       this.cost = Number(cost);
     } else if (data instanceof Effect) {
-      this.name = data.name;
-      this.tags = [...data.tags];
-      this.cost = data.cost;
+      this.copy(data);
     }
+  }
+
+  copy(base: Effect) {
+    this.name = base.name;
+    this.tags = [...base.tags];
+    this.cost = base.cost;
   }
 
   toString() {

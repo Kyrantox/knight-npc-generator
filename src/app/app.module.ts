@@ -8,6 +8,7 @@ import { GeneratorComponent } from './generator/generator.component';
 import { NpcFormComponent } from './npc-form/npc-form.component';
 import { NpcGeneratorComponent } from './npc-generator/npc-generator.component';
 import { FormsModule } from '@angular/forms';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AutocompleteLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]
