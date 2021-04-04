@@ -139,10 +139,10 @@ export class Npc {
       }
     }
 
-    const fixedCapacities = ['Anathème', 'Domination', 'Actions multiples (1)', 'Peur (1)', 'Charge brutale', 'Indestructible', 'Régénération', 'Protéiforme (mineur)']
-      .map(data => capacities.find(c => c.name === data)!);
+    const fixedCapacities = this.query(['Anathème', 'Domination', 'Actions multiples (1)', 'Peur (1)', 'Charge brutale', 'Indestructible', 'Régénération', 'Protéiforme (mineur)']
+      .map(data => capacities.find(c => c.name === data)!));
 
-    if (!this.capacities.some(c => fixedCapacities.map(e => e.raw()).includes(c.raw()))) {
+    if (fixedCapacities.length && !this.capacities.some(c => fixedCapacities.map(e => e.raw()).includes(c.raw()))) {
       this.capacities.push(new Capacity(fixedCapacities[Math.floor(Math.random() * fixedCapacities.length)]));
     }
 
@@ -160,14 +160,7 @@ export class Npc {
       }
     }
 
-    const query = this.query();
-    query.required.push('élite');
-
-    const filteredCapacities = capacities.filter(c =>
-      query.required.every(tag => c.tags.includes(tag)) &&
-      query.excluded.every(tag => !c.tags.includes(tag)) &&
-      query.one.some(tag => c.tags.includes(tag))
-    );
+    const filteredCapacities = this.query(capacities, true);
 
     shuffle(filteredCapacities);
     for (let i = 0; i < info.elite.capacities && i < filteredCapacities.length; ++i) {
@@ -175,10 +168,14 @@ export class Npc {
     }
   }
 
-  query() {
+  query(capacities: Capacity[], elite?: boolean) {
     const required: string[] = [];
 
     required.push(this.type);
+
+    if (elite) {
+      required.push('élite');
+    }
 
     const excluded = ['autre'];
 
@@ -192,7 +189,11 @@ export class Npc {
       one.push(RECRUE, INITIE, HEROS);
     }
 
-    return { required, excluded, one };
+    return capacities.filter(c => {
+      required.every(tag => c.tags.includes(tag)) &&
+      excluded.every(tag => !c.tags.includes(tag)) &&
+      one.some(tag => c.tags.includes(tag))
+    });
   }
 
   boost(aspect: Aspect) {
