@@ -92,7 +92,7 @@
           (selected)="selected($event, capacity)"
           [focusFirst]="true"
         ></ng-autocomplete>
-          <button class="btn btn-danger" (click)="npc.removeCapacity(capacity)">X</button>
+          <button class="btn btn-danger" tabindex="-1" (click)="npc.removeCapacity(capacity)">X</button>
         </div>
 
         <textarea class="form-control" [(ngModel)]="capacity.description"></textarea>
@@ -106,7 +106,7 @@
         <div class="input-group">
           <label class="input-group-text">Nom</label>
           <input [(ngModel)]="weapon.name" type="text" class="form-control" />
-          <button class="btn btn-danger" (click)="npc.removeWeapon(weapon)">X</button>
+          <button class="btn btn-danger" tabindex="-1" (click)="npc.removeWeapon(weapon)">X</button>
         </div>
 
         <div class="input-group">
@@ -140,7 +140,7 @@
                 (selected)="selected($event, effect)"
                 [focusFirst]="true"
               ></ng-autocomplete>
-              <button class="btn btn-danger" (click)="weapon.removeEffect(effect)">X</button>
+              <button class="btn btn-danger" tabindex="-1" (click)="weapon.removeEffect(effect)">X</button>
             </div>
           </div>
         </div>

@@ -34,7 +34,7 @@
   <div class="row npc-list">
     <div class="col-md-12 col-xxl-6 npc-block" *ngFor="let npc of list">
       <button class="btn btn-primary" (click)="load(npc)">Charger</button>
-      <button class="btn btn-danger" (click)="delete(npc)">Supprimer</button>
+      <button class="btn btn-danger" tabindex="-1" (click)="delete(npc)">Supprimer</button>
       <app-npc [npc]="npc"></app-npc>
     </div>
   </div>
