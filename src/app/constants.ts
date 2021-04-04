@@ -123,7 +123,7 @@ export const CAPACITIES = [
 ];
 
 export const EFFECTS = [
-  "Anti-Anathème | recrue - hostile - salopard - colosse - patron - autre | 20",
+  "Anti-Anathème | recrue - hostile - salopard - colosse - patron - autre - bande | 20",
   "Anti-véhicule | recrue - hostile - salopard - colosse - patron - bande | 20",
   "Choc 1 | recrue - hostile - salopard - colosse - patron | 5",
   "Choc 2 | initié - hostile - salopard - colosse - patron | 10",
@@ -135,13 +135,13 @@ export const EFFECTS = [
   "Dégâts continus 3 | recrue - hostile - salopard - colosse - patron | 5",
   "Dégâts continus 6 | initié - hostile - salopard - colosse - patron | 15",
   "Dégâts continus 9 | héros - hostile - salopard - colosse - patron | 20",
-  "Descructeur | recrue - hostile - salopard - colosse - patron - bande | 10",
+  "Destructeur | recrue - hostile - salopard - colosse - patron - bande | 10",
   "Ignore Armure | initié - hostile - salopard - colosse - patron - bande | 20",
   "Ignore CdF | initié - hostile - salopard - colosse - patron - bande | 20",
   "Lumière 2 | recrue - hostile - salopard - colosse - patron - autre - bande | 5",
   "Lumière 4 | initié - hostile - salopard - colosse - patron - autre - bande | 15",
   "Lumière 6 | héros - hostile - salopard - colosse - patron - autre - bande | 20",
-  "Meutrier | recrue - hostile - salopard - colosse - patron - bande | 10",
+  "Meurtrier | recrue - hostile - salopard - colosse - patron - bande | 10",
   "Parasitage 1 | recrue - hostile - salopard - colosse - patron | 5",
   "Parasitage 2 | initié - hostile - salopard - colosse - patron | 10",
   "Parasitage 4 | héros - hostile - salopard - colosse - patron | 15",

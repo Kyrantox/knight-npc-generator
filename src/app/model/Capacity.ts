@@ -1,4 +1,5 @@
 import { CAPACITIES } from '../constants';
+import Effect, { effects } from './Effect';
 
 export default class Capacity {
   name: string = '';
@@ -30,4 +31,16 @@ export default class Capacity {
   }
 }
 
-export const capacities = CAPACITIES.map(data => new Capacity(data));
+const capacities = CAPACITIES.map(data => new Capacity(data));
+capacities.push(...effects.filter(e => e.tags.includes('bande')).map(effect => {
+  const capacity = new Capacity();
+
+  capacity.name = effect.name;
+  capacity.description = "Le PNJ bénéficie de l'équivalent de l'effet " + capacity.name + '.';
+  capacity.tags = [...effect.tags];
+  capacity.index = (capacity.name + ' ' + capacity.tags.join(' ')).toLocaleLowerCase();
+
+  return capacity;
+}));
+
+export { capacities };
