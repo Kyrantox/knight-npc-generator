@@ -189,11 +189,11 @@ export class Npc {
       one.push(RECRUE, INITIE, HEROS);
     }
 
-    return capacities.filter(c => {
+    return capacities.filter(c =>
       required.every(tag => c.tags.includes(tag)) &&
       excluded.every(tag => !c.tags.includes(tag)) &&
       one.some(tag => c.tags.includes(tag))
-    });
+    );
   }
 
   boost(aspect: Aspect) {
