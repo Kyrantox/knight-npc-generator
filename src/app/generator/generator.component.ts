@@ -40,7 +40,9 @@ export class GeneratorComponent implements OnInit {
       return;
     }
 
+    this.list = this.list.filter( e => e.name !== npc.name);
     this.list.push(new Npc(npc));
+
     this.list.sort((a, b) => a.name.localeCompare(b.name));
     localStorage.setItem('list', JSON.stringify(this.list));
   }
