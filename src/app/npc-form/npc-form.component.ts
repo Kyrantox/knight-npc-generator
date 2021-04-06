@@ -15,8 +15,8 @@ export class NpcFormComponent implements OnInit {
     { property: 'health', label: 'PS' },
     { property: 'defense', label: 'Défense' },
     { property: 'reaction', label: 'Réaction' },
-    { property: 'shield', label: 'Bouclier' },
-    { property: 'initiative', label: 'Initiative' }
+    { property: 'initiative', label: 'Initiative' },
+    { property: 'shield', label: 'Bouclier' }
   ], [
     { property: 'resilience', label: 'Résilience' },
     { property: 'outbreak', label: 'Débordement' },

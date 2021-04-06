@@ -25,7 +25,7 @@ export const CAPACITIES = [
   "Abyssal | héros - salopard - colosse - patron | Le PNJ est insensible à tous les types de dégâts sauf ceux avec l’effet anti-Anathème et lumière X.",
   "À coup sûr (contact) | héros - salopard - patron | Le PNJ, lorsqu’il attaque au contact, ne rate jamais sa cible. La défense du personnage ciblé est systématiquement ramenée à 0 pour chacune de ses attaques.",
   "À coup sûr (distance) | héros - salopard - patron | Le PNJ, lorsqu’il attaque à distance, ne rate jamais sa cible. La réaction du personnage ciblé est systématiquement ramenée à 0 pour chacune de ses attaques.",
-  "Actions multiples (1) | recrue - hostile - salopard - colosse - patron | Le PNJ possède 1 action de combat en plus de son action de déplacement et de combat de base. Ces actions sont à effectuer à son initiative.",
+  "Actions multiples (1) | recrue - hostile - salopard - colosse - patron | Le PNJ possède 1 action de combat en plus de son action de déplacement et de combat de base. Cette action est à effectuer à son initiative.",
   "Actions multiples (2) | initié - hostile - salopard - colosse - patron | Le PNJ possède 2 actions de combat en plus de son action de déplacement et de combat de base. Ces actions sont à effectuer à son initiative.",
   "Actions multiples (3) | initié - hostile - salopard - colosse - patron | Le PNJ possède 3 actions de combat en plus de son action de déplacement et de combat de base. Ces actions sont à effectuer à son initiative.",
   "Actions multiples (4) | initié - hostile - salopard - colosse - patron | Le PNJ possède 4 actions de combat en plus de son action de déplacement et de combat de base. Ces actions sont à effectuer à son initiative.",

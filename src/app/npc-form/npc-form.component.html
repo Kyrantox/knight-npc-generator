@@ -45,7 +45,7 @@
         <div class="col-3">
           <div class="input-group">
             <label class="input-group-text">Couleur</label>
-            <button class="btn npc-form-colorpicker" [(colorPicker)]="npc.color" [style.background-color]="npc.color">&nbsp;</button>
+            <button class="btn npc-form-colorpicker" tabindex="-1" [(colorPicker)]="npc.color" [style.background-color]="npc.color">&nbsp;</button>
           </div>
         </div>
 
@@ -77,8 +77,6 @@
     </div>
 
     <div class="col-6">
-      <button class="btn btn-secondary" (click)="npc.addCapacity()">+ Capacité</button>
-
       <div class="npc-form-capacity" *ngFor="let capacity of npc.capacities">
         <div class="input-group">
           <label class="input-group-text">Nom</label>
@@ -97,11 +95,11 @@
 
         <textarea class="form-control" [(ngModel)]="capacity.description"></textarea>
       </div>
+
+      <button class="btn btn-secondary" (click)="npc.addCapacity()">+ Capacité</button>
     </div>
 
     <div class="col-6">
-      <button class="btn btn-secondary" (click)="npc.addWeapon()">+ Arme</button>
-
       <div class="npc-form-weapon" *ngFor="let weapon of npc.weapons">
         <div class="input-group">
           <label class="input-group-text">Nom</label>
@@ -125,8 +123,6 @@
           </select>
         </div>
 
-        <button class="btn btn-secondary" (click)="weapon.addEffect()">+ Effet</button>
-
         <div class="row">
           <div class="col-6" *ngFor="let effect of weapon.effects">
             <div class="input-group">
@@ -144,7 +140,11 @@
             </div>
           </div>
         </div>
+
+        <button class="btn btn-secondary" (click)="weapon.addEffect()">+ Effet</button>
       </div>
+
+      <button class="btn btn-secondary" (click)="npc.addWeapon()">+ Arme</button>
     </div>
   </div>
 </div>

@@ -32,6 +32,7 @@ export class GeneratorComponent implements OnInit {
   load(npc: Npc) {
     this.npc = new Npc(npc);
     this.toElite = false;
+    window.scrollTo(0, 0);
   }
 
   save(npc: Npc) {

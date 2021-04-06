@@ -1,6 +1,14 @@
 @import '~bootstrap/scss/bootstrap.scss';
 @import 'fonts/segoe-ui/style.css';
 
+body {
+  background-color: black;
+
+  h1, h2 {
+    color: white;
+  }
+}
+
 .npc-form .ng-autocomplete {
   width: 1%;
   height: auto;
