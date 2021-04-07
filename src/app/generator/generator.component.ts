@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Npc } from '../model/Npc';
+import { GenerateOptions, Npc } from '../model/Npc';
 
 @Component({
   selector: 'app-generator',
@@ -11,6 +11,8 @@ export class GeneratorComponent implements OnInit {
   elite: Npc = new Npc();
   toElite: boolean = false;
   list: Npc[] = [];
+  generator: boolean = false;
+  options: GenerateOptions = new GenerateOptions();
 
   constructor() {
     const json = localStorage.getItem('list');
@@ -22,6 +24,11 @@ export class GeneratorComponent implements OnInit {
   }
 
   ngOnInit(): void { }
+
+  generate() {
+    this.npc.generate(this.options);
+    this.toElite = false;
+  }
 
   convertToElite() {
     this.toElite = true;

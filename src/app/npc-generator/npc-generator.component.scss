@@ -1,0 +1,14 @@
+.npc-generator {
+  label {
+    text-transform: capitalize;
+
+    &.input-group-text {
+      width: 120px;
+    }
+  }
+
+  .input-group {
+    margin-bottom: 5px;
+  }
+
+}

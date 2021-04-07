@@ -19,6 +19,9 @@ export const COURTE = 'courte';
 export const MOYENNE = 'moyenne';
 export const LONGUE = 'longue';
 export const LOINTAINE = 'lointaine';
+export const ORGANIC = 'organique';
+export const ROBOT = 'robot';
+export const ARMORED = 'armuré';
 
 export const CAPACITIES = [
   "Abysse | héros - salopard - colosse - patron | Tous les dégâts infligés par le PNJ à un PJ sont retirés aux points d’espoir et non aux points de santé ou points d’armure.",
@@ -135,13 +138,13 @@ export const EFFECTS = [
   "Dégâts continus 3 | recrue - hostile - salopard - colosse - patron | 5",
   "Dégâts continus 6 | initié - hostile - salopard - colosse - patron | 15",
   "Dégâts continus 9 | héros - hostile - salopard - colosse - patron | 20",
-  "Destructeur | recrue - hostile - salopard - colosse - patron - bande | 10",
+  "Destructeur | recrue - hostile - salopard - colosse - patron | 10",
   "Ignore Armure | initié - hostile - salopard - colosse - patron - bande | 20",
   "Ignore CdF | initié - hostile - salopard - colosse - patron - bande | 20",
   "Lumière 2 | recrue - hostile - salopard - colosse - patron - autre - bande | 5",
   "Lumière 4 | initié - hostile - salopard - colosse - patron - autre - bande | 15",
   "Lumière 6 | héros - hostile - salopard - colosse - patron - autre - bande | 20",
-  "Meurtrier | recrue - hostile - salopard - colosse - patron - bande | 10",
+  "Meurtrier | recrue - hostile - salopard - colosse - patron | 10",
   "Parasitage 1 | recrue - hostile - salopard - colosse - patron | 5",
   "Parasitage 2 | initié - hostile - salopard - colosse - patron | 10",
   "Parasitage 4 | héros - hostile - salopard - colosse - patron | 15",

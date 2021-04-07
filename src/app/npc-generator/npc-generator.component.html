@@ -1,0 +1,88 @@
+<div class="npc-generator row">
+  <div class="col-6">
+    <div class="row">
+      <div class="col-12">
+        <div class="input-group">
+          <label class="input-group-text">Type</label>
+          <select [(ngModel)]="options.type" class="form-control">
+            <option value="hostile">Hostile</option>
+            <option value="salopard">Salopard</option>
+            <option value="colosse">Colosse</option>
+            <option value="patron">Patron</option>
+            <option value="patron colosse">Patron colosse</option>
+            <option value="bande">Bande</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="input-group">
+          <label class="input-group-text">Niveau</label>
+          <select [(ngModel)]="options.level" class="form-control">
+            <option value="recrue">Recrue</option>
+            <option value="initié">Initié</option>
+            <option value="héros">Héros</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="input-group">
+          <label class="input-group-text">Sous type</label>
+          <select [(ngModel)]="options.subtype" class="form-control">
+            <option value="organique">Organique</option>
+            <option value="robot">Robot</option>
+            <option value="armuré">Armuré</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="input-group">
+          <label class="input-group-text">CdF</label>
+          <div class="input-group-text">
+            <input [(ngModel)]="options.forcefield" type="checkbox" class="form-check-input mt-0" />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="input-group">
+          <label class="input-group-text">Énergie</label>
+          <div class="input-group-text">
+            <input [(ngModel)]="options.energy" type="checkbox" class="form-check-input mt-0" />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="input-group">
+          <label class="input-group-text">Résilience</label>
+          <div class="input-group-text">
+            <input [(ngModel)]="options.resilience" type="checkbox" class="form-check-input mt-0" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="row">
+      <div class="col-12">
+        <div class="input-group">
+          <label class="input-group-text">Puissance</label>
+          <div class="input-group-text slider-value">{{ options.power }}</div>
+          <input class="form-control" type="range" min="0" max="100" [(ngModel)]="options.power" />
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="input-group" *ngFor="let i of [0, 1, 2, 3, 4]">
+          <label class="input-group-text">{{ aspects[i] }}</label>
+          <div class="input-group-text slider-value">{{ options.balances[i] }}</div>
+          <input class="form-control slider-{{ aspects[i] }}" type="range" min="1" max="10" [(ngModel)]="options.balances[i]" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

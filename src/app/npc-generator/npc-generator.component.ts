@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Npc } from '../model/Npc';
+import { CHAIR, BETE, MACHINE, DAME, MASQUE, ASPECTS_LABELS } from '../constants';
+import { GenerateOptions } from '../model/Npc';
 
 @Component({
   selector: 'app-npc-generator',
@@ -7,11 +8,11 @@ import { Npc } from '../model/Npc';
   styleUrls: ['./npc-generator.component.scss']
 })
 export class NpcGeneratorComponent implements OnInit {
-  @Input() npc: Npc = new Npc();
+  @Input() options: GenerateOptions = new GenerateOptions();
+  aspects = [CHAIR, BETE, MACHINE, DAME, MASQUE].map(a => ASPECTS_LABELS[a]);
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

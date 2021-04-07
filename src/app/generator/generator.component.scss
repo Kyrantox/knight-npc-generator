@@ -6,6 +6,18 @@
   width: 793px;
 }
 
-.npc-block {
+.npc-header {
+  margin-top: 10px;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+
+  .btn {
+    margin-left: 20px;
+  }
+}
+
+hr {
+  background-color: white;
+  opacity: 1;
 }
