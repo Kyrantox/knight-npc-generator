@@ -221,49 +221,64 @@ export class Npc {
       }
     }
 
-    if (this.type === BANDE) {
-      filteredCapacities = this.query(capacities, { filterWeakness: true, effect: true });
-      shuffle(filteredCapacities);
+    // if (this.type === BANDE) {
+    //   filteredCapacities = this.query(capacities, { filterWeakness: true, effect: true });
+    //   shuffle(filteredCapacities);
 
-      // Keep only the first armor and forcefield effet
-      let armor = false;
-      let forcefield = false;
-      filteredCapacities = filteredCapacities.filter(capacity => {
-        const raw = capacity.raw();
+    //   // Keep only the first armor and forcefield effet
+    //   let armor = false;
+    //   let forcefield = false;
+    //   filteredCapacities = filteredCapacities.filter(capacity => {
+    //     const raw = capacity.raw();
 
-        if (raw === 'Pénétrant' || raw === 'Ignore CdF') {
-          if (forcefield) {
-            return false;
-          } else {
-            forcefield = true;
-          }
-        }
+    //     if (raw === 'Pénétrant' || raw === 'Ignore CdF') {
+    //       if (forcefield) {
+    //         return false;
+    //       } else {
+    //         forcefield = true;
+    //       }
+    //     }
 
-        if (raw === 'Perce armure' || raw === 'Ignore armure') {
-          if (armor) {
-            return false;
-          } else {
-            armor = true;
-          }
-        }
+    //     if (raw === 'Perce armure' || raw === 'Ignore armure') {
+    //       if (armor) {
+    //         return false;
+    //       } else {
+    //         armor = true;
+    //       }
+    //     }
 
-        return true;
-      });
+    //     return true;
+    //   });
 
-      counter = 0;
-      for (const capacity of filteredCapacities) {
-        if (this.hasCapacity(capacity)) {
-          continue;
-        }
+    //   let ignore = false;
+    //   filteredCapacities = filteredCapacities.filter(capacity => {
+    //     const raw = capacity.raw();
 
-        this.capacities.push(new Capacity(capacity));
+    //     if (raw === 'Ignore CdF' || raw === 'Ignore armure') {
+    //       if (ignore) {
+    //         return false;
+    //       } {
+    //         ignore = true;
+    //       }
+    //     }
 
-        counter += 1;
-        if (counter === options.ratio(infos.outbreak.effects_min, infos.outbreak.effects_max)) {
-          break;
-        }
-      }
-    }
+    //     return true;
+    //   });
+
+    //   counter = 0;
+    //   for (const capacity of filteredCapacities) {
+    //     if (this.hasCapacity(capacity)) {
+    //       continue;
+    //     }
+
+    //     this.capacities.push(new Capacity(capacity));
+
+    //     counter += 1;
+    //     if (counter === options.ratio(infos.outbreak.effects_min, infos.outbreak.effects_max)) {
+    //       break;
+    //     }
+    //   }
+    // }
   }
 
   hasCapacity(capacity: Capacity) {
@@ -419,11 +434,11 @@ export class Npc {
       excluded.push('faiblesse (recrue)', 'faiblesse (initié)', 'faiblesse (héros)');
     }
 
-    if (options.effect) {
-      required.push('effet');
-    } else {
-      excluded.push('effet');
-    }
+    // if (options.effect) {
+    //   required.push('effet');
+    // } else {
+    //   excluded.push('effet');
+    // }
 
     return capacities.filter(c =>
       required.every(tag => c.tags.includes(tag)) &&

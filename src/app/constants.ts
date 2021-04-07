@@ -149,11 +149,11 @@ export const EFFECTS = [
   "Parasitage 2 | initié - hostile - salopard - colosse - patron | 10",
   "Parasitage 4 | héros - hostile - salopard - colosse - patron | 15",
   "Parasitage 6 | héros - hostile - salopard - colosse - patron | 20",
-  "Pénétrant 5 | initié - hostile - salopard - colosse - patron - bande | 5",
-  "Pénétrant 10 | héros - hostile - salopard - colosse - patron - bande | 10",
-  "Perce armure 20 | recrue - hostile - salopard - colosse - patron - bande | 5",
-  "Perce armure 40 | initié - hostile - salopard - colosse - patron - bande | 10",
-  "Perce armure 60 | héros - hostile - salopard - colosse - patron - bande | 15",
+  "Pénétrant 5 | initié - hostile - salopard - colosse - patron - autre - bande | 5",
+  "Pénétrant 10 | héros - hostile - salopard - colosse - patron - autre - bande | 10",
+  "Perce armure 20 | recrue - hostile - salopard - colosse - patron - autre - bande | 5",
+  "Perce armure 40 | initié - hostile - salopard - colosse - patron - autre - bande | 10",
+  "Perce armure 60 | héros - hostile - salopard - colosse - patron - autre - bande | 15",
   "Silencieux | recrue - hostile - salopard - colosse - patron | 10",
   "Soumission | recrue - hostile - salopard - colosse - patron | 15"
 ];
