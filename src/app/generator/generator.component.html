@@ -8,22 +8,34 @@
       <h2>Version normale</h2>
     </div>
     <div class="col-md-12 col-xxl-6">
-      <app-npc-form [npc]="npc"></app-npc-form>
+      <div class="panel">
+        <app-npc-form [npc]="npc"></app-npc-form>
+      </div>
     </div>
     <div class="col-md-12 col-xxl-6 npc-live">
-      <button class="btn btn-primary" (click)="save(npc)">Sauvegarder</button>
-      <button class="btn btn-primary" (click)="convertToElite()">Élite</button>
-      <app-npc [npc]="npc"></app-npc>
+      <div class="panel">
+        <app-npc [npc]="npc"></app-npc>
+        <div class="npc-buttons">
+          <button class="btn btn-primary" (click)="save(npc)">Sauvegarder</button>
+          <button class="btn btn-primary" (click)="convertToElite()">Élite</button>
+        </div>
+      </div>
     </div>
     <div class="col-12 npc-header" [hidden]="!toElite">
       <h2>Version élite</h2>
     </div>
     <div class="col-md-12 col-xxl-6" [hidden]="!toElite">
-      <app-npc-form [npc]="elite" ></app-npc-form>
+      <div class="panel">
+        <app-npc-form [npc]="elite"></app-npc-form>
+      </div>
     </div>
     <div class="col-md-12 col-xxl-6 npc-live" [hidden]="!toElite">
-      <button class="btn btn-primary" (click)="save(elite)">Sauvegarder</button><br/>
-      <app-npc [npc]="elite"></app-npc>
+      <div class="panel">
+        <app-npc [npc]="elite"></app-npc>
+        <div class="npc-buttons">
+          <button class="btn btn-primary" (click)="save(elite)">Sauvegarder</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -31,9 +43,13 @@
 
   <div class="row npc-list">
     <div class="col-md-12 col-xxl-6 npc-block" *ngFor="let npc of list">
-      <button class="btn btn-primary" (click)="load(npc)">Charger</button>
-      <button class="btn btn-danger" tabindex="-1" (click)="delete(npc)">Supprimer</button>
-      <app-npc [npc]="npc"></app-npc>
+      <div class="panel">
+        <app-npc [npc]="npc"></app-npc>
+        <div class="npc-buttons">
+          <button class="btn btn-primary" (click)="load(npc)">Charger</button>
+          <button class="btn btn-danger" tabindex="-1" (click)="delete(npc)">Supprimer</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
