@@ -139,7 +139,7 @@ export const EFFECTS = [
   "Dégâts continus 6 | initié - hostile - salopard - colosse - patron | 15",
   "Dégâts continus 9 | héros - hostile - salopard - colosse - patron | 20",
   "Destructeur | recrue - hostile - salopard - colosse - patron | 10",
-  "Ignore Armure | initié - hostile - salopard - colosse - patron - bande | 20",
+  "Ignore armure | initié - hostile - salopard - colosse - patron - bande | 20",
   "Ignore CdF | initié - hostile - salopard - colosse - patron - bande | 20",
   "Lumière 2 | recrue - hostile - salopard - colosse - patron - autre - bande | 5",
   "Lumière 4 | initié - hostile - salopard - colosse - patron - autre - bande | 15",
@@ -151,9 +151,9 @@ export const EFFECTS = [
   "Parasitage 6 | héros - hostile - salopard - colosse - patron | 20",
   "Pénétrant 5 | initié - hostile - salopard - colosse - patron - bande | 5",
   "Pénétrant 10 | héros - hostile - salopard - colosse - patron - bande | 10",
-  "Perce Armure 20 | recrue - hostile - salopard - colosse - patron - bande | 5",
-  "Perce Armure 40 | initié - hostile - salopard - colosse - patron - bande | 10",
-  "Perce Armure 60 | héros - hostile - salopard - colosse - patron - bande | 15",
+  "Perce armure 20 | recrue - hostile - salopard - colosse - patron - bande | 5",
+  "Perce armure 40 | initié - hostile - salopard - colosse - patron - bande | 10",
+  "Perce armure 60 | héros - hostile - salopard - colosse - patron - bande | 15",
   "Silencieux | recrue - hostile - salopard - colosse - patron | 10",
   "Soumission | recrue - hostile - salopard - colosse - patron | 15"
 ];

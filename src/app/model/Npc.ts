@@ -1,4 +1,4 @@
-import { ASPECTS_LABELS, BETE, GRID, HEROS, HOSTILE, INITIE, MACHINE, MASQUE, RECRUE, PATRON_COLOSSE, PATRON, COLOSSE, ORGANIC, BANDE, ROBOT, ARMORED } from '../constants';
+import { ARMORED, ASPECTS_LABELS, BANDE, BETE, COLOSSE, GRID, HEROS, HOSTILE, INITIE, MACHINE, MASQUE, ORGANIC, PATRON, PATRON_COLOSSE, RECRUE, ROBOT } from '../constants';
 import Aspect from './Aspect';
 import Capacity, { capacities } from './Capacity';
 import Weapon from './Weapon';
@@ -180,18 +180,94 @@ export class Npc {
       this.initiative = Math.floor(this.aspects[MASQUE].score / 2) + this.aspects[MASQUE].exceptional;
     }
 
-    const filteredCapacities = this.query(capacities);
+    let filteredCapacities = this.query(capacities);
+    const weaknesses = [];
     shuffle(filteredCapacities);
 
-    for (let i = 0; i < infos.capacities && i < filteredCapacities.length; ++i) {
-      const capacity = filteredCapacities[i];
-
-      if (this.capacities.map(c => c.raw()).some(c => c === capacity.raw())) {
+    let counter = 0;
+    for (const capacity of filteredCapacities) {
+      if (this.hasCapacity(capacity)) {
         continue;
       }
 
       this.capacities.push(new Capacity(capacity));
+
+      if (capacity.tags.includes('faiblesse (recrue)')) {
+        weaknesses.push(RECRUE);
+      } else if (capacity.tags.includes('faiblesse (initié)')) {
+        weaknesses.push(INITIE);
+      } else if (capacity.tags.includes('faiblesse (héros)')) {
+        weaknesses.push(HEROS);
+      }
+
+      counter += 1;
+      if (counter == infos.capacities) {
+        break;
+      }
     }
+
+    for (const level of weaknesses) {
+      filteredCapacities = this.query(capacities, { level, filterWeakness: true });
+      shuffle(filteredCapacities);
+
+      for (const capacity of filteredCapacities) {
+        if (this.hasCapacity(capacity)) {
+          continue;
+        }
+
+        this.capacities.push(new Capacity(capacity));
+
+        break;
+      }
+    }
+
+    if (this.type === BANDE) {
+      filteredCapacities = this.query(capacities, { filterWeakness: true, effect: true });
+      shuffle(filteredCapacities);
+
+      // Keep only the first armor and forcefield effet
+      let armor = false;
+      let forcefield = false;
+      filteredCapacities = filteredCapacities.filter(capacity => {
+        const raw = capacity.raw();
+
+        if (raw === 'Pénétrant' || raw === 'Ignore CdF') {
+          if (forcefield) {
+            return false;
+          } else {
+            forcefield = true;
+          }
+        }
+
+        if (raw === 'Perce armure' || raw === 'Ignore armure') {
+          if (armor) {
+            return false;
+          } else {
+            armor = true;
+          }
+        }
+
+        return true;
+      });
+
+      counter = 0;
+      for (const capacity of filteredCapacities) {
+        if (this.hasCapacity(capacity)) {
+          continue;
+        }
+
+        this.capacities.push(new Capacity(capacity));
+
+        counter += 1;
+        if (counter === options.ratio(infos.outbreak.effects_min, infos.outbreak.effects_max)) {
+          break;
+        }
+      }
+    }
+  }
+
+  hasCapacity(capacity: Capacity) {
+    return this.capacities.map(c => c.raw()).some(c => c === capacity.raw());
   }
 
   elite() {
@@ -292,21 +368,25 @@ export class Npc {
       }
     }
 
-    const filteredCapacities = this.query(capacities, true);
+    const filteredCapacities = this.query(capacities, { elite: true });
 
     shuffle(filteredCapacities);
-    for (let i = 0; i < info.elite.capacities && i < filteredCapacities.length; ++i) {
-      const capacity = filteredCapacities[i];
-
-      if (this.capacities.map(c => c.raw()).some(c => c === capacity.raw())) {
+    counter = 0;
+    for (const capacity of filteredCapacities) {
+      if (this.hasCapacity(capacity)) {
         continue;
       }
 
       this.capacities.push(new Capacity(capacity));
+
+      counter += 1;
+      if (counter === info.elite.capacities) {
+        break;
+      }
     }
   }
 
-  query(capacities: Capacity[], elite?: boolean) {
+  query(capacities: Capacity[], options: { elite?: boolean, level?: string, filterWeakness?: boolean, effect?: boolean } = {}) {
     const types: string[] = [];
 
     if (this.type !== PATRON_COLOSSE) {
@@ -316,22 +396,33 @@ export class Npc {
     }
 
     const levels: string[] = [];
+    const level = options.level ?? this.level;
 
-    if (this.level === RECRUE) {
+    if (level === RECRUE) {
       levels.push(RECRUE);
-    } else if (this.level === INITIE) {
+    } else if (level === INITIE) {
       levels.push(RECRUE, INITIE);
-    } else if (this.level === HEROS) {
+    } else if (level === HEROS) {
       levels.push(RECRUE, INITIE, HEROS);
     }
 
     const excluded = ['autre'];
     const required: string[] = [];
 
-    if (elite) {
+    if (options.elite) {
       required.push('élite');
     } else {
       excluded.push('élite');
+    }
+
+    if (options.filterWeakness) {
+      excluded.push('faiblesse (recrue)', 'faiblesse (initié)', 'faiblesse (héros)');
+    }
+
+    if (options.effect) {
+      required.push('effet');
+    } else {
+      excluded.push('effet');
     }
 
     return capacities.filter(c =>
