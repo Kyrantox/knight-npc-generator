@@ -60,7 +60,7 @@ export const CAPACITIES = [
   "Exosquelette de combat (2) | initié - hostile - salopard - colosse - patron - bande - autre | Le PNJ bénéficie d’aspects exceptionnels et d’un module de saut et de course 2. Si ses PA tombent à 0, ces bénéfices sont annulés.",
   "Exosquelette de combat (3) | héros - hostile - salopard - colosse - patron - bande - autre | Le PNJ bénéficie d’aspects exceptionnels et d’un module de saut et de course 3. Si ses PA tombent à 0, ces bénéfices sont annulés.",
   "Haine de l’Anathème | initié - salopard - colosse - patron - autre | Les dégâts du PNJ sont augmentés de 3D6 contre les créatures de l'Anathème.",
-  "Hypersensibilité lumineuse | faiblesse (héros) - recrue - hostile - salopard - colosse - patron | Toute utilisation de l’effet lumière X annule pendant 1D6 tours une ou plusieurs capacités du PNJ (au choix du MJ). Les dégâts infligés au PNJ avec des armes possédant l’effet lumière X sont doublés.",
+  "Hypersensibilité lumineuse | faiblesse (héros) - recrue - hostile - salopard - colosse - patron - bande | Toute utilisation de l’effet lumière X annule pendant 1D6 tours une ou plusieurs capacités du PNJ (au choix du MJ). Les dégâts infligés au PNJ avec des armes possédant l’effet lumière X sont doublés.",
   "Immatériel | héros - patron | Le PNJ est intangible et donc insensible aux dégâts. Pour lui infliger des dommages, les effets lumière X ou anti-Anathème doivent être utilisés en même temps que l’exposition à de l’élément alpha brut (les personnages présents subissent une perte d’1D6 points d’espoir par tour en présence d’élément alpha brut).",
   "Immortel | héros - patron | Le PNJ peut dépenser une action de déplacement pour récupérer de 10 à 100 points de santé (au choix du MJ). Cette capacité ne peut être activée qu’une fois par tour en phase de conflit.",
   "Implacable | recrue - salopard - colosse - patron | Si le PNJ n’utilise pas son action de déplacement durant son tour, il peut effectuer une attaque supplémentaire.",
@@ -72,14 +72,14 @@ export const CAPACITIES = [
   "Kamikaze | héros - hostile - salopard - patron | Lorsqu’il a atteint sa cible, le PNJ peut exploser, infligeant ainsi 8D6 + 15 points de dégâts dispersion 6 à portée courte autour de lui.",
   "Loyauté sans faille | faiblesse (recrue) - recrue - hostile - salopard - colosse - patron | Le PNJ ne fuit jamais et ne se rend jamais.",
   "Lumière | salopard - colosse - patron - autre | Quelque chose émane du PNJ à tel point que les créatures des ténèbres n’osent s’en approcher à moins de portée moyenne. Si elles devaient se trouver à une portée inférieure, elles subiraient automatiquement l’effet lumière 6 tant qu’elles y restent.",
-  "Membre du Knight (recrue) | recrue - salopard - colosse - patron | Le PNJ bénéficie d’une méta-armure, d’une arme de contact et à distance ainsi que de 2 modules tirés de l’arsenal.",
-  "Membre du Knight (initié) | initié - salopard - colosse - patron | Le PNJ bénéficie d’une méta-armure, d’une arme de contact et à distance ainsi que de 2 modules tirés de l’arsenal.",
-  "Membre du Knight (héros) | héros - salopard - colosse - patron | Le PNJ bénéficie d’une méta-armure, d’une arme de contact et à distance ainsi que de 2 modules tirés de l’arsenal.",
+  "Membre du Knight (recrue) | recrue - salopard - colosse - patron - autre | Le PNJ bénéficie d’une méta-armure, d’une arme de contact et à distance ainsi que de 2 modules tirés de l’arsenal.",
+  "Membre du Knight (initié) | initié - salopard - colosse - patron - autre | Le PNJ bénéficie d’une méta-armure, d’une arme de contact et à distance ainsi que de 2 modules tirés de l’arsenal.",
+  "Membre du Knight (héros) | héros - salopard - colosse - patron - autre | Le PNJ bénéficie d’une méta-armure, d’une arme de contact et à distance ainsi que de 2 modules tirés de l’arsenal.",
   "Mémoire | initié - patron | Le PNJ est capable de connaître le passé complet de tous les personnages qu’il rencontre et de savoir les fautes qu’ils ont commises. Chaque test base Parole, Aura ou Sang-froid raté face à lui engendre la perte d’1D6 points d’espoir.",
-  "Meneur d’hommes | recrue - salopard - colosse - patron | Le PNJ, lorsqu’il est ac­compagné d’alliés sous ses ordres, leur procure un bonus de 2 en défense et en réaction, ainsi qu’un bonus de 2 en débordement et de 50 en cohésion si les alliés forment une bande.",
-  "Méta-armure (4 points d’aspect exceptionnel et 1 à 3 modules standards) | recrue - hostile - salopard - colosse - patron",
-  "Méta-armure (8 points d’aspect exceptionnel et 1 à 3 modules avancés) | initié - hostile - salopard - colosse - patron",
-  "Méta-armure (12 points d’aspect exceptionnel et 1 à 3 modules rares) | héros - hostile - salopard - colosse - patron",
+  "Meneur d’hommes | recrue - salopard - colosse - patron - autre | Le PNJ, lorsqu’il est ac­compagné d’alliés sous ses ordres, leur procure un bonus de 2 en défense et en réaction, ainsi qu’un bonus de 2 en débordement et de 50 en cohésion si les alliés forment une bande.",
+  "Méta-armure (4 points d’aspect exceptionnel et 1 à 3 modules standards) | recrue - hostile - salopard - colosse - patron - autre",
+  "Méta-armure (8 points d’aspect exceptionnel et 1 à 3 modules avancés) | initié - hostile - salopard - colosse - patron - autre",
+  "Méta-armure (12 points d’aspect exceptionnel et 1 à 3 modules rares) | héros - hostile - salopard - colosse - patron - autre",
   "Méthodique | faiblesse (héros) - recrue - hostile - salopard - colosse - patron - bande | Si la cible du PNJ est mobile, c’est-à-dire si elle a effectué une action de déplacement à ce tour, elle ne subit pas de score de débordement.",
   "Module (module standard) | recrue - hostile - salopard - colosse - patron | Le PNJ bénéficie de l'équivalent d'un module standard.",
   "Module (module avancé) | initié - hostile - salopard - colosse - patron | Le PNJ bénéficie de l'équivalent d'un module avancé.",
@@ -96,7 +96,7 @@ export const CAPACITIES = [
   "Protéiforme (majeur) | héros - hostile - salopard - colosse - patron | Le PNJ peut changer son apparence et se doter d’armes avec les effets suivants (au choix du MJ) : ignore CdF, ignore armure ou choc 2.",
   "Régénération | initié - hostile - salopard - colosse - patron | Si le PNJ combat au milieu d’une bande alliée, il peut lui infliger une attaque gratuite pour se régénérer d’autant de points de santé que les dégâts infligés. Les dégâts infligés sont convertis en violence et impactent directement la cohésion de la bande.",
   "Regain de santé | initié - salopard - colosse - patron - bande | Tant que le PNJ (ou plusieurs du même type) est présent dans une phase de conflit, les bandes de son Seigneur récupèrent 6D6 de cohésion chaque tour, les hostiles 3D6 points de santé, les salopards 4D6 et les patrons 6D6. Le PNJ lui-même récupère 6D6 points de cohésion à chaque tour. Loyauté sans faille : Le PNJ ne fuit jamais et ne se rend jamais.",
-  "Renaissance | initié - salopard - colosse - patron - bande | Le PNJ peut se former aussi bien à partir d’un être vivant et désespéré que d’un cadavre humain. S’il tombe à 0 en cohésion, il se relève ou se réincarne dans un autre corps (mort ou vivant) à portée lointaine avec la totalité de sa cohésion.",
+  "Renaissance | initié - salopard - colosse - patron - bande | Le PNJ peut se former aussi bien à partir d’un être vivant et désespéré que d’un cadavre humain. Si le PNJ est détruit, il se relève ou se réincarne dans un autre corps (mort ou vivant) à portée lointaine.",
   "Résistant | recrue - salopard - patron | Peu importe sa taille, le PNJ est considéré comme un colosse.",
   "Ressources illimitées | initié - patron | Ressources illimitées : Le PNJ a accès à toutes les ressources qu’il souhaite, qu’il s’agisse d’argent, de matériel ou d’hommes.",
   "Sensibilité IEM | faiblesse (recrue) - recrue - hostile - salopard - colosse - patron | L’utilisation de grenades IEM contre le PNJ lui inflige automatiquement parasitage 4.",
@@ -128,34 +128,35 @@ export const CAPACITIES = [
 export const EFFECTS = [
   "Anti-Anathème | recrue - hostile - salopard - colosse - patron - autre - bande | 20",
   "Anti-véhicule | recrue - hostile - salopard - colosse - patron - bande | 20",
-  "Choc 1 | recrue - hostile - salopard - colosse - patron | 5",
-  "Choc 2 | initié - hostile - salopard - colosse - patron | 10",
-  "Choc 4 | héros - hostile - salopard - colosse - patron | 15",
-  "Choc 6 | héros - hostile - salopard - colosse - patron | 20",
+	"Barrage 4 | recrue - hostile - salopard - colosse - patron - bande | 10",
+	"Barrage 6 | initié - hostile - salopard - colosse - patron - bande | 15",
+	"Barrage 8 | héros - hostile - salopard - colosse - patron - bande | 20",
+  "Choc 1 | recrue - hostile - salopard - colosse - patron - bande | 10",
+  "Choc 2 | initié - hostile - salopard - colosse - patron | 20",
+  "Choc 4 | héros - hostile - salopard - colosse - patron | 30",
+  "Choc 6 | héros - hostile - salopard - colosse - patron | 40",
   "Dispersion 2 | recrue - hostile - salopard - colosse - patron | 5",
   "Dispersion 3 | initié - hostile - salopard - colosse - patron | 10",
   "Dispersion 6 | héros - hostile - salopard - colosse - patron | 20",
   "Dégâts continus 3 | recrue - hostile - salopard - colosse - patron | 5",
   "Dégâts continus 6 | initié - hostile - salopard - colosse - patron | 15",
   "Dégâts continus 9 | héros - hostile - salopard - colosse - patron | 20",
-  "Destructeur | recrue - hostile - salopard - colosse - patron | 10",
-  "Ignore armure | initié - hostile - salopard - colosse - patron - bande | 20",
-  "Ignore CdF | initié - hostile - salopard - colosse - patron - bande | 20",
+  "Destructeur | recrue - hostile - salopard - colosse - patron - bande | 15",
+  "Ignore armure | initié - hostile - salopard - colosse - patron - bande | 40",
+  "Ignore CdF | initié - hostile - salopard - colosse - patron - bande | 40",
   "Lumière 2 | recrue - hostile - salopard - colosse - patron - autre - bande | 5",
   "Lumière 4 | initié - hostile - salopard - colosse - patron - autre - bande | 15",
   "Lumière 6 | héros - hostile - salopard - colosse - patron - autre - bande | 20",
-  "Meurtrier | recrue - hostile - salopard - colosse - patron | 10",
-  "Parasitage 1 | recrue - hostile - salopard - colosse - patron | 5",
-  "Parasitage 2 | initié - hostile - salopard - colosse - patron | 10",
-  "Parasitage 4 | héros - hostile - salopard - colosse - patron | 15",
-  "Parasitage 6 | héros - hostile - salopard - colosse - patron | 20",
-  "Pénétrant 5 | initié - hostile - salopard - colosse - patron - autre - bande | 5",
-  "Pénétrant 10 | héros - hostile - salopard - colosse - patron - autre - bande | 10",
-  "Perce armure 20 | recrue - hostile - salopard - colosse - patron - autre - bande | 5",
-  "Perce armure 40 | initié - hostile - salopard - colosse - patron - autre - bande | 10",
-  "Perce armure 60 | héros - hostile - salopard - colosse - patron - autre - bande | 15",
+  "Meurtrier | recrue - hostile - salopard - colosse - patron - bande | 15",
+  "Parasitage 1 | recrue - hostile - salopard - colosse - patron - bande | 10",
+  "Parasitage 2 | initié - hostile - salopard - colosse - patron | 20",
+  "Parasitage 4 | héros - hostile - salopard - colosse - patron | 30",
+  "Parasitage 6 | héros - hostile - salopard - colosse - patron | 40",
+  "Perce armure 20 | recrue - hostile - salopard - colosse - patron - bande | 10",
+  "Perce armure 40 | initié - hostile - salopard - colosse - patron - bande | 20",
+  "Perce armure 60 | héros - hostile - salopard - colosse - patron - bande | 30",
   "Silencieux | recrue - hostile - salopard - colosse - patron | 10",
-  "Soumission | recrue - hostile - salopard - colosse - patron | 15"
+  "Soumission | initié - hostile - salopard - colosse - patron - bande | 20"
 ];
 
 export const GRID = {
@@ -198,6 +199,10 @@ export const GRID = {
 			"elite": {
 				"major_aspects": 1,
 				"capacities": 1
+			},
+			"weapon": {
+				"effect": 1,
+				"points": 30
 			}
 		},
 		[INITIE]: {
@@ -238,6 +243,10 @@ export const GRID = {
 			"elite": {
 				"major_aspects": 1,
 				"capacities": 1
+			},
+			"weapon": {
+				"effect": 1,
+				"points": 40
 			}
 		},
 		[HEROS]: {
@@ -278,6 +287,10 @@ export const GRID = {
 			"elite": {
 				"major_aspects": 1,
 				"capacities": 1
+			},
+			"weapon": {
+				"effect": 1,
+				"points": 60
 			}
 		}
 	},
@@ -320,6 +333,10 @@ export const GRID = {
 			"elite": {
 				"major_aspects": 2,
 				"capacities": 2
+			},
+			"weapon": {
+				"effect": 2,
+				"points": 50
 			}
 		},
 		[INITIE]: {
@@ -360,6 +377,10 @@ export const GRID = {
 			"elite": {
 				"major_aspects": 2,
 				"capacities": 2
+			},
+			"weapon": {
+				"effect": 2,
+				"points": 70
 			}
 		},
 		[HEROS]: {
@@ -400,6 +421,10 @@ export const GRID = {
 			"elite": {
 				"major_aspects": 2,
 				"capacities": 2
+			},
+			"weapon": {
+				"effect": 2,
+				"points": 100
 			}
 		}
 	},
@@ -442,6 +467,10 @@ export const GRID = {
 			"elite": {
 				"major_aspects": 2,
 				"capacities": 4
+			},
+			"weapon": {
+				"effect": 3,
+				"points": 100
 			}
 		},
 		[INITIE]: {
@@ -482,6 +511,10 @@ export const GRID = {
 			"elite": {
 				"major_aspects": 2,
 				"capacities": 4
+			},
+			"weapon": {
+				"effect": 3,
+				"points": 120
 			}
 		},
 		[HEROS]: {
@@ -522,6 +555,10 @@ export const GRID = {
 			"elite": {
 				"major_aspects": 2,
 				"capacities": 4
+			},
+			"weapon": {
+				"effect": 3,
+				"points": 160
 			}
 		}
 	},
@@ -564,6 +601,10 @@ export const GRID = {
 			"elite": {
 				"major_aspects": 2,
 				"capacities": 4
+			},
+			"weapon": {
+				"effect": 3,
+				"points": 100
 			}
 		},
 		[INITIE]: {
@@ -604,6 +645,10 @@ export const GRID = {
 			"elite": {
 				"major_aspects": 2,
 				"capacities": 4
+			},
+			"weapon": {
+				"effect": 3,
+				"points": 120
 			}
 		},
 		[HEROS]: {
@@ -644,6 +689,10 @@ export const GRID = {
 			"elite": {
 				"major_aspects": 2,
 				"capacities": 4
+			},
+			"weapon": {
+				"effect": 3,
+				"points": 160
 			}
 		}
 	},
@@ -685,7 +734,7 @@ export const GRID = {
 			"capacities": 2,
 			"outbreak": {
 				"min": 4,
-				"max": 9,
+				"max": 8,
 				"effects_min": 0,
 				"effects_max": 1
 			},
@@ -730,7 +779,7 @@ export const GRID = {
       "resilience": 0,
 			"capacities": 3,
 			"outbreak": {
-				"min": 8,
+				"min": 9,
 				"max": 12,
 				"effects_min": 1,
 				"effects_max": 2
@@ -776,10 +825,10 @@ export const GRID = {
       "resilience": 0,
 			"capacities": 5,
 			"outbreak": {
-				"min": 8,
+				"min": 12,
 				"max": 15,
 				"effects_min": 2,
-				"effects_max": 4
+				"effects_max": 3
 			},
 			"elite": {
 				"major_aspects": 1,
@@ -826,6 +875,10 @@ export const GRID = {
 			"elite": {
 				"major_aspects": 2,
 				"capacities": 3
+			},
+			"weapon": {
+				"effect": 2,
+				"points": 50
 			}
 		},
 		[INITIE]: {
@@ -866,6 +919,10 @@ export const GRID = {
 			"elite": {
 				"major_aspects": 2,
 				"capacities": 3
+			},
+			"weapon": {
+				"effect": 2,
+				"points": 70
 			}
 		},
 		[HEROS]: {
@@ -906,6 +963,10 @@ export const GRID = {
 			"elite": {
 				"major_aspects": 2,
 				"capacities": 3
+			},
+			"weapon": {
+				"effect": 2,
+				"points": 100
 			}
 		}
 	}

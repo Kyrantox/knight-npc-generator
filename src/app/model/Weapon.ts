@@ -1,4 +1,4 @@
-import { CONTACT } from '../constants';
+import { CONTACT, COURTE } from '../constants';
 import Effect from './Effect';
 
 export default class Weapon {

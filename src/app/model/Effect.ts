@@ -25,6 +25,10 @@ export default class Effect {
     this.cost = base.cost;
   }
 
+  raw() {
+    return this.name.replace(/\(.+\)|[0-9]/g, '').trim();
+  }
+
   toString() {
     return this.name;
   }

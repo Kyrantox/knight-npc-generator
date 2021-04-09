@@ -1,6 +1,7 @@
-import { ARMORED, ASPECTS_LABELS, BANDE, BETE, COLOSSE, GRID, HEROS, HOSTILE, INITIE, MACHINE, MASQUE, ORGANIC, PATRON, PATRON_COLOSSE, RECRUE, ROBOT } from '../constants';
+import { ARMORED, ASPECTS_LABELS, BANDE, BETE, COLOSSE, COURTE, GRID, HEROS, HOSTILE, INITIE, LOINTAINE, LONGUE, MACHINE, MASQUE, MOYENNE, ORGANIC, PATRON, PATRON_COLOSSE, RECRUE, ROBOT } from '../constants';
 import Aspect from './Aspect';
 import Capacity, { capacities } from './Capacity';
+import Effect, { effects } from './Effect';
 import Weapon from './Weapon';
 
 function shuffle(a: any[]) {
@@ -174,7 +175,9 @@ export class Npc {
     this.defense = Math.floor(this.aspects[BETE].score / 2) + this.aspects[MASQUE].exceptional;
     this.reaction = Math.floor(this.aspects[MACHINE].score / 2) + this.aspects[MACHINE].exceptional;
 
-    if (this.aspects[MASQUE].major) {
+    if (this.type === BANDE) {
+      this.initiative = 0;
+    } else if (this.aspects[MASQUE].major) {
       this.initiative = 30;
     } else {
       this.initiative = Math.floor(this.aspects[MASQUE].score / 2) + this.aspects[MASQUE].exceptional;
@@ -182,7 +185,6 @@ export class Npc {
 
     let filteredCapacities = this.query(capacities);
     const weaknesses = [];
-    shuffle(filteredCapacities);
 
     let counter = 0;
     for (const capacity of filteredCapacities) {
@@ -208,7 +210,6 @@ export class Npc {
 
     for (const level of weaknesses) {
       filteredCapacities = this.query(capacities, { level, filterWeakness: true });
-      shuffle(filteredCapacities);
 
       for (const capacity of filteredCapacities) {
         if (this.hasCapacity(capacity)) {
@@ -221,64 +222,121 @@ export class Npc {
       }
     }
 
-    // if (this.type === BANDE) {
-    //   filteredCapacities = this.query(capacities, { filterWeakness: true, effect: true });
-    //   shuffle(filteredCapacities);
+    if (this.type === BANDE) {
+      filteredCapacities = this.query(capacities, { filterWeakness: true, effect: true });
 
-    //   // Keep only the first armor and forcefield effet
-    //   let armor = false;
-    //   let forcefield = false;
-    //   filteredCapacities = filteredCapacities.filter(capacity => {
-    //     const raw = capacity.raw();
+      counter = 0;
+      for (const capacity of filteredCapacities) {
+        if (this.hasCapacity(capacity)) {
+          continue;
+        }
 
-    //     if (raw === 'Pénétrant' || raw === 'Ignore CdF') {
-    //       if (forcefield) {
-    //         return false;
-    //       } else {
-    //         forcefield = true;
-    //       }
-    //     }
+        this.capacities.push(new Capacity(capacity));
 
-    //     if (raw === 'Perce armure' || raw === 'Ignore armure') {
-    //       if (armor) {
-    //         return false;
-    //       } else {
-    //         armor = true;
-    //       }
-    //     }
+        counter += 1;
+        if (counter === options.ratio(infos.outbreak.effects_min, infos.outbreak.effects_max)) {
+          break;
+        }
+      }
+    } else {
+      for (let i = 0; i < 2; ++i) {
+        const weapon = new Weapon();
+        weapon.name = 'Arme ' + (i + 1);
+        weapon.dices = 2;
 
-    //     return true;
-    //   });
+        let points = infos.weapon.points;
 
-    //   let ignore = false;
-    //   filteredCapacities = filteredCapacities.filter(capacity => {
-    //     const raw = capacity.raw();
+        if (i !== 0) {
+          weapon.contact = false;
+          const ranges = [COURTE, MOYENNE, LONGUE, LOINTAINE];
+          shuffle(ranges);
+          weapon.range = ranges[0];
 
-    //     if (raw === 'Ignore CdF' || raw === 'Ignore armure') {
-    //       if (ignore) {
-    //         return false;
-    //       } {
-    //         ignore = true;
-    //       }
-    //     }
+          if (weapon.range === MOYENNE) {
+            points -= 5;
+          } else if (weapon.range === LONGUE) {
+            points -= 10;
+          } else if (weapon.range === LOINTAINE) {
+            points -= 15;
+          }
+        }
 
-    //     return true;
-    //   });
+        const filteredEffects = this.query(effects);
 
-    //   counter = 0;
-    //   for (const capacity of filteredCapacities) {
-    //     if (this.hasCapacity(capacity)) {
-    //       continue;
-    //     }
+        for (let i = 0; i < infos.weapon.effect; ++i) {
+          const effect = filteredEffects[i];
 
-    //     this.capacities.push(new Capacity(capacity));
+          if (points < effect.cost) {
+            continue;
+          }
 
-    //     counter += 1;
-    //     if (counter === options.ratio(infos.outbreak.effects_min, infos.outbreak.effects_max)) {
-    //       break;
-    //     }
-    //   }
-    // }
+          weapon.effects.push(new Effect(effect));
+
+          points -= effect.cost;
+
+          if (points <= 0) {
+            break;
+          }
+        }
+
+        weapon.effects.sort((a, b) => a.name.localeCompare(b.name));
+
+        // Upgrade dices until 10d6
+        while (points >= 10 && weapon.dices < 10) {
+          weapon.dices += 1;
+          points -= 10;
+        }
+
+        // Update raw damages
+        while (points >= 10 && weapon.raw < 12) {
+          weapon.raw += 3;
+          points -= 10;
+        }
+
+        // Upgrade dices
+        while (points >= 20) {
+          weapon.dices += 1;
+          points -= 20;
+        }
+
+        if (weapon.contact) {
+          if (this.aspects[BETE].exceptional) {
+            weapon.raw += this.aspects[BETE].exceptional;
+
+            if (this.aspects[BETE].major) {
+              weapon.raw += this.aspects[BETE].score;
+            }
+          }
+        }
+
+        this.weapons.push(weapon);
+      }
+    }
+
+    this.capacities.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  clean<T extends { tags: string[], raw: (() => string) }>(elements: T[]) {
+    const set = new Set<string>();
+
+    return elements.filter(e => {
+      const raw = e.raw();
+
+      if (set.has(raw)) {
+        return false;
+      }
+
+      // Specific cases
+      for (const exclusions of ['Ignore Armure - Ignore CdF - Pénétrant - Perce armure', 'Choc - Parasitage', 'Ignore armure - Destructeur']) {
+        if (exclusions.includes(raw) && exclusions.split(' - ').some(tag => set.has(tag))) {
+          return false;
+        }
+      }
+
+      set.add(raw);
+
+      return true;
+    });
   }
 
   hasCapacity(capacity: Capacity) {
@@ -366,7 +424,7 @@ export class Npc {
       .map(data => capacities.find(c => c.name === data)!));
 
     if (fixedCapacities.length && !this.capacities.some(c => fixedCapacities.map(e => e.raw()).includes(c.raw()))) {
-      this.capacities.push(new Capacity(fixedCapacities[Math.floor(Math.random() * fixedCapacities.length)]));
+      this.capacities.push(new Capacity(fixedCapacities[0]));
     }
 
     for (const capacity of this.capacities) {
@@ -385,7 +443,6 @@ export class Npc {
 
     const filteredCapacities = this.query(capacities, { elite: true });
 
-    shuffle(filteredCapacities);
     counter = 0;
     for (const capacity of filteredCapacities) {
       if (this.hasCapacity(capacity)) {
@@ -401,7 +458,7 @@ export class Npc {
     }
   }
 
-  query(capacities: Capacity[], options: { elite?: boolean, level?: string, filterWeakness?: boolean, effect?: boolean } = {}) {
+  query<T extends { tags: string [], raw: (() => string) }>(elements: T[], options: { elite?: boolean, level?: string, filterWeakness?: boolean, effect?: boolean } = {}) {
     const types: string[] = [];
 
     if (this.type !== PATRON_COLOSSE) {
@@ -434,18 +491,21 @@ export class Npc {
       excluded.push('faiblesse (recrue)', 'faiblesse (initié)', 'faiblesse (héros)');
     }
 
-    // if (options.effect) {
-    //   required.push('effet');
-    // } else {
-    //   excluded.push('effet');
-    // }
+    if (options.effect) {
+      required.push('effet');
+    } else {
+      excluded.push('effet');
+    }
 
-    return capacities.filter(c =>
+    const result = elements.filter(c =>
       required.every(tag => c.tags.includes(tag)) &&
       excluded.every(tag => !c.tags.includes(tag)) &&
       types.some(tag => c.tags.includes(tag)) &&
       levels.some(tag => c.tags.includes(tag))
     );
+    shuffle(result);
+
+    return this.clean(result);
   }
 
   boost(aspect: Aspect) {
@@ -470,7 +530,9 @@ export class Npc {
     } else if (aspect.id === MACHINE) {
       this.reaction += Math.floor(boost * 0.5);
     } else if (aspect.id === MASQUE) {
-      this.initiative += Math.floor(boost * 0.5);
+      if (this.type !== BANDE) {
+        this.initiative += Math.floor(boost * 0.5);
+      }
     }
   }
 
@@ -499,7 +561,10 @@ export class Npc {
     } else if (aspect.id === MACHINE) {
       this.reaction += boost;
     } else if (aspect.id === MASQUE) {
-      this.initiative = 30;
+      if (this.type !== BANDE) {
+        this.initiative = 30;
+      }
+
       this.defense += boost;
     }
   }
@@ -533,7 +598,8 @@ export interface NpcGrid {
   resilience: number;
   capacities: number;
   outbreak: { min: number; max: number; effects_min: number; effects_max: number };
-  elite: { major_aspects: number; capacities: number }
+  elite: { major_aspects: number; capacities: number },
+  weapon: { effect: number, points: number }
 }
 
 export function grid(type: string, level: string) {
