@@ -1,4 +1,4 @@
-import { ARMORED, ASPECTS_LABELS, BANDE, BETE, COLOSSE, COURTE, GRID, HEROS, HOSTILE, INITIE, LOINTAINE, LONGUE, MACHINE, MASQUE, MOYENNE, ORGANIC, PATRON, PATRON_COLOSSE, RECRUE, ROBOT } from '../constants';
+import { ARMORED, ASPECTS_LABELS, BANDE, BETE, CHAIR, COLOSSE, COURTE, DAME, GRID, HEROS, HOSTILE, INITIE, LOINTAINE, LONGUE, MACHINE, MASQUE, MOYENNE, ORGANIC, PATRON, PATRON_COLOSSE, RECRUE, ROBOT } from '../constants';
 import Aspect from './Aspect';
 import Capacity, { capacities } from './Capacity';
 import Effect, { effects } from './Effect';
@@ -94,6 +94,23 @@ export class Npc {
 
     const total = options.balances.reduce((previous, current) => current + previous, 0);
     const infos = grid(this.type, this.level);
+
+    const max = Math.max(...options.balances);
+    if (options.balances.filter(a => a === max).length === 1) {
+      const best = options.candidates(1)[0];
+
+      if (best === CHAIR) {
+        this.color = '#9b1a25';
+      } else if (best === BETE) {
+        this.color = '#f25a1e';
+      } else if (best === MACHINE) {
+        this.color = '#556abc';
+      } else if (best === DAME) {
+        this.color = '#69bfdc';
+      } else if (best === MASQUE) {
+        this.color = '#70aa6c';
+      }
+    }
 
     // Aspects
     const aspects = options.ratio(infos.aspects.min, infos.aspects.max);
