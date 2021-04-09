@@ -34,6 +34,8 @@ export class GeneratorComponent implements OnInit {
     this.toElite = true;
     this.elite = new Npc(this.npc);
     this.elite.elite();
+
+    setTimeout(() => window.scrollTo(0, document.getElementById('elite')!.getBoundingClientRect().top + window.scrollY), 1);
   }
 
   load(npc: Npc) {
