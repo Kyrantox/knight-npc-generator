@@ -1,4 +1,50 @@
-@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap/scss/functions.scss';
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1700px
+) !default;
+
+@import "~bootstrap/scss/variables.scss";
+@import "~bootstrap/scss/mixins.scss";
+@import "~bootstrap/scss/utilities.scss";
+@import "~bootstrap/scss/root.scss";
+@import "~bootstrap/scss/reboot.scss";
+@import "~bootstrap/scss/type.scss";
+@import "~bootstrap/scss/images.scss";
+@import "~bootstrap/scss/containers.scss";
+@import "~bootstrap/scss/grid.scss";
+@import "~bootstrap/scss/tables.scss";
+@import "~bootstrap/scss/forms.scss";
+@import "~bootstrap/scss/buttons.scss";
+@import "~bootstrap/scss/transitions.scss";
+@import "~bootstrap/scss/dropdown.scss";
+@import "~bootstrap/scss/button-group.scss";
+@import "~bootstrap/scss/nav.scss";
+@import "~bootstrap/scss/navbar.scss";
+@import "~bootstrap/scss/card.scss";
+@import "~bootstrap/scss/accordion.scss";
+@import "~bootstrap/scss/breadcrumb.scss";
+@import "~bootstrap/scss/pagination.scss";
+@import "~bootstrap/scss/badge.scss";
+@import "~bootstrap/scss/alert.scss";
+@import "~bootstrap/scss/progress.scss";
+@import "~bootstrap/scss/list-group.scss";
+@import "~bootstrap/scss/close.scss";
+@import "~bootstrap/scss/toasts.scss";
+@import "~bootstrap/scss/modal.scss";
+@import "~bootstrap/scss/tooltip.scss";
+@import "~bootstrap/scss/popover.scss";
+@import "~bootstrap/scss/carousel.scss";
+@import "~bootstrap/scss/spinners.scss";
+@import "~bootstrap/scss/offcanvas.scss";
+@import "~bootstrap/scss/helpers.scss";
+@import "~bootstrap/scss/utilities/api.scss";
+
 @import 'fonts/segoe-ui/style.css';
 
 body {
@@ -7,6 +53,10 @@ body {
   h1, h2 {
     color: white;
   }
+}
+
+.container-fluid {
+  min-width: 950px;
 }
 
 .panel {

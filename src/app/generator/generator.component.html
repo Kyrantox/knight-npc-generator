@@ -14,12 +14,12 @@
         <app-npc-generator [options]="options"></app-npc-generator>
       </div>
     </div>
-    <div class="col-md-12 col-xxl-6">
+    <div class="col-12 col-xxl-6">
       <div class="panel panel-flex">
         <app-npc-form [npc]="npc"></app-npc-form>
       </div>
     </div>
-    <div class="col-md-12 col-xxl-6 npc-live">
+    <div class="col-12 col-xxl-6 npc-live">
       <div class="panel panel-flex">
         <app-npc [npc]="npc"></app-npc>
         <div class="npc-buttons">
@@ -31,12 +31,12 @@
     <div class="col-12 npc-header" [hidden]="!toElite">
       <h2>Version élite</h2>
     </div>
-    <div class="col-md-12 col-xxl-6" [hidden]="!toElite">
+    <div class="col-12 col-xxl-6" [hidden]="!toElite">
       <div class="panel panel-flex">
         <app-npc-form [npc]="elite"></app-npc-form>
       </div>
     </div>
-    <div class="col-md-12 col-xxl-6 npc-live" [hidden]="!toElite">
+    <div class="col-12 col-xxl-6 npc-live" [hidden]="!toElite">
       <div class="panel panel-flex">
         <app-npc [npc]="elite"></app-npc>
         <div class="npc-buttons">
@@ -49,7 +49,7 @@
   <hr />
 
   <div class="row npc-list">
-    <div class="col-md-12 col-xxl-6 npc-block" *ngFor="let npc of list">
+    <div class="col-12 col-xxl-6 npc-block" *ngFor="let npc of list">
       <div class="panel panel-flex">
         <app-npc [npc]="npc"></app-npc>
         <div class="npc-buttons">
