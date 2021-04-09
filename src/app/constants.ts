@@ -571,10 +571,10 @@ export const GRID = {
 			},
 			"aspects_exceptionals": {
 				"min": 12,
-				"max": 37,
+				"max": 18,
 				"limit": 10,
-				"major_min": 2,
-				"major_max": 4
+				"major_min": 1,
+				"major_max": 2
 			},
 			"health": {
 				"min": 160,
@@ -615,10 +615,10 @@ export const GRID = {
 			},
 			"aspects_exceptionals": {
 				"min": 18,
-				"max": 45,
+				"max": 37,
 				"limit": 10,
 				"major_min": 2,
-				"major_max": 4
+				"major_max": 3
 			},
 			"health": {
 				"min": 300,
@@ -658,7 +658,7 @@ export const GRID = {
 				"limit": 20
 			},
 			"aspects_exceptionals": {
-				"min": 25,
+				"min": 37,
 				"max": 50,
 				"limit": 10,
 				"major_min": 3,
