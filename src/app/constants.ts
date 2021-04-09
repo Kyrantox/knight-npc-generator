@@ -131,32 +131,32 @@ export const EFFECTS = [
 	"Barrage 4 | recrue - hostile - salopard - colosse - patron - bande | 10",
 	"Barrage 6 | initié - hostile - salopard - colosse - patron - bande | 15",
 	"Barrage 8 | héros - hostile - salopard - colosse - patron - bande | 20",
-  "Choc 1 | recrue - hostile - salopard - colosse - patron - bande | 10",
-  "Choc 2 | initié - hostile - salopard - colosse - patron | 20",
-  "Choc 4 | héros - hostile - salopard - colosse - patron | 30",
-  "Choc 6 | héros - hostile - salopard - colosse - patron | 40",
-  "Dispersion 2 | recrue - hostile - salopard - colosse - patron | 5",
-  "Dispersion 3 | initié - hostile - salopard - colosse - patron | 10",
-  "Dispersion 6 | héros - hostile - salopard - colosse - patron | 20",
-  "Dégâts continus 3 | recrue - hostile - salopard - colosse - patron | 5",
-  "Dégâts continus 6 | initié - hostile - salopard - colosse - patron | 15",
-  "Dégâts continus 9 | héros - hostile - salopard - colosse - patron | 20",
-  "Destructeur | recrue - hostile - salopard - colosse - patron - bande | 15",
-  "Ignore armure | initié - hostile - salopard - colosse - patron - bande | 40",
-  "Ignore CdF | initié - hostile - salopard - colosse - patron - bande | 40",
+  "Choc 1 | recrue - hostile - salopard - colosse - patron - bande | 20",
+  "Choc 2 | initié - hostile - salopard - colosse - patron | 50",
+  "Choc 4 | héros - hostile - salopard - colosse - patron | 60",
+  "Choc 6 | héros - hostile - salopard - colosse - patron | 70",
+  "Dispersion 2 | recrue - hostile - salopard - colosse - patron | 10",
+  "Dispersion 3 | initié - hostile - salopard - colosse - patron | 20",
+  "Dispersion 6 | héros - hostile - salopard - colosse - patron | 30",
+  "Dégâts continus 3 | recrue - hostile - salopard - colosse - patron | 20",
+  "Dégâts continus 6 | initié - hostile - salopard - colosse - patron | 40",
+  "Dégâts continus 9 | héros - hostile - salopard - colosse - patron | 60",
+  "Destructeur | recrue - hostile - salopard - colosse - patron - bande | 20",
+  "Ignore armure | initié - hostile - salopard - colosse - patron - bande | 70",
+  "Ignore CdF | initié - hostile - salopard - colosse - patron - bande | 70",
   "Lumière 2 | recrue - hostile - salopard - colosse - patron - autre - bande | 5",
   "Lumière 4 | initié - hostile - salopard - colosse - patron - autre - bande | 15",
   "Lumière 6 | héros - hostile - salopard - colosse - patron - autre - bande | 20",
-  "Meurtrier | recrue - hostile - salopard - colosse - patron - bande | 15",
-  "Parasitage 1 | recrue - hostile - salopard - colosse - patron - bande | 10",
-  "Parasitage 2 | initié - hostile - salopard - colosse - patron | 20",
-  "Parasitage 4 | héros - hostile - salopard - colosse - patron | 30",
-  "Parasitage 6 | héros - hostile - salopard - colosse - patron | 40",
-  "Perce armure 20 | recrue - hostile - salopard - colosse - patron - bande | 10",
-  "Perce armure 40 | initié - hostile - salopard - colosse - patron - bande | 20",
-  "Perce armure 60 | héros - hostile - salopard - colosse - patron - bande | 30",
+  "Meurtrier | recrue - hostile - salopard - colosse - patron - bande | 20",
+  "Parasitage 1 | recrue - hostile - salopard - colosse - patron - bande | 20",
+  "Parasitage 2 | initié - hostile - salopard - colosse - patron | 50",
+  "Parasitage 4 | héros - hostile - salopard - colosse - patron | 60",
+  "Parasitage 6 | héros - hostile - salopard - colosse - patron | 70",
+  "Perce armure 20 | recrue - hostile - salopard - colosse - patron - bande | 20",
+  "Perce armure 40 | initié - hostile - salopard - colosse - patron - bande | 40",
+  "Perce armure 60 | héros - hostile - salopard - colosse - patron - bande | 50",
   "Silencieux | recrue - hostile - salopard - colosse - patron | 10",
-  "Soumission | initié - hostile - salopard - colosse - patron - bande | 20"
+  "Soumission | initié - hostile - salopard - colosse - patron - bande | 30"
 ];
 
 export const GRID = {
@@ -380,7 +380,7 @@ export const GRID = {
 			},
 			"weapon": {
 				"effect": 2,
-				"points": 70
+				"points": 80
 			}
 		},
 		[HEROS]: {
@@ -558,7 +558,7 @@ export const GRID = {
 			},
 			"weapon": {
 				"effect": 3,
-				"points": 160
+				"points": 150
 			}
 		}
 	},
@@ -692,7 +692,7 @@ export const GRID = {
 			},
 			"weapon": {
 				"effect": 3,
-				"points": 160
+				"points": 150
 			}
 		}
 	},
@@ -922,7 +922,7 @@ export const GRID = {
 			},
 			"weapon": {
 				"effect": 2,
-				"points": 70
+				"points": 80
 			}
 		},
 		[HEROS]: {
