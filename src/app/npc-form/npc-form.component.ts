@@ -11,11 +11,11 @@ import { Npc } from '../model/Npc';
 export class NpcFormComponent implements OnInit {
   @Input() npc: Npc = new Npc();
 
-  properties: { property: keyof Npc, label: string  }[][] = [[
+  properties: { property: keyof Npc, label: string, button?: () => void  }[][] = [[
     { property: 'health', label: 'PS' },
-    { property: 'defense', label: 'Défense' },
-    { property: 'reaction', label: 'Réaction' },
-    { property: 'initiative', label: 'Initiative' },
+    { property: 'defense', label: 'Défense', button: () => this.npc.recomputeDefense() },
+    { property: 'reaction', label: 'Réaction', button: () => this.npc.recomputeReaction() },
+    { property: 'initiative', label: 'Initiative', button: () => this.npc.recomputeInitiative() },
     { property: 'shield', label: 'Bouclier' }
   ], [
     { property: 'resilience', label: 'Résilience' },

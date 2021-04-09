@@ -109,9 +109,7 @@ export class Npc {
         if (this.aspects[i].score > infos.aspects.limit) {
           const min = this.aspects.map(a => a.score).reduce((previous, current) => current < previous ? current : previous, Infinity);
 
-          console.log('Increase', this.aspects.find(a => a.score === min));
           this.aspects.find(a => a.score === min)!.score += 1;
-          console.log('Decrease', this.aspects[i]);
           this.aspects[i].score -= 1;
 
           changed = true;
@@ -171,17 +169,7 @@ export class Npc {
     this.energy = Math.round(this.energy / 10) * 10;
     this.resilience = Math.round(this.resilience / 10) * 10;
 
-    // Computations
-    this.defense = Math.floor(this.aspects[BETE].score / 2) + this.aspects[MASQUE].exceptional;
-    this.reaction = Math.floor(this.aspects[MACHINE].score / 2) + this.aspects[MACHINE].exceptional;
-
-    if (this.type === BANDE) {
-      this.initiative = 0;
-    } else if (this.aspects[MASQUE].major) {
-      this.initiative = 30;
-    } else {
-      this.initiative = Math.floor(this.aspects[MASQUE].score / 2) + this.aspects[MASQUE].exceptional;
-    }
+    this.recompute();
 
     let filteredCapacities = this.query(capacities);
     const weaknesses = [];
@@ -287,12 +275,6 @@ export class Npc {
           points -= 10;
         }
 
-        // Update raw damages
-        while (points >= 10 && weapon.raw < 12) {
-          weapon.raw += 3;
-          points -= 10;
-        }
-
         // Upgrade dices
         while (points >= 20) {
           weapon.dices += 1;
@@ -378,6 +360,11 @@ export class Npc {
     this.forcefield = Math.floor(this.forcefield * 1.5);
     this.outbreak = Math.floor(this.outbreak * 1.5);
     this.resilience = Math.floor(this.resilience * 1.5);
+
+    this.health = Math.round(this.health / 10) * 10;
+    this.armor = Math.round(this.armor / 10) * 10;
+    this.energy = Math.round(this.energy / 10) * 10;
+    this.resilience = Math.round(this.resilience / 10) * 10;
 
     if (!this.forcefield) {
       this.shield = Math.max(10, Math.floor(this.shield * 1.5));
@@ -566,6 +553,44 @@ export class Npc {
       }
 
       this.defense += boost;
+    }
+  }
+
+  recompute() {
+    this.recomputeDefense();
+    this.recomputeReaction();
+    this.recomputeInitiative();
+  }
+
+  recomputeDefense() {
+    this.defense = Math.floor(this.aspects[BETE].score / 2) + this.aspects[MASQUE].exceptional;
+  }
+
+  recomputeReaction() {
+    this.reaction = Math.floor(this.aspects[MACHINE].score / 2) + this.aspects[MACHINE].exceptional;
+  }
+
+  recomputeInitiative() {
+    if (this.type === BANDE) {
+      this.initiative = 0;
+    } else if (this.aspects[MASQUE].major) {
+      this.initiative = 30;
+    } else {
+      this.initiative = Math.floor(this.aspects[MASQUE].score / 2) + this.aspects[MASQUE].exceptional;
+    }
+  }
+
+  recomputeWeapon(weapon: Weapon) {
+    weapon.raw = 0;
+
+    if (weapon.contact) {
+      if (this.aspects[BETE].exceptional) {
+        weapon.raw += this.aspects[BETE].exceptional;
+
+        if (this.aspects[BETE].major) {
+          weapon.raw += this.aspects[BETE].score;
+        }
+      }
     }
   }
 
