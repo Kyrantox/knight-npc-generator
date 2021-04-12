@@ -49,7 +49,7 @@
         </div>
 
         <div class="col-9 npc-form-colors">
-          <button class="btn" *ngFor="let color of ['#d3181f', '#9b1a25', '#f25a1e', '#556abc', '#69bfdc', '#70aa6c', '#40bd97', '#364379', '#cacd40', '#321619', '#ab1d94']"
+          <button class="btn" tabindex="-1" *ngFor="let color of ['#d3181f', '#9b1a25', '#f25a1e', '#556abc', '#69bfdc', '#70aa6c', '#40bd97', '#364379', '#cacd40', '#321619', '#ab1d94']"
             [style.background-color]="color"
             (click)="npc.color = color"
           >&nbsp;</button>
@@ -60,9 +60,9 @@
     <div class="col-4">
       <div class="input-group" *ngFor="let aspect of npc.aspects">
         <label class="input-group-text">{{ aspect.name }}</label>
-        <input [(ngModel)]="aspect.score" type="number" class="form-control" />
-        <input [(ngModel)]="aspect.exceptional" type="number" class="form-control" />
-        <div class="input-group-text">
+        <input [(ngModel)]="aspect.score" type="number" title="Score" class="form-control" />
+        <input [(ngModel)]="aspect.exceptional" type="number" title="Aspect exceptionnel" class="form-control" />
+        <div class="input-group-text" title="Aspect exceptionnel majeur">
           <input [(ngModel)]="aspect.major" type="checkbox" class="form-check-input mt-0" />
         </div>
       </div>
