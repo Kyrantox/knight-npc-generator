@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Knight NPC generator</h1>
+  <h1>Knight NPC Generator</h1>
 </div>
 
 <div class="container-fluid">
@@ -13,6 +13,7 @@
       <div class="panel">
         <app-npc-generator [options]="options"></app-npc-generator>
       </div>
+      <hr />
     </div>
     <div class="col-12 col-xxl-6">
       <div class="panel panel-flex">
@@ -28,6 +29,7 @@
         </div>
       </div>
     </div>
+    <hr [hidden]="!toElite"/>
     <div id="elite" class="col-12 npc-header" [hidden]="!toElite">
       <h2>Version élite</h2>
     </div>
@@ -49,6 +51,11 @@
   <hr />
 
   <div class="row npc-list">
+    <div class="col-12" *ngIf="list.length">
+      <p class="text">
+        <small>Les PNJ sauvegardés sont stockés dans les données locales de votre navigateur.</small>
+      </p>
+    </div>
     <div class="col-12 col-xxl-6 npc-block" *ngFor="let npc of list">
       <div class="panel panel-flex">
         <app-npc [npc]="npc"></app-npc>

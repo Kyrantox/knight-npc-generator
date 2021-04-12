@@ -46,12 +46,25 @@ $grid-breakpoints: (
 @import "~bootstrap/scss/utilities/api.scss";
 
 @import 'fonts/segoe-ui/style.css';
+@import 'fonts/google/style.css';
 
 body {
   background-color: black;
 
   h1, h2 {
     color: white;
+  }
+
+  h1 {
+    font-family: 'Black Ops One', cursive;
+    background-color: #556abc;
+    padding-left: 50px;
+    font-size: 50px;
+    border-bottom: 1px solid white;
+  }
+
+  h2 {
+    font-family: 'Orbitron', sans-serif;
   }
 }
 

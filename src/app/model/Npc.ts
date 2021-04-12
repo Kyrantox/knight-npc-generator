@@ -191,7 +191,9 @@ export class Npc {
     let filteredCapacities = this.query(capacities);
     const weaknesses = [];
 
+    // Capacities
     let counter = 0;
+    const capacitiesTotal = ((this.type === COLOSSE || this.type === PATRON_COLOSSE) && this.resilience) ? infos.capacities + 1 : infos.capacities;
     for (const capacity of filteredCapacities) {
       if (this.hasCapacity(capacity)) {
         continue;
@@ -208,7 +210,7 @@ export class Npc {
       }
 
       counter += 1;
-      if (counter == infos.capacities) {
+      if (counter === capacitiesTotal) {
         break;
       }
     }

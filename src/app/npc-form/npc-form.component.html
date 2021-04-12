@@ -72,7 +72,7 @@
       <div class="input-group" *ngFor="let prop of props">
         <label class="input-group-text">{{ prop.label }}</label>
         <input [(ngModel)]="$any(npc)[prop.property]" type="number" class="form-control" />
-        <button class="btn btn-secondary mt-0 mb-0 button-icon" *ngIf="prop.button" (click)="prop.button()">&#8635;</button>
+        <button class="btn btn-secondary mt-0 mb-0 button-icon" *ngIf="prop.button" (click)="prop.button()" [title]="prop.tooltip">&#8635;</button>
       </div>
     </div>
 
@@ -90,7 +90,7 @@
           (selected)="selected($event, capacity)"
           [focusFirst]="true"
         ></ng-autocomplete>
-          <button class="btn btn-danger button-icon" tabindex="-1" (click)="npc.removeCapacity(capacity)">&#215;</button>
+          <button class="btn btn-danger button-icon" tabindex="-1" (click)="npc.removeCapacity(capacity)" title="Supprimer la capacité">&#215;</button>
         </div>
 
         <textarea class="form-control" [(ngModel)]="capacity.description"></textarea>
@@ -104,14 +104,14 @@
         <div class="input-group">
           <label class="input-group-text">Nom</label>
           <input [(ngModel)]="weapon.name" type="text" class="form-control" />
-          <button class="btn btn-danger button-icon" tabindex="-1" (click)="npc.removeWeapon(weapon)">&#215;</button>
+          <button class="btn btn-danger button-icon" tabindex="-1" (click)="npc.removeWeapon(weapon)" title="Supprimer l'arme">&#215;</button>
         </div>
 
         <div class="input-group">
           <input [(ngModel)]="weapon.dices" type="number" class="form-control" />
           <span class="input-group-text">d6 + </span>
           <input [(ngModel)]="weapon.raw" type="number" class="form-control" />
-          <button class="btn btn-secondary mt-0 mb-0 button-icon" (click)="npc.recomputeWeapon(weapon)">&#8635;</button>
+          <button class="btn btn-secondary mt-0 mb-0 button-icon" (click)="npc.recomputeWeapon(weapon)" title="Calculer les dégâts">&#8635;</button>
           <div class="input-group-text">
             <input [(ngModel)]="weapon.contact" type="checkbox" class="form-check-input mt-0" />
           </div>
@@ -137,7 +137,7 @@
                 (selected)="selected($event, effect)"
                 [focusFirst]="true"
               ></ng-autocomplete>
-              <button class="btn btn-danger button-icon" tabindex="-1" (click)="weapon.removeEffect(effect)">&#215;</button>
+              <button class="btn btn-danger button-icon" tabindex="-1" (click)="weapon.removeEffect(effect)" title="Supprimer l'effet">&#215;</button>
             </div>
           </div>
         </div>
