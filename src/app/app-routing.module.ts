@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './about/about.component';
 import { GeneratorComponent } from './generator/generator.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: GeneratorComponent,
-    children: [{
-      path: '**',
-      redirectTo: ''
-    }]
+    component: GeneratorComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
   }
 ];
 

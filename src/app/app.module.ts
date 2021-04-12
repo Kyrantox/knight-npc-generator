@@ -10,6 +10,7 @@ import { NpcGeneratorComponent } from './npc-generator/npc-generator.component';
 import { FormsModule } from '@angular/forms';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ColorPickerModule } from 'ngx-color-picker';
     GeneratorComponent,
     NpcComponent,
     NpcFormComponent,
-    NpcGeneratorComponent
+    NpcGeneratorComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
