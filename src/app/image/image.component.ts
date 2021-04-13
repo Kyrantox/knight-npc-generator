@@ -22,14 +22,7 @@ export class ImageComponent implements OnInit {
       scrollY: -window.scrollY
     });
 
-    const container = document.getElementById('image-canvas')!;
-    const current = container.children?.[0];
-
-    if(current) {
-      container.removeChild(current);
-    }
-
-    container.appendChild(canvas);
+    document.getElementById('image-canvas')!.innerHTML = '<img src="' + canvas.toDataURL() + '" />';
 
     this.opened = true;
   }
