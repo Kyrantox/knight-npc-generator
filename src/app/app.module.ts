@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { AboutComponent } from './about/about.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AboutComponent } from './about/about.component';
     NpcComponent,
     NpcFormComponent,
     NpcGeneratorComponent,
-    AboutComponent
+    AboutComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
