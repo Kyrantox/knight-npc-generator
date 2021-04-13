@@ -80,7 +80,7 @@ export const CAPACITIES = [
   "Méta-armure (4 points d’aspect exceptionnel et 1 à 3 modules standards) | recrue - hostile - salopard - colosse - patron - autre",
   "Méta-armure (8 points d’aspect exceptionnel et 1 à 3 modules avancés) | initié - hostile - salopard - colosse - patron - autre",
   "Méta-armure (12 points d’aspect exceptionnel et 1 à 3 modules rares) | héros - hostile - salopard - colosse - patron - autre",
-  "Méthodique | faiblesse (héros) - recrue - hostile - salopard - colosse - patron - bande | Si la cible du PNJ est mobile, c’est-à-dire si elle a effectué une action de déplacement à ce tour, elle ne subit pas de score de débordement.",
+  "Méthodique | faiblesse (héros) - recrue - bande | Si la cible du PNJ est mobile, c’est-à-dire si elle a effectué une action de déplacement à ce tour, elle ne subit pas de score de débordement.",
   "Module (module standard) | recrue - hostile - salopard - colosse - patron | Le PNJ bénéficie de l'équivalent d'un module standard.",
   "Module (module avancé) | initié - hostile - salopard - colosse - patron | Le PNJ bénéficie de l'équivalent d'un module avancé.",
   "Module (module rare) | héros - hostile - salopard - colosse - patron | Le PNJ bénéficie de l'équivalent d'un module rare.",
