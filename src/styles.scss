@@ -56,6 +56,11 @@ body {
     font-family: 'Orbitron', sans-serif;
     text-shadow: 0 0 4px white;
   }
+
+  &.no-scroll {
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
 }
 
 header {

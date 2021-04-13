@@ -12,6 +12,7 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { AboutComponent } from './about/about.component';
 import { MainComponent } from './main/main.component';
+import { ImageComponent } from './image/image.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MainComponent } from './main/main.component';
     NpcFormComponent,
     NpcGeneratorComponent,
     AboutComponent,
-    MainComponent
+    MainComponent,
+    ImageComponent
   ],
   imports: [
     BrowserModule,

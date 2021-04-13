@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ImageComponent } from '../image/image.component';
 import { GenerateOptions, Npc } from '../model/Npc';
+
+declare var ClipboardItem: any;
 
 @Component({
   selector: 'app-generator',
@@ -13,6 +16,8 @@ export class GeneratorComponent implements OnInit {
   list: Npc[] = [];
   generator: boolean = false;
   options: GenerateOptions = new GenerateOptions();
+
+  @ViewChild(ImageComponent) imageComponent!: ImageComponent;
 
   constructor() {
     const json = localStorage.getItem('list');
@@ -59,6 +64,10 @@ export class GeneratorComponent implements OnInit {
   delete(npc: Npc) {
     this.list = this.list.filter(e => e !== npc);
     localStorage.setItem('list', JSON.stringify(this.list));
+  }
+
+  async image(id: string) {
+    this.imageComponent.open(id);
   }
 
 }
