@@ -16,7 +16,7 @@ export default class Weapon {
       this.dices = base.dices;
       this.raw = base.raw;
       this.range = base.range;
-      this.effects = base.effects.map(e => new Effect(e));
+      this.effects = (base.effects ?? []).map(e => new Effect(e));
     }
   }
 

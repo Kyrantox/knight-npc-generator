@@ -21,8 +21,8 @@ export default class Effect {
 
   copy(base: Effect) {
     this.name = base.name;
-    this.tags = [...base.tags];
-    this.cost = base.cost;
+    this.tags = base.tags ? [...base.tags] : [];
+    this.cost = base.cost ?? 0;
   }
 
   raw() {

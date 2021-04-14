@@ -17,12 +17,14 @@
       </div>
     </div>
     <div class="col-12 col-xxl-6 npc-live">
-      <div class="panel panel-flex">
+      <div class="panel-flex">
         <app-npc [npc]="npc" id="npc-1"></app-npc>
         <div class="npc-buttons">
           <div class="btn-group">
             <button class="btn btn-outline-primary" (click)="save(npc)">Sauvegarder</button>
             <button class="btn btn-outline-primary" (click)="image('npc-1')">Image</button>
+            <button class="btn btn-outline-primary" (click)="import(npc)">Import</button>
+            <button class="btn btn-outline-primary" (click)="export(npc)">Export</button>
             <button class="btn btn-outline-primary" (click)="convertToElite()" title="Générer une version élite">Élite</button>
           </div>
         </div>
@@ -38,12 +40,13 @@
       </div>
     </div>
     <div class="col-12 col-xxl-6 npc-live" [hidden]="!toElite">
-      <div class="panel panel-flex">
+      <div class="panel-flex">
         <app-npc [npc]="elite" id="npc-2"></app-npc>
         <div class="npc-buttons">
           <div class="btn-group">
             <button class="btn btn-outline-primary" (click)="save(elite)">Sauvegarder</button>
             <button class="btn btn-outline-primary" (click)="image('npc-2')">Image</button>
+            <button class="btn btn-outline-primary" (click)="export(npc)">Export</button>
           </div>
         </div>
       </div>
@@ -59,12 +62,13 @@
       </p>
     </div>
     <div class="col-12 col-xxl-6 npc-block" *ngFor="let npc of list; let index = index;">
-      <div class="panel panel-flex">
+      <div class="panel-flex">
         <app-npc [npc]="npc" id="npc-list-{{ index }}"></app-npc>
         <div class="npc-buttons">
           <div class="btn-group">
             <button class="btn btn-outline-primary" (click)="load(npc)">Charger</button>
             <button class="btn btn-outline-primary" (click)="image('npc-list-' + index)">Image</button>
+            <button class="btn btn-outline-primary" (click)="export(npc)">Export</button>
           </div>
           <button class="btn btn-danger" tabindex="-1" (click)="delete(npc)">Supprimer</button>
         </div>
@@ -73,4 +77,6 @@
   </div>
 
   <app-image></app-image>
+  <app-export></app-export>
+  <app-import></app-import>
 </div>

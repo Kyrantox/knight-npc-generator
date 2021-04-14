@@ -1,0 +1,10 @@
+<div class="import fullscreen" [hidden]="!opened" (click)="close($event)" id="import-background">
+  <div class="import-content">
+    <p>
+      Vous pouvez coller ici le résultat d'un export de PNJ pour l'importer.
+    </p>
+    <textarea class="form-control" [(ngModel)]="json"></textarea>
+
+    <button class="btn btn-outline-primary" (click)="import()">Importer</button>
+  </div>
+</div>

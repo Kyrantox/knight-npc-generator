@@ -13,6 +13,8 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import { AboutComponent } from './about/about.component';
 import { MainComponent } from './main/main.component';
 import { ImageComponent } from './image/image.component';
+import { ExportComponent } from './export/export.component';
+import { ImportComponent } from './import/import.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ImageComponent } from './image/image.component';
     NpcGeneratorComponent,
     AboutComponent,
     MainComponent,
-    ImageComponent
+    ImageComponent,
+    ExportComponent,
+    ImportComponent
   ],
   imports: [
     BrowserModule,

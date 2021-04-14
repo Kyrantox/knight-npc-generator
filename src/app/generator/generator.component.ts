@@ -1,5 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { ExportComponent } from '../export/export.component';
 import { ImageComponent } from '../image/image.component';
+import { ImportComponent } from '../import/import.component';
 import { GenerateOptions, Npc } from '../model/Npc';
 
 declare var ClipboardItem: any;
@@ -18,6 +20,8 @@ export class GeneratorComponent implements OnInit {
   options: GenerateOptions = new GenerateOptions();
 
   @ViewChild(ImageComponent) imageComponent!: ImageComponent;
+  @ViewChild(ExportComponent) exportComponent!: ExportComponent;
+  @ViewChild(ImportComponent) importComponent!: ImportComponent;
 
   constructor() {
     const json = localStorage.getItem('list');
@@ -68,6 +72,21 @@ export class GeneratorComponent implements OnInit {
 
   async image(id: string) {
     this.imageComponent.open(id);
+  }
+
+  export(npc: Npc) {
+    this.exportComponent.open(npc.export());
+  }
+
+  import(npc: Npc) {
+    this.importComponent.open(npc);
+  }
+
+  @HostListener('document:keydown.escape', ['$event'])
+  keypressEvent(event: KeyboardEvent) {
+    this.imageComponent.doClose();
+    this.exportComponent.doClose();
+    this.importComponent.doClose();
   }
 
 }

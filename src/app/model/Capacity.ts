@@ -23,7 +23,7 @@ export default class Capacity {
   copy(base: Capacity) {
     this.name = base.name;
     this.description = base.description;
-    this.tags = [...base.tags];
+    this.tags = base.tags ? [...base.tags] : [];
   }
 
   raw() {

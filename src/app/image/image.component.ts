@@ -9,10 +9,7 @@ import html2canvas from 'html2canvas';
 export class ImageComponent implements OnInit {
   opened: boolean = false;
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   async open(id: string) {
     document.body.classList.add('no-scroll');
@@ -29,6 +26,12 @@ export class ImageComponent implements OnInit {
 
   close(event: any) {
     if (event.target.id === 'image-background') {
+      this.doClose()
+    }
+  }
+
+  doClose() {
+    if (this.opened) {
       this.opened = false;
       document.body.classList.remove('no-scroll');
     }

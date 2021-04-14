@@ -63,6 +63,21 @@ body {
   }
 }
 
+.fullscreen {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px;
+  z-index: 3;
+  overflow-y: auto;
+}
+
 header {
   color: white;
   background-color: #556abc;

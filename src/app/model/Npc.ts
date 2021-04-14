@@ -58,10 +58,18 @@ export class Npc {
     if (base) {
       this.copy(base);
     } else {
-      for (let i = 0; i < 5; ++i) {
-        this.aspects[i].id = i;
-        this.aspects[i].name = ASPECTS_LABELS[i];
+      this.initializeAspects();
+    }
+  }
+
+  initializeAspects() {
+    for (let i = 0; i < 5; ++i) {
+      if (!this.aspects[i]) {
+        this.aspects[i] = new Aspect();
       }
+
+      this.aspects[i].id = i;
+      this.aspects[i].name = ASPECTS_LABELS[i];
     }
   }
 
@@ -69,7 +77,7 @@ export class Npc {
     this.name = npc.name;
     this.type = npc.type;
     this.level = npc.level;
-    this.aspects = npc.aspects.map(a => new Aspect(a));
+    this.aspects = (npc.aspects  ?? []).map(a => new Aspect(a));
     this.health = npc.health;
     this.armor = npc.armor;
     this.energy = npc.energy;
@@ -80,10 +88,12 @@ export class Npc {
     this.initiative = npc.initiative;
     this.outbreak = npc.outbreak;
     this.weakness = npc.weakness
-    this.capacities = npc.capacities.map(c => new Capacity(c));
-    this.weapons = npc.weapons.map(w => new Weapon(w));
+    this.capacities = (npc.capacities ?? []).map(c => new Capacity(c));
+    this.weapons = (npc.weapons ?? []).map(w => new Weapon(w));
     this.resilience = npc.resilience;
     this.color = npc.color;
+
+    this.initializeAspects();
   }
 
   generate(options: GenerateOptions) {
@@ -629,6 +639,41 @@ export class Npc {
     this.capacities = this.capacities.filter(c => c !== capacity);
   }
 
+  export() {
+    const data = JSON.parse(JSON.stringify(this));
+
+    for (const aspect of data.aspects) {
+      delete aspect.id;
+    }
+
+    for (const capacity of data.capacities) {
+      delete capacity.index;
+      delete capacity.tags;
+    }
+
+    if (this.type === BANDE) {
+      delete data.weapons;
+      delete data.armor;
+      delete data.resilience;
+      delete data.initiative;
+    } else {
+      delete data.outbreak;
+
+      for (const weapon of data.weapons) {
+        for (const effect of weapon.effects) {
+          delete effect.index;
+          delete effect.tags;
+          delete effect.cost;
+        }
+      }
+    }
+
+    return data;
+  }
+
+  import(data: any) {
+    this.copy(data);
+  }
 }
 
 export interface NpcGrid {
