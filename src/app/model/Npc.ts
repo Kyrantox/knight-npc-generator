@@ -152,16 +152,16 @@ export class Npc {
     }
 
     // Others
+    if (options.forcefield) {
+      this.forcefield = options.ratio(infos.forcefield.min, infos.forcefield.max);
+    } else {
+      this.shield = options.ratio(infos.shield.min, infos.shield.max);
+    }
+
     if (options.type === BANDE) {
       this.health = options.ratio(infos.health.min, infos.health.max);
       this.outbreak = options.ratio(infos.outbreak.min, infos.outbreak.max);
     } else {
-      if (options.forcefield) {
-        this.forcefield = options.ratio(infos.forcefield.min, infos.forcefield.max);
-      } else {
-        this.shield = options.ratio(infos.shield.min, infos.shield.max);
-      }
-
       if (options.subtype === ORGANIC) {
         this.health =  options.ratio(infos.health.min, infos.health.max);
       } else if (options.subtype === ROBOT) {
