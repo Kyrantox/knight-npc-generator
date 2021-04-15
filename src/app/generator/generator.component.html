@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-12 npc-header">
       <h2>Version normale</h2>
-      <button class="btn btn-secondary" (click)="generator = !generator">Générateur</button>
-      <button class="btn btn-primary" (click)="generate()" [hidden]="!generator">Générer</button>
+      <button class="btn btn-outline-secondary" (click)="generator = !generator">Générateur</button>
+      <button class="btn btn-outline-primary" (click)="generate()" [hidden]="!generator">Générer</button>
     </div>
     <div class="col-12" [hidden]="!generator">
       <div class="panel">
