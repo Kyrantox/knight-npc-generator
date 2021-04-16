@@ -1,0 +1,11 @@
+<button class="btn btn-primary" (click)="pdf()">PDF</button>
+
+<div id="bestiary">
+  <div class="npc-page" *ngFor="let npc of list">
+    <div class="npc-block">
+      <app-npc [npc]="npc"></app-npc>
+    </div>
+
+    <div class="pagebreak"></div>
+  </div>
+</div>

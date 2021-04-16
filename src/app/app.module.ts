@@ -15,6 +15,7 @@ import { MainComponent } from './main/main.component';
 import { ImageComponent } from './image/image.component';
 import { ExportComponent } from './export/export.component';
 import { ImportComponent } from './import/import.component';
+import { BestiaryComponent } from './bestiary/bestiary.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ImportComponent } from './import/import.component';
     MainComponent,
     ImageComponent,
     ExportComponent,
-    ImportComponent
+    ImportComponent,
+    BestiaryComponent
   ],
   imports: [
     BrowserModule,
