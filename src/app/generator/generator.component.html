@@ -5,13 +5,13 @@
       <button class="btn btn-outline-secondary" (click)="generator = !generator">Générateur</button>
       <button class="btn btn-outline-primary" (click)="generate()" [hidden]="!generator">Générer</button>
     </div>
-    <div class="col-12" [hidden]="!generator">
+    <div class="col-12 npc-form-container" [hidden]="!generator">
       <div class="panel">
         <app-npc-generator [options]="options"></app-npc-generator>
       </div>
       <hr />
     </div>
-    <div class="col-12 col-xxl-6">
+    <div class="col-12 col-xxl-6 npc-form-container">
       <div class="panel panel-flex">
         <app-npc-form [npc]="npc"></app-npc-form>
       </div>
@@ -34,7 +34,7 @@
     <div id="elite" class="col-12 npc-header" [hidden]="!toElite">
       <h2>Version élite</h2>
     </div>
-    <div class="col-12 col-xxl-6" [hidden]="!toElite">
+    <div class="col-12 col-xxl-6 npc-form-container" [hidden]="!toElite">
       <div class="panel panel-flex">
         <app-npc-form [npc]="elite"></app-npc-form>
       </div>

@@ -34,3 +34,15 @@ hr {
 .container-fluid {
   min-width: 950px;
 }
+
+.npc-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 1839.98px) {
+  .npc-form-container .panel {
+    max-width: 1200px;
+  }
+}
