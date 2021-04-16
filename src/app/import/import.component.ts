@@ -23,7 +23,17 @@ export class ImportComponent implements OnInit {
   }
 
   import() {
-    this.npc.import(JSON.parse(this.json));
+    let data: any | undefined;
+
+    try {
+      data = JSON.parse(this.json);
+    } catch (e) {
+      console.log("Unable to parse JSON", e);
+    }
+
+    if (data) {
+      this.npc.import(data);
+    }
 
     this.doClose();
   }

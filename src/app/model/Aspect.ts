@@ -1,3 +1,5 @@
+import { isString } from '../util';
+
 export default class Aspect {
   name: string = '';
   id: number = 0;
@@ -7,11 +9,10 @@ export default class Aspect {
 
   constructor(base?: Aspect) {
     if (base) {
-      this.name = base.name;
-      this.id = base.id;
-      this.score = base.score;
-      this.exceptional = base.exceptional;
-      this.major = base.major;
+      this.name = isString(base.name) ? base.name : '';
+      this.score = Number.isFinite(base.score) ? base.score : 0;
+      this.exceptional = Number.isFinite(base.exceptional) ? base.exceptional : 0;
+      this.major = !!base.major;
     }
   }
 }

@@ -1,4 +1,5 @@
 import { EFFECTS } from '../constants';
+import { isString } from '../util';
 
 export default class Effect {
   name: string = '';
@@ -20,9 +21,9 @@ export default class Effect {
   }
 
   copy(base: Effect) {
-    this.name = base.name;
-    this.tags = base.tags ? [...base.tags] : [];
-    this.cost = base.cost ?? 0;
+    this.name = isString(base.name) ? base.name : '';
+    this.tags = Array.isArray(base.tags) ? base.tags.filter(t => isString(t)).map(t => t.toLowerCase()) : [];
+    this.cost = Number.isFinite(base.cost) ? base.cost : 0;
   }
 
   raw() {

@@ -1,4 +1,5 @@
 import { CAPACITIES } from '../constants';
+import { isString } from '../util';
 import Effect, { effects } from './Effect';
 
 export default class Capacity {
@@ -21,9 +22,9 @@ export default class Capacity {
   }
 
   copy(base: Capacity) {
-    this.name = base.name;
-    this.description = base.description;
-    this.tags = base.tags ? [...base.tags] : [];
+    this.name = isString(base.name) ? base.name : '';
+    this.description = isString(base.description) ? base.description : '';
+    this.tags = Array.isArray(base.tags) ? base.tags.filter(t => isString(t)).map(t => t.toLowerCase()) : [];
   }
 
   raw() {

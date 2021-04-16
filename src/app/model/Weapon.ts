@@ -1,4 +1,5 @@
-import { CONTACT, COURTE } from '../constants';
+import { CONTACT, COURTE, LOINTAINE, LONGUE, MOYENNE } from '../constants';
+import { isString } from '../util';
 import Effect from './Effect';
 
 export default class Weapon {
@@ -11,12 +12,12 @@ export default class Weapon {
 
   constructor(base?: Weapon) {
     if (base) {
-      this.name = base.name;
-      this.contact = base.contact;
-      this.dices = base.dices;
-      this.raw = base.raw;
-      this.range = base.range;
-      this.effects = (base.effects ?? []).map(e => new Effect(e));
+      this.name = isString(base.name) ? base.name : '';
+      this.contact = !!base.contact;
+      this.dices = Number.isFinite(base.dices) ? base.dices : 0;
+      this.raw = Number.isFinite(base.raw) ? base.raw : 0;
+      this.range = [CONTACT, COURTE, MOYENNE, LONGUE, LOINTAINE].includes(base.range?.toLowerCase?.()) ? base.range.toLowerCase() : (this.contact ? CONTACT : COURTE);
+      this.effects = (Array.isArray(base.effects) ? base.effects : []).map(e => new Effect(e));
     }
   }
 

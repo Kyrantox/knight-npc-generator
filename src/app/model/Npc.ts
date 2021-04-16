@@ -1,4 +1,5 @@
-import { ARMORED, ASPECTS_LABELS, BANDE, BETE, CHAIR, COLOSSE, COURTE, DAME, GRID, HEROS, HOSTILE, INITIE, LOINTAINE, LONGUE, MACHINE, MASQUE, MOYENNE, ORGANIC, PATRON, PATRON_COLOSSE, RECRUE, ROBOT } from '../constants';
+import { ARMORED, ASPECTS_LABELS, BANDE, BETE, CHAIR, COLOSSE, COURTE, DAME, GRID, HEROS, HOSTILE, INITIE, LOINTAINE, LONGUE, MACHINE, MASQUE, MOYENNE, ORGANIC, PATRON, PATRON_COLOSSE, RECRUE, ROBOT, SALOPARD } from '../constants';
+import { isString } from '../util';
 import Aspect from './Aspect';
 import Capacity, { capacities } from './Capacity';
 import Effect, { effects } from './Effect';
@@ -74,24 +75,24 @@ export class Npc {
   }
 
   copy(npc: Npc) {
-    this.name = npc.name;
-    this.type = npc.type;
-    this.level = npc.level;
-    this.aspects = (npc.aspects  ?? []).map(a => new Aspect(a));
-    this.health = npc.health;
-    this.armor = npc.armor;
-    this.energy = npc.energy;
-    this.shield = npc.shield;
-    this.forcefield = npc.forcefield;
-    this.defense = npc.defense;
-    this.reaction = npc.reaction;
-    this.initiative = npc.initiative;
-    this.outbreak = npc.outbreak;
-    this.weakness = npc.weakness
-    this.capacities = (npc.capacities ?? []).map(c => new Capacity(c));
-    this.weapons = (npc.weapons ?? []).map(w => new Weapon(w));
-    this.resilience = npc.resilience;
-    this.color = npc.color;
+    this.name = isString(npc.name) ? npc.name : '';
+    this.type = [HOSTILE, SALOPARD, COLOSSE, PATRON, PATRON_COLOSSE, BANDE].includes(npc.type?.toLowerCase?.()) ? npc.type.toLowerCase() : HOSTILE;
+    this.level = [RECRUE, INITIE, HEROS].includes(npc.level?.toLowerCase?.()) ? npc.level.toLowerCase() : RECRUE;
+    this.aspects = (Array.isArray(npc.aspects) ? npc.aspects : []).map(a => new Aspect(a));
+    this.health = Number.isFinite(npc.health) ? npc.health : 0;
+    this.armor = Number.isFinite(npc.armor) ? npc.armor : 0;
+    this.energy = Number.isFinite(npc.energy) ? npc.energy : 0;
+    this.shield = Number.isFinite(npc.shield) ? npc.shield : 0;
+    this.forcefield = Number.isFinite(npc.forcefield) ? npc.forcefield : 0;
+    this.defense = Number.isFinite(npc.defense) ? npc.defense : 0;
+    this.reaction = Number.isFinite(npc.reaction) ? npc.reaction : 0;
+    this.initiative = Number.isFinite(npc.initiative) ? npc.initiative : 0;
+    this.outbreak = Number.isFinite(npc.outbreak) ? npc.outbreak : 0;
+    this.weakness = isString(npc.weakness) ? npc.weakness : '';
+    this.capacities = (Array.isArray(npc.capacities) ? npc.capacities : []).map(c => new Capacity(c));
+    this.weapons = (Array.isArray(npc.weapons) ? npc.weapons : []).map(w => new Weapon(w));
+    this.resilience = Number.isFinite(npc.resilience) ? npc.resilience : 0;
+    this.color = (isString(npc.color) && /\#[0-9a-f]{6}/i.test(npc.color)) ? npc.color : '#d3181f';
 
     this.initializeAspects();
   }
