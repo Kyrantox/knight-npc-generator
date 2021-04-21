@@ -1,4 +1,4 @@
-import { ARMORED, ASPECTS_LABELS, BANDE, BETE, CHAIR, COLOSSE, COURTE, DAME, GRID, HEROS, HOSTILE, INITIE, LOINTAINE, LONGUE, MACHINE, MASQUE, MOYENNE, ORGANIC, PATRON, PATRON_COLOSSE, RECRUE, ROBOT, SALOPARD } from '../constants';
+import { ALLIE, ARMORED, ASPECTS_LABELS, BANDE, BETE, CHAIR, COLOSSE, COURTE, DAME, GRID, HEROS, HOSTILE, INITIE, LOINTAINE, LONGUE, MACHINE, MASQUE, MOYENNE, ORGANIC, PATRON, PATRON_COLOSSE, RECRUE, ROBOT, SALOPARD } from '../constants';
 import { isString } from '../util';
 import Aspect from './Aspect';
 import Capacity, { capacities } from './Capacity';
@@ -76,7 +76,7 @@ export class Npc {
 
   copy(npc: Npc) {
     this.name = isString(npc.name) ? npc.name : '';
-    this.type = [HOSTILE, SALOPARD, COLOSSE, PATRON, PATRON_COLOSSE, BANDE].includes(npc.type?.toLowerCase?.()) ? npc.type.toLowerCase() : HOSTILE;
+    this.type = [HOSTILE, SALOPARD, COLOSSE, PATRON, PATRON_COLOSSE, BANDE, ALLIE].includes(npc.type?.toLowerCase?.()) ? npc.type.toLowerCase() : HOSTILE;
     this.level = [RECRUE, INITIE, HEROS].includes(npc.level?.toLowerCase?.()) ? npc.level.toLowerCase() : RECRUE;
     this.aspects = (Array.isArray(npc.aspects) ? npc.aspects : []).map(a => new Aspect(a));
     this.health = Number.isFinite(npc.health) ? npc.health : 0;
@@ -106,20 +106,24 @@ export class Npc {
     const total = options.balances.reduce((previous, current) => current + previous, 0);
     const infos = grid(this.type, this.level);
 
-    const max = Math.max(...options.balances);
-    if (options.balances.filter(a => a === max).length === 1) {
-      const best = options.candidates(1)[0];
+    if (this.type === ALLIE) {
+      this.color = '#40bd97';
+    } else {
+      const max = Math.max(...options.balances);
+      if (options.balances.filter(a => a === max).length === 1) {
+        const best = options.candidates(1)[0];
 
-      if (best === CHAIR) {
-        this.color = '#9b1a25';
-      } else if (best === BETE) {
-        this.color = '#f25a1e';
-      } else if (best === MACHINE) {
-        this.color = '#556abc';
-      } else if (best === DAME) {
-        this.color = '#69bfdc';
-      } else if (best === MASQUE) {
-        this.color = '#70aa6c';
+        if (best === CHAIR) {
+          this.color = '#9b1a25';
+        } else if (best === BETE) {
+          this.color = '#f25a1e';
+        } else if (best === MACHINE) {
+          this.color = '#556abc';
+        } else if (best === DAME) {
+          this.color = '#69bfdc';
+        } else if (best === MASQUE) {
+          this.color = '#70aa6c';
+        }
       }
     }
 
@@ -478,10 +482,12 @@ export class Npc {
   query<T extends { tags: string [], raw: (() => string) }>(elements: T[], options: { elite?: boolean, level?: string, filterWeakness?: boolean, effect?: boolean } = {}) {
     const types: string[] = [];
 
-    if (this.type !== PATRON_COLOSSE) {
-      types.push(this.type);
-    } else {
+    if (this.type === PATRON_COLOSSE) {
       types.push(PATRON, COLOSSE);
+    } else if (this.type === ALLIE) {
+      types.push('autre');
+    } else {
+      types.push(this.type);
     }
 
     const levels: string[] = [];
@@ -495,7 +501,7 @@ export class Npc {
       levels.push(RECRUE, INITIE, HEROS);
     }
 
-    const excluded = ['autre'];
+    const excluded = this.type === ALLIE ? [] : ['autre'];
     const required: string[] = [];
 
     if (options.elite) {
