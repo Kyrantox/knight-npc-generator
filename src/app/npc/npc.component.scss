@@ -212,6 +212,10 @@
 
   &-weapon-effects {
     width: 402px;
+
+    .npc-line-value-value {
+      padding: 5px;
+    }
   }
 
   &-weapon-range {
