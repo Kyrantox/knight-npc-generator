@@ -288,7 +288,7 @@ export class Npc {
         for (let i = 0; i < infos.weapon.effect; ++i) {
           const effect = filteredEffects[i];
 
-          if (points < effect.cost) {
+          if (!effect || points < effect.cost) {
             continue;
           }
 
@@ -501,7 +501,7 @@ export class Npc {
       levels.push(RECRUE, INITIE, HEROS);
     }
 
-    const excluded = this.type === ALLIE ? [] : ['autre'];
+    const excluded = this.type === ALLIE ? [] : ['humain'];
     const required: string[] = [];
 
     if (options.elite) {
