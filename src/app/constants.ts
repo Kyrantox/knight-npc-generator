@@ -127,7 +127,7 @@ export const CAPACITIES = [
 
 export const EFFECTS = [
 	"Anathème | recrue - hostile - salopard - colosse - patron | 20",
-  "Anti-Anathème | recrue - hostile - salopard - colosse - patron - autre - bande | 20",
+  "Anti-Anathème | recrue - hostile - salopard - colosse - patron - autre - humain - bande | 20",
   "Anti-véhicule | recrue - hostile - salopard - colosse - patron - autre - bande | 20",
 	"Barrage 4 | recrue - hostile - salopard - colosse - patron - autre - bande | 10",
 	"Barrage 6 | initié - hostile - salopard - colosse - patron - autre - bande | 15",
