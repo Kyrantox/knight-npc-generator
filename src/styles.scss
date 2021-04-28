@@ -218,3 +218,10 @@ input[type=range] {
 .slider-value {
   width: 52px;
 }
+
+@media print {
+  body {
+    background-color: white;
+    width: 21cm;
+  }
+}

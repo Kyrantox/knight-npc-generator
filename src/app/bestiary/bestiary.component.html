@@ -1,11 +1,48 @@
-<button class="btn btn-primary" (click)="pdf()">PDF</button>
+<div id="bestiary-form" class="container-fluid">
+  <div class="row">
 
-<div id="bestiary">
-  <div class="npc-page" *ngFor="let npc of list">
-    <div class="npc-block">
-      <app-npc [npc]="npc"></app-npc>
+  </div>
+</div>
+
+<div class="bestiary-wrapper">
+  <div id="bestiary" *ngIf="bestiary.length">
+    <div class="npc-summary page">
+      <div class="page-content">
+        <h1>{{ title }}</h1>
+
+        <ul class="summary-list">
+          <li class="summary-line" *ngFor="let page of bestiary; let index = index;">
+            <span class="summary-name">{{ page.npc.name }}</span>
+            <span class="summary-page">{{ index + 2 }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="page-number"><span>1</span></div>
     </div>
 
-    <div class="pagebreak"></div>
+    <div class="npc-page page" *ngFor="let page of bestiary; let index = index">
+      <div class="page-content">
+        <h2
+          [style.border-right-color]="page.npc.color"
+          [style.border-bottom-color]="page.npc.color"
+        >{{ page.npc.name }}</h2>
+
+        <p class="npc-description">{{ page.description }}</p>
+
+        <div class="npc-block-wrap">
+          <div class="npc-block">
+            <app-npc [npc]="page.npc"></app-npc>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-number">
+        <span
+          [style.border-right-color]="page.npc.color"
+          [style.border-top-color]="page.npc.color"
+        >{{ index + 2 }}</span>
+      </div>
+    </div>
   </div>
 </div>
