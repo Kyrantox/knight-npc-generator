@@ -87,7 +87,7 @@ export class GeneratorComponent implements OnInit {
   }
 
   massExport() {
-
+    this.massExportComponent.open(this.list);
   }
 
   massImport() {

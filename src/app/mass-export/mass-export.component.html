@@ -1,1 +1,23 @@
-<p>mass-export works!</p>
+<div class="mass-export fullscreen" [hidden]="!opened" (click)="close($event)" id="mass-export-background">
+  <div id="mass-export-content">
+    <p>
+      Sélectionnez les PNJ que vous voulez exporter puis utiliser le bouton pour générer les données.
+    </p>
+
+    <div class="export-list">
+      <label class="export-npc input-group" *ngFor="let npc of list; let index = index;" for="export-npc-{{ index }}">
+        <div class="input-group-text export-checkbox">
+          <input type="checkbox" class="form-check-input mt-0" id="export-npc-{{ index }}" [(ngModel)]="selected[index]" />
+        </div>
+        <span class="input-group-text export-name" [style.background-color]="npc.color">{{ npc.name }}</span>
+      </label>
+    </div>
+
+    <button class="btn btn-outline-primary" (click)="generate()">Générer</button>
+
+    <p *ngIf="json">
+      Vous pouvez copier/coller ce texte et l'utiliser pour importer un PNJ dans tout outil supportant ce format. Vous pouvez bien sur l'utiliser dans l'outil d'import de Knight NPC Generator.
+    </p>
+    <textarea class="form-control" *ngIf="json" id="mass-export-textarea">{{ json }}</textarea>
+  </div>
+</div>

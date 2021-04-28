@@ -31,6 +31,10 @@ export class ImportComponent implements OnInit {
       console.log("Unable to parse JSON", e);
     }
 
+    if (Array.isArray(data)) {
+      data = data[0];
+    }
+
     if (data) {
       this.npc.import(data);
     }
