@@ -2,6 +2,8 @@ import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { ExportComponent } from '../export/export.component';
 import { ImageComponent } from '../image/image.component';
 import { ImportComponent } from '../import/import.component';
+import { MassExportComponent } from '../mass-export/mass-export.component';
+import { MassImportComponent } from '../mass-import/mass-import.component';
 import { GenerateOptions, Npc } from '../model/Npc';
 
 declare var ClipboardItem: any;
@@ -22,6 +24,8 @@ export class GeneratorComponent implements OnInit {
   @ViewChild(ImageComponent) imageComponent!: ImageComponent;
   @ViewChild(ExportComponent) exportComponent!: ExportComponent;
   @ViewChild(ImportComponent) importComponent!: ImportComponent;
+  @ViewChild(MassExportComponent) massExportComponent!: MassExportComponent;
+  @ViewChild(MassImportComponent) massImportComponent!: MassImportComponent;
 
   constructor() {
     const json = localStorage.getItem('list');
@@ -58,7 +62,7 @@ export class GeneratorComponent implements OnInit {
       return;
     }
 
-    this.list = this.list.filter( e => e.name !== npc.name);
+    this.list = this.list.filter(e => e.name !== npc.name);
     this.list.push(new Npc(npc));
 
     this.list.sort((a, b) => a.name.localeCompare(b.name));
@@ -80,6 +84,32 @@ export class GeneratorComponent implements OnInit {
 
   import(npc: Npc) {
     this.importComponent.open(npc);
+  }
+
+  massExport() {
+
+  }
+
+  massImport() {
+    this.massImportComponent.open(this);
+  }
+
+  addNpc(strategy: number, list: Npc[]) {
+    console.log('strategy', strategy, typeof strategy);
+
+    if (strategy === 0) {
+      for (const npc of list) {
+        if (this.list.find(e => e.name === npc.name)) {
+          npc.name += ' bis';
+        }
+      }
+    } else if (strategy === 1) {
+      list = list.filter(npc => !this.list.find(e => e.name === npc.name));
+    }
+
+    for (const npc of list) {
+      this.save(npc);
+    }
   }
 
   @HostListener('document:keydown.escape', ['$event'])

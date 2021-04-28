@@ -16,6 +16,8 @@ import { ImageComponent } from './image/image.component';
 import { ExportComponent } from './export/export.component';
 import { ImportComponent } from './import/import.component';
 import { BestiaryComponent } from './bestiary/bestiary.component';
+import { MassImportComponent } from './mass-import/mass-import.component';
+import { MassExportComponent } from './mass-export/mass-export.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { BestiaryComponent } from './bestiary/bestiary.component';
     ImageComponent,
     ExportComponent,
     ImportComponent,
-    BestiaryComponent
+    BestiaryComponent,
+    MassImportComponent,
+    MassExportComponent
   ],
   imports: [
     BrowserModule,

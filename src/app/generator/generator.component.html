@@ -58,7 +58,9 @@
   <div class="row npc-list">
     <div class="col-12 npc-header">
       <h2>PNJ sauvegardés</h2>
-      <!-- <a class="btn btn-outline-primary" routerLink="/bestiary">Générer un bestiaire</a> -->
+        <button class="btn btn-outline-primary" (click)="massImport()">Import</button>
+        <button class="btn btn-outline-primary" (click)="massExport()">Export</button>
+        <!-- <a class="btn btn-outline-primary" routerLink="/bestiary">Version imprimable</a> -->
     </div>
 
     <div class="col-12" *ngIf="list.length">
@@ -84,4 +86,6 @@
   <app-image></app-image>
   <app-export></app-export>
   <app-import></app-import>
+  <app-mass-export></app-mass-export>
+  <app-mass-import></app-mass-import>
 </div>

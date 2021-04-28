@@ -1,0 +1,20 @@
+<div class="mass-import fullscreen" [hidden]="!opened" (click)="close($event)" id="mass-import-background">
+  <div class="import-content">
+    <p>
+      Vous pouvez coller ici le résultat d'un export d'un ou plusieurs PNJ pour l'importer.
+    </p>
+
+    <textarea class="form-control" [(ngModel)]="json"></textarea>
+
+    <div class="input-group">
+      <label class="input-group-text">Stratégie de gestion des doublons</label>
+      <select [(ngModel)]="strategy" class="form-control">
+        <option value="0">Renommer les doublons</option>
+        <option value="1">Ne pas importer les doublons</option>
+        <option value="2">Écraser les données locales avec les doublons</option>
+      </select>
+    </div>
+
+    <button class="btn btn-outline-primary" (click)="import()">Importer</button>
+  </div>
+</div>
