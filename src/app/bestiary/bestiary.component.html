@@ -17,8 +17,10 @@
 
           <div class="bestiary-list" *ngFor="let line of data">
             <div class="bestiary-list-header input-group">
+              <button class="btn btn-secondary bestiary-list-button button-icon" tabindex="-1" (click)="up(line)">&#8593;</button>
+              <button class="btn btn-secondary bestiary-list-button button-icon" tabindex="-1" (click)="down(line)">&#8595;</button>
               <span class="input-group-text bestiary-list-name" [style.background-color]="line.npc.color">{{ line.npc.name }}</span>
-              <button class="btn btn-danger bestiary-list-button" tabindex="-1" (click)="remove(line)">&#215;</button>
+              <button class="btn btn-danger bestiary-list-button button-icon" tabindex="-1" (click)="remove(line)">&#215;</button>
             </div>
 
             <textarea class="form-control" [(ngModel)]="line.description" (ngModelChange)="change()">

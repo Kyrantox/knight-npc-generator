@@ -55,6 +55,22 @@ export class BestiaryComponent implements OnInit {
     this.change();
   }
 
+  up(line: { npc: Npc; description: string }) {
+    const index = this.data.indexOf(line);
+
+    if (index > 0) {
+      [this.data[index], this.data[index - 1]] = [this.data[index - 1], this.data[index]];
+    }
+  }
+
+  down(line: { npc: Npc; description: string }) {
+    const index = this.data.indexOf(line);
+
+    if (index >= 0 && index < this.data.length - 1) {
+      [this.data[index], this.data[index + 1]] = [this.data[index + 1], this.data[index]];
+    }
+  }
+
   change() {
     this.changed.next();
   }
