@@ -1,47 +1,90 @@
 <div id="bestiary-form" class="container-fluid">
   <div class="row">
+    <div class="panel">
+      <div class="row">
+        <div class="col-3">
+          <div class="npc-list input-group" *ngFor="let npc of list" (click)="add(npc)">
+            <button class="btn btn-secondary npc-list-button" [style.background-color]="npc.color">+</button>
+            <span class="input-group-text npc-list-name" [style.background-color]="npc.color">{{ npc.name }}</span>
+          </div>
+        </div>
 
+        <div class="col-9">
+          <div class="input-group bestiary-title">
+            <label class="input-group-text">Titre</label>
+            <input class="form-control" type="text" [(ngModel)]="title" (ngModelChange)="change()" />
+          </div>
+
+          <div class="bestiary-list" *ngFor="let line of data">
+            <div class="bestiary-list-header input-group">
+              <span class="input-group-text bestiary-list-name" [style.background-color]="line.npc.color">{{ line.npc.name }}</span>
+              <button class="btn btn-danger bestiary-list-button" tabindex="-1" (click)="remove(line)">&#215;</button>
+            </div>
+
+            <textarea class="form-control" [(ngModel)]="line.description" (ngModelChange)="change()">
+
+            </textarea>
+          </div>
+
+          <button class="btn btn-outline-primary" *ngIf="data.length" (click)="generate()">Générer</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<p class="help" *ngIf="bestiary.length">
+  <span class="badge rounded-pill bg-secondary" title="À propos">?</span> Pour convertir votre bestiaire en PDF, vous devez utiliser la fonction "Imprimer en PDF" de votre navigateur. Utilisez l'orientation "Portrait", le format "A4", aucune marge et imprimez les arrières-plans.
+</p>
 
 <div class="bestiary-wrapper">
   <div id="bestiary" *ngIf="bestiary.length">
     <div class="npc-summary page">
       <div class="page-content">
-        <h1>{{ title }}</h1>
+        <div class="h1-wrapper">
+          <h1>{{ title }}</h1>
+        </div>
 
-        <ul class="summary-list">
-          <li class="summary-line" *ngFor="let page of bestiary; let index = index;">
+        <p class="summary-text">
+          Ce bestiaire a été généré en utilisant <a href="http://kng.magusgeek.com/">Knight NPC Generator</a> disponible à <a href="http://kng.magusgeek.com/">http://kng.magusgeek.com/</a>. Le contenu des capacités standards est soumis aux droits d'auteur de ©Antre-Monde Editions.
+        </p>
+
+        <div class="summary-list">
+          <div class="summary-line" *ngFor="let page of bestiary; let index = index;">
             <span class="summary-name">{{ page.npc.name }}</span>
             <span class="summary-page">{{ index + 2 }}</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="page-number"><span>1</span></div>
-    </div>
-
-    <div class="npc-page page" *ngFor="let page of bestiary; let index = index">
-      <div class="page-content">
-        <h2
-          [style.border-right-color]="page.npc.color"
-          [style.border-bottom-color]="page.npc.color"
-        >{{ page.npc.name }}</h2>
-
-        <p class="npc-description">{{ page.description }}</p>
-
-        <div class="npc-block-wrap">
-          <div class="npc-block">
-            <app-npc [npc]="page.npc"></app-npc>
           </div>
         </div>
       </div>
 
-      <div class="page-number">
-        <span
-          [style.border-right-color]="page.npc.color"
-          [style.border-top-color]="page.npc.color"
-        >{{ index + 2 }}</span>
+      <div class="page-number-wrapper">
+        <div class="page-number"><span>1</span></div>
+      </div>
+    </div>
+
+    <div class="npc-page page" *ngFor="let page of bestiary; let index = index">
+      <div class="page-content">
+        <div class="page-content-content">
+          <div class="h2-wrapper" [style.background-color]="page.npc.color">
+            <h2>{{ page.npc.name }}</h2>
+          </div>
+
+          <div class="page-npc-content">
+            <p class="npc-description">{{ page.description }}</p>
+
+            <div class="npc-block-wrap">
+              <div class="npc-block">
+                <app-npc [npc]="page.npc"></app-npc>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-number-wrapper">
+        <div class="page-number" [style.background-color]="page.npc.color">
+          <span>{{ index + 2 }}</span>
+        </div>
       </div>
     </div>
   </div>
