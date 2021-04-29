@@ -30,10 +30,17 @@ export class BestiaryComponent implements OnInit {
       this.data = data.data ?? [];
     }
 
+    for (const line of this.data) {
+      const npc = this.list.find(npc => npc.name === line.npc.name);
+
+      if (npc) {
+        line.npc = new Npc(npc);
+      }
+    }
+
     this.list = this.list.filter(npc => !this.data.some(line => line.npc.name === npc.name));
 
     this.changed.pipe(debounceTime(1000)).subscribe(() => {
-      console.log('save');
       localStorage.setItem('bestiary.cache', JSON.stringify({ title: this.title, data: this.data }));
     });
   }
