@@ -98,6 +98,18 @@ export class BestiaryComponent implements OnInit {
         style.width = (block.children[0].clientWidth * 0.7) + 'px';
       }
 
+      // Fix summary page first
+      const summaryPage = document.querySelector('.npc-summary .page-content')!;
+
+      if (summaryPage.children[0].clientHeight + 20 > summaryPage.clientHeight) {
+        const summary = summaryPage.querySelector('.summary-list')!;
+
+        if (summary) {
+          const diff = summaryPage.children[0].clientHeight + 20 - summaryPage.clientHeight;
+          (<any> summary).style.height = (summary.clientHeight - diff) + 'px';
+        }
+      }
+
       const pages = Array.from(document.querySelectorAll('.page-content'));
 
       for (const page of pages) {
@@ -108,7 +120,6 @@ export class BestiaryComponent implements OnInit {
 
       for (const page of pages) {
         if (page.children[0].clientHeight + 20 > page.clientHeight) {
-          console.log('fuck ?');
           const npc = page.querySelector('.npc-block-wrap');
 
           if (npc) {

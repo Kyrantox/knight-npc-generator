@@ -43,18 +43,20 @@
   <div id="bestiary" *ngIf="bestiary.length">
     <div class="npc-summary page">
       <div class="page-content">
-        <div class="h1-wrapper">
-          <h1>{{ title }}</h1>
-        </div>
+        <div class="page-summary-content">
+          <div class="h1-wrapper">
+            <h1>{{ title }}</h1>
+          </div>
 
-        <p class="summary-text">
-          Ce bestiaire a été généré en utilisant <a href="http://kng.magusgeek.com/">Knight NPC Generator</a> disponible à <a href="http://kng.magusgeek.com/">http://kng.magusgeek.com/</a>. Le contenu des capacités standards est soumis aux droits d'auteur de ©Antre-Monde Editions.
-        </p>
+          <p class="summary-text">
+            Ce bestiaire a été généré en utilisant <a href="http://kng.magusgeek.com/">Knight NPC Generator</a> disponible à <a href="http://kng.magusgeek.com/">http://kng.magusgeek.com/</a>. Le contenu des capacités standards est soumis aux droits d'auteur de ©Antre-Monde Editions.
+          </p>
 
-        <div class="summary-list">
-          <div class="summary-line" *ngFor="let page of bestiary; let index = index;">
-            <span class="summary-name">{{ page.npc.name }}</span>
-            <span class="summary-page">{{ index + 2 }}</span>
+          <div class="summary-list">
+            <div class="summary-line" *ngFor="let page of bestiary; let index = index;">
+              <span class="summary-name">{{ page.npc.name }}</span>
+              <span class="summary-page">{{ index + 2 }}</span>
+            </div>
           </div>
         </div>
       </div>
