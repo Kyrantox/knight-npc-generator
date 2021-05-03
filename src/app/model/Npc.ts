@@ -553,7 +553,7 @@ export class Npc {
     } else if (aspect.id === MACHINE) {
       this.reaction += Math.floor(boost * 0.5);
     } else if (aspect.id === MASQUE) {
-      if (this.type !== BANDE) {
+      if (this.type !== BANDE && !(this.aspects[MASQUE].exceptional && this.aspects[MASQUE].major)) {
         this.initiative += Math.floor(boost * 0.5);
       }
     }
