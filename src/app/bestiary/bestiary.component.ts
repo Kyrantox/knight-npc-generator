@@ -68,6 +68,8 @@ export class BestiaryComponent implements OnInit {
     if (index > 0) {
       [this.data[index], this.data[index - 1]] = [this.data[index - 1], this.data[index]];
     }
+
+    this.change();
   }
 
   down(line: { npc: Npc; description: string }) {
@@ -76,6 +78,8 @@ export class BestiaryComponent implements OnInit {
     if (index >= 0 && index < this.data.length - 1) {
       [this.data[index], this.data[index + 1]] = [this.data[index + 1], this.data[index]];
     }
+
+    this.change();
   }
 
   change() {
