@@ -7,6 +7,11 @@
     </div>
     <div class="col-12 npc-form-container" [hidden]="!generator">
       <div class="panel">
+        <p class="text">
+          <span class="badge rounded-pill bg-secondary">?</span>
+          Ce générateur utilise des règles modifiées par rapport à l'Atlas.
+        </p>
+
         <app-npc-generator [options]="options"></app-npc-generator>
       </div>
       <hr />
@@ -30,10 +35,16 @@
         </div>
       </div>
     </div>
+
     <hr [hidden]="!toElite"/>
+
     <div id="elite" class="col-12 npc-header" [hidden]="!toElite">
       <h2>Version élite</h2>
     </div>
+    <p [hidden]="!toElite" class="text">
+      <span class="badge rounded-pill bg-secondary">?</span>
+      Les règles de conversion en élite de cet outil différent de l'Atlas.
+    </p>
     <div class="col-12 col-xxl-6 npc-form-container" [hidden]="!toElite">
       <div class="panel panel-flex">
         <app-npc-form [npc]="elite"></app-npc-form>

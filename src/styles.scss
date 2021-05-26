@@ -161,6 +161,11 @@ header {
   border-bottom-left-radius: 0.25rem;
 }
 
+.badge {
+  position: relative;
+  bottom: 2px;
+}
+
 @mixin slider($color) {
   &::-webkit-slider-runnable-track {
     background: $color;
