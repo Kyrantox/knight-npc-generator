@@ -80,21 +80,23 @@
     <div class="col-6">
       <div class="npc-form-capacity" *ngFor="let capacity of npc.capacities">
         <div class="input-group">
-          <label class="input-group-text">Nom</label>
+          <button class="btn btn-secondary button-icon" tabindex="-1" (click)="upCapacity(capacity)">&#8593;</button>
+          <button class="btn btn-secondary button-icon" tabindex="-1" (click)="downCapacity(capacity)">&#8595;</button>
           <ng-autocomplete
-          [data]="capacities"
-          searchKeyword="name"
-          [initialValue]="capacity"
-          [customFilter]="filter"
-          [itemTemplate]="itemTemplate"
-          (inputChanged)="changed($event, capacity)"
-          (selected)="selected($event, capacity)"
-          [focusFirst]="true"
-        ></ng-autocomplete>
+            [data]="capacities"
+            searchKeyword="name"
+            [initialValue]="capacity"
+            [customFilter]="filter"
+            [itemTemplate]="itemTemplate"
+            (inputChanged)="changed($event, capacity)"
+            (selected)="selected($event, capacity)"
+            [focusFirst]="true"
+            placeholder="Nom"
+          ></ng-autocomplete>
           <button class="btn btn-danger button-icon" tabindex="-1" (click)="npc.removeCapacity(capacity)" title="Supprimer la capacité">&#215;</button>
         </div>
 
-        <textarea class="form-control" [(ngModel)]="capacity.description"></textarea>
+        <textarea class="form-control" [(ngModel)]="capacity.description" placeholder="Description"></textarea>
       </div>
 
       <button class="btn btn-secondary" (click)="npc.addCapacity()">+ Capacité</button>
@@ -103,8 +105,9 @@
     <div class="col-6">
       <div class="npc-form-weapon" *ngFor="let weapon of npc.weapons">
         <div class="input-group">
-          <label class="input-group-text">Nom</label>
-          <input [(ngModel)]="weapon.name" type="text" class="form-control" />
+          <button class="btn btn-secondary button-icon" tabindex="-1" (click)="upWeapon(weapon)">&#8593;</button>
+          <button class="btn btn-secondary button-icon" tabindex="-1" (click)="downWeapon(weapon)">&#8595;</button>
+          <input [(ngModel)]="weapon.name" type="text" class="form-control" placeholder="Nom" />
           <button class="btn btn-danger button-icon" tabindex="-1" (click)="npc.removeWeapon(weapon)" title="Supprimer l'arme">&#215;</button>
         </div>
 

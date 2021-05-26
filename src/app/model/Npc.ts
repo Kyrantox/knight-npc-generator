@@ -180,7 +180,7 @@ export class Npc {
       if (options.subtype === ORGANIC) {
         this.health =  options.ratio(infos.health.min, infos.health.max);
       } else if (options.subtype === ROBOT) {
-        this.armor = options.ratio(infos.health.min, infos.health.max) + options.ratio(infos.armor.min, infos.armor.max);
+        this.armor = options.ratio(infos.health.min, infos.health.max);
       } else if (options.subtype === ARMORED) {
         this.health =  options.ratio(infos.health.min, infos.health.max);
         this.armor = options.ratio(infos.armor.min, infos.armor.max);

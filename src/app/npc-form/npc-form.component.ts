@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import Capacity, { capacities } from '../model/Capacity';
 import Effect, { effects } from '../model/Effect';
 import { Npc } from '../model/Npc';
+import Weapon from '../model/Weapon';
+import { arrayDown, arrayUp } from '../util';
 
 @Component({
   selector: 'app-npc-form',
@@ -44,6 +46,22 @@ export class NpcFormComponent implements OnInit {
 
   filter(items: (Effect | Capacity)[], query: string) {
     return items.filter(e => e.index.includes(query.toLowerCase()));
+  }
+
+  upCapacity(capacity: Capacity) {
+    arrayUp(this.npc.capacities, capacity);
+  }
+
+  downCapacity(capacity: Capacity) {
+    arrayDown(this.npc.capacities, capacity);
+  }
+
+  upWeapon(weapon: Weapon) {
+    arrayUp(this.npc.weapons, weapon);
+  }
+
+  downWeapon(weapon: Weapon) {
+    arrayDown(this.npc.weapons, weapon);
   }
 
 }

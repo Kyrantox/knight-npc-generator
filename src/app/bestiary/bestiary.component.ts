@@ -2,6 +2,7 @@ import { Component, OnChanges, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Npc } from '../model/Npc';
 import { debounceTime } from 'rxjs/operators';
+import { arrayDown, arrayUp } from '../util';
 
 @Component({
   selector: 'app-bestiary',
@@ -63,22 +64,12 @@ export class BestiaryComponent implements OnInit {
   }
 
   up(line: { npc: Npc; description: string }) {
-    const index = this.data.indexOf(line);
-
-    if (index > 0) {
-      [this.data[index], this.data[index - 1]] = [this.data[index - 1], this.data[index]];
-    }
-
+    arrayUp(this.data, line);
     this.change();
   }
 
   down(line: { npc: Npc; description: string }) {
-    const index = this.data.indexOf(line);
-
-    if (index >= 0 && index < this.data.length - 1) {
-      [this.data[index], this.data[index + 1]] = [this.data[index + 1], this.data[index]];
-    }
-
+    arrayDown(this.data, line);
     this.change();
   }
 
