@@ -1,0 +1,81 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h2>Constantes du générateur de PNJ</h2>
+
+      <table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Aspects</th>
+            <th>Aspects exceptionnels</th>
+            <th>Santé, armure, énergie et résilience</th>
+            <th>Bouclier</th>
+            <th>Capacités</th>
+            <th>Armes</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let line of lines">
+            <td class="category">{{ line.type }} ({{ line.level }})</td>
+            <td>
+              Points d'aspects&nbsp;:&nbsp;{{ line.infos.aspects.min }} - {{ line.infos.aspects.max }}<br/>
+              Limite&nbsp;:&nbsp;{{ line.infos.aspects.limit }}
+            </td>
+            <td>
+              Points d'aspects exceptionnels&nbsp;:&nbsp;{{ line.infos.aspects_exceptionals.min }} - {{ line.infos.aspects_exceptionals.max }}<br/>
+              Limite&nbsp;:&nbsp;{{ line.infos.aspects_exceptionals.limit }}<br/>
+              Aspects exceptionnels majeurs&nbsp;:&nbsp;{{ line.infos.aspects_exceptionals.major_min }} - {{ line.infos.aspects_exceptionals.major_max }}<br/>
+              Aspects augmentés en élite&nbsp;:&nbsp;{{ line.infos.elite.major_aspects }}
+            </td>
+            <td *ngIf="line.type != 'bande'">
+              Santé&nbsp;:&nbsp;{{ line.infos.health.min }} - {{ line.infos.health.max }}<br/>
+              Armure&nbsp;:&nbsp;{{ line.infos.armor.min }} - {{ line.infos.armor.max }}<br/>
+              Énergie&nbsp;:&nbsp;{{ line.infos.energy.min }} - {{ line.infos.energy.max }}<br/>
+              Coéfficient de résilience&nbsp;:&nbsp;{{ line.infos.resilience }}
+            </td>
+            <td *ngIf="line.type == 'bande'">
+              Cohésion&nbsp;:&nbsp;{{ line.infos.health.min }} - {{ line.infos.health.max }}
+            </td>
+            <td>
+              Bouclier&nbsp;:&nbsp;{{ line.infos.shield.min }} - {{ line.infos.shield.max }}<br/>
+              CdF&nbsp;:&nbsp;{{ line.infos.forcefield.min }} - {{ line.infos.forcefield.max }}
+            </td>
+            <td>
+              Capacités&nbsp;:&nbsp;{{ line.infos.capacities }}<br/>
+              Capacités élites&nbsp;:&nbsp;{{ line.infos.elite.capacities }}<br/>
+            </td>
+            <td *ngIf="line.type != 'bande'">
+              PG&nbsp;:&nbsp;{{ line.infos.weapon.points }}<br/>
+              Effets&nbsp;:&nbsp;{{ line.infos.weapon.effect }}
+            </td>
+            <td *ngIf="line.type == 'bande'">
+              Débordement&nbsp;:&nbsp;{{ line.infos.outbreak.min }} - {{ line.infos.outbreak.max }}<br/>
+              Effets&nbsp;:&nbsp;{{ line.infos.outbreak.effects_min }} - {{ line.infos.outbreak.effects_max }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Cout des effets d'arme pour les PNJ</h2>
+
+      <table class="table table-striped table-dark effects-table">
+        <thead>
+          <tr>
+            <th>Effet</th>
+            <th>Cout</th>
+            <th>Disponibilité</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let effect of effects">
+            <td>{{ effect.name }}</td>
+            <td>{{ effect.cost }}</td>
+            <td class="tags">{{ effect.tags.join(', ') }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

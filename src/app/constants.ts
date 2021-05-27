@@ -265,7 +265,7 @@ export const GRID = {
 				"major_max": 1
 			},
 			"health": {
-				"min": 40,
+				"min": 60,
 				"max": 80
 			},
 			"armor": {
@@ -387,7 +387,7 @@ export const GRID = {
 		},
 		[HEROS]: {
 			"aspects": {
-				"min": 52,
+				"min": 53,
 				"max": 70,
 				"limit": 16
 			},
@@ -446,7 +446,7 @@ export const GRID = {
 			},
 			"health": {
 				"min": 160,
-				"max": 600
+				"max": 300
 			},
 			"armor": {
 				"min": 40,
@@ -464,7 +464,7 @@ export const GRID = {
 				"min": 10,
 				"max": 50
 			},
-      "resilience": 0.033,
+      "resilience": 0.03,
 			"capacities": 5,
 			"elite": {
 				"major_aspects": 2,
@@ -533,11 +533,11 @@ export const GRID = {
 				"major_max": 5
 			},
 			"health": {
-				"min": 400,
+				"min": 700,
 				"max": 1000
 			},
 			"armor": {
-				"min": 150,
+				"min": 200,
 				"max": 300
 			},
 			"forcefield": {
@@ -580,7 +580,7 @@ export const GRID = {
 			},
 			"health": {
 				"min": 160,
-				"max": 600
+				"max": 300
 			},
 			"armor": {
 				"min": 40,
@@ -667,11 +667,11 @@ export const GRID = {
 				"major_max": 5
 			},
 			"health": {
-				"min": 400,
+				"min": 700,
 				"max": 1000
 			},
 			"armor": {
-				"min": 150,
+				"min": 200,
 				"max": 300
 			},
 			"forcefield": {
@@ -1006,7 +1006,7 @@ export const GRID = {
 				"min": 20,
 				"max": 30
 			},
-      "resilience": 0.033,
+      "resilience": 0.03,
 			"capacities": 2,
 			"elite": {
 				"major_aspects": 2,
