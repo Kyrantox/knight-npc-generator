@@ -189,7 +189,7 @@
             {{ weapon.effects.length > 1 ? 'Effets' : 'Effet' }}
           </div>
           <div class="npc-line-value-value">
-            {{ weapon.effects.length ? weapon.effects.join(' / ') : '-' }}
+            <span *ngFor="let effect of weapon.effects; let first = first;"><span class="effect-separator" *ngIf="!first">/</span>{{ effect.name }}</span>
           </div>
         </div>
       </div>
