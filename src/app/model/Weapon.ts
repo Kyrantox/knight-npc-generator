@@ -7,6 +7,8 @@ export default class Weapon {
   contact: boolean = true;
   dices: number = 0;
   raw: number = 0;
+  violenceDices: number = 0;
+  violenceRaw: number = 0;
   range: string = CONTACT;
   effects: Effect[] = [];
 
@@ -16,6 +18,8 @@ export default class Weapon {
       this.contact = !!base.contact;
       this.dices = Number.isFinite(base.dices) ? base.dices : 0;
       this.raw = Number.isFinite(base.raw) ? base.raw : 0;
+      this.violenceDices = Number.isFinite(base.violenceDices) ? base.violenceDices : 0;
+      this.violenceRaw = Number.isFinite(base.violenceRaw) ? base.violenceRaw : 0;
       this.range = [CONTACT, COURTE, MOYENNE, LONGUE, LOINTAINE].includes(base.range?.toLowerCase?.()) ? base.range.toLowerCase() : (this.contact ? CONTACT : COURTE);
       this.effects = (Array.isArray(base.effects) ? base.effects : []).map(e => new Effect(e));
     }

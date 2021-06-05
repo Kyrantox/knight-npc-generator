@@ -171,7 +171,16 @@
             Dégâts
           </div>
           <div class="npc-line-value-value">
-            {{ weapon.dices }}D6{{ weapon.raw ? ' + ' + weapon.raw : '' }}
+            {{ weapon.dices ? weapon.dices + 'D6' : '' }} {{ weapon.dices && weapon.raw ? ' + ' : '' }} {{ weapon.raw ? weapon.raw : '' }}
+          </div>
+        </div>
+
+        <div class="npc-line-value" *ngIf="weapon.violenceDices || weapon.violenceRaw">
+          <div class="npc-line-value-header">
+            Violence
+          </div>
+          <div class="npc-line-value-value">
+            {{ weapon.violenceDices ? weapon.violenceDices + 'D6' : '' }} {{ weapon.violenceDices && weapon.violenceRaw ? ' + ' : '' }} {{ weapon.violenceRaw ? weapon.violenceRaw : '' }}
           </div>
         </div>
 

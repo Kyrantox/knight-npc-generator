@@ -128,6 +128,13 @@
           </select>
         </div>
 
+        <div class="input-group">
+          <span class="input-group-text">Violence</span>
+          <input [(ngModel)]="weapon.violenceDices" type="number" class="form-control" />
+          <span class="input-group-text">d6 + </span>
+          <input [(ngModel)]="weapon.violenceRaw" type="number" class="form-control" />
+        </div>
+
         <div class="row">
           <div class="col-6" *ngFor="let effect of weapon.effects">
             <div class="input-group">

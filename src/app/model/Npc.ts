@@ -169,7 +169,7 @@ export class Npc {
     // Others
     if (options.forcefield) {
       this.forcefield = options.ratio(infos.forcefield.min, infos.forcefield.max);
-    } else {
+    } else if (this.type !== ALLIE) {
       this.shield = options.ratio(infos.shield.min, infos.shield.max);
     }
 

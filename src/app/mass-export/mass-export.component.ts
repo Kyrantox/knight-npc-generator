@@ -26,6 +26,12 @@ export class MassExportComponent implements OnInit {
     this.selected = this.list.map(() => false);
   }
 
+  selectAll() {
+    for (let i = 0; i < this.selected.length; ++i) {
+      this.selected[i] = true;
+    }
+  }
+
   generate() {
     const filtered = this.list.filter((npc, i) => this.selected[i]);
 

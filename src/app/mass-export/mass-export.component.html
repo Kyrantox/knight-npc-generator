@@ -4,6 +4,8 @@
       Sélectionnez les PNJ que vous voulez exporter puis utiliser le bouton pour générer les données.
     </p>
 
+    <button class="btn btn-outline-secondary select-all" (click)="selectAll()">Tout sélectionner</button>
+
     <div class="export-list">
       <label class="export-npc input-group" *ngFor="let npc of list; let index = index;" for="export-npc-{{ index }}">
         <div class="input-group-text export-checkbox">
