@@ -34,9 +34,17 @@
     border-bottom-right-radius: 0.25rem !important;
   }
 
-  &-colors button {
-    margin-left: 10px;
-    width: 38px;
+  &-colors {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 5px;
+
+    button {
+      margin-left: 10px;
+      width: 32px;
+      height: 32px;
+    }
   }
 
   input[type="number"] {
