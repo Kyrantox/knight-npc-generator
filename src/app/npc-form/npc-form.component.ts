@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import Capacity, { capacities } from '../model/Capacity';
 import Effect, { effects } from '../model/Effect';
-import { Npc } from '../model/Npc';
+import { Npc, colors } from '../model/Npc';
 import Weapon from '../model/Weapon';
 import { arrayDown, arrayUp } from '../util';
 
@@ -12,6 +12,7 @@ import { arrayDown, arrayUp } from '../util';
 })
 export class NpcFormComponent implements OnInit {
   @Input() npc: Npc = new Npc();
+  colors = colors;
 
   properties: { property: keyof Npc, label: string, button?: () => void, tooltip?: string }[][] = [[
     { property: 'health', label: 'PS' },

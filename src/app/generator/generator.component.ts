@@ -4,7 +4,7 @@ import { ImageComponent } from '../image/image.component';
 import { ImportComponent } from '../import/import.component';
 import { MassExportComponent } from '../mass-export/mass-export.component';
 import { MassImportComponent } from '../mass-import/mass-import.component';
-import { GenerateOptions, Npc } from '../model/Npc';
+import { GenerateOptions, Npc, colors } from '../model/Npc';
 
 declare var ClipboardItem: any;
 
@@ -33,6 +33,12 @@ export class GeneratorComponent implements OnInit {
     if (json) {
       const data = JSON.parse(json);
       this.list = data.map((e: any) => new Npc(e));
+
+      for (const npc of this.list) {
+        if (!colors.includes(npc.color)) {
+          colors.push(npc.color);
+        }
+      }
     }
   }
 
@@ -67,6 +73,10 @@ export class GeneratorComponent implements OnInit {
 
     this.list.sort((a, b) => a.name.localeCompare(b.name));
     localStorage.setItem('list', JSON.stringify(this.list));
+
+    if (!colors.includes(npc.color)) {
+      colors.push(npc.color);
+    }
   }
 
   delete(npc: Npc) {

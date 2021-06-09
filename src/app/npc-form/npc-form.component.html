@@ -50,7 +50,7 @@
         </div>
 
         <div class="col-9 npc-form-colors">
-          <button class="btn" tabindex="-1" *ngFor="let color of ['#d3181f', '#9b1a25', '#f25a1e', '#556abc', '#69bfdc', '#70aa6c', '#40bd97', '#364379', '#cacd40', '#321619', '#ab1d94', '#363d42', '#613382', '#867124']"
+          <button class="btn" tabindex="-1" *ngFor="let color of colors"
             [style.background-color]="color"
             (click)="npc.color = color"
           >&nbsp;</button>
