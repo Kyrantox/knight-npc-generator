@@ -16,7 +16,20 @@ function shuffle(a: any[]) {
   return a;
 }
 
-export const colors = ['#d3181f', '#9b1a25', '#f25a1e', '#556abc', '#69bfdc', '#70aa6c', '#40bd97', '#364379', '#cacd40', '#321619', '#ab1d94', '#363d42'];
+export const colors = [
+  '#f25a1e', // Bête
+  '#9b1a25', // Chair
+  '#556abc', // Machine
+  '#69bfdc', // Dame
+  '#70aa6c', // Masque
+  '#d3181f', // Ennemi
+  '#364379', // Homme en noir
+  '#cacd40', // Arbitre
+  '#321619', // Horreur
+  '#363d42', // Ophidien
+  '#ab1d94', // Autre
+  '#40bd97', // Allié
+];
 
 export class GenerateOptions {
   power: number = 50;

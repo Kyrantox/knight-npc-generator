@@ -5,6 +5,7 @@ import { ImportComponent } from '../import/import.component';
 import { MassExportComponent } from '../mass-export/mass-export.component';
 import { MassImportComponent } from '../mass-import/mass-import.component';
 import { GenerateOptions, Npc, colors } from '../model/Npc';
+import { sortNpc } from '../util';
 
 declare var ClipboardItem: any;
 
@@ -39,6 +40,8 @@ export class GeneratorComponent implements OnInit {
           colors.push(npc.color);
         }
       }
+
+      sortNpc(this.list);
     }
   }
 
@@ -71,7 +74,7 @@ export class GeneratorComponent implements OnInit {
     this.list = this.list.filter(e => e.name !== npc.name);
     this.list.push(new Npc(npc));
 
-    this.list.sort((a, b) => a.name.localeCompare(b.name));
+    sortNpc(this.list);
     localStorage.setItem('list', JSON.stringify(this.list));
 
     if (!colors.includes(npc.color)) {

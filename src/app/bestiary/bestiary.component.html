@@ -53,7 +53,7 @@
           </p>
 
           <div class="summary-list">
-            <div class="summary-line" *ngFor="let page of bestiary; let index = index;">
+            <div class="summary-line" *ngFor="let page of bestiary; let index = index;" [style.background-color]="page.npc.color">
               <span class="summary-name">{{ page.npc.name }}</span>
               <span class="summary-page">{{ index + 2 }}</span>
             </div>

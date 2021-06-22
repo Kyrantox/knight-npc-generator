@@ -1,8 +1,8 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Npc } from '../model/Npc';
+import { colors, Npc } from '../model/Npc';
 import { debounceTime } from 'rxjs/operators';
-import { arrayDown, arrayUp } from '../util';
+import { arrayDown, arrayUp, sortNpc } from '../util';
 
 @Component({
   selector: 'app-bestiary',
@@ -21,6 +21,14 @@ export class BestiaryComponent implements OnInit {
     if (json) {
       const data = JSON.parse(json);
       this.list = data.map((e: any) => new Npc(e));
+
+      for (const npc of this.list) {
+        if (!colors.includes(npc.color)) {
+          colors.push(npc.color);
+        }
+      }
+
+      sortNpc(this.list);
     }
 
     json = localStorage.getItem('bestiary.cache');
@@ -58,7 +66,7 @@ export class BestiaryComponent implements OnInit {
     this.data = this.data.filter(l => l !== line);
 
     this.list.push(line.npc);
-    this.list.sort((a, b) => a.name.localeCompare(b.name));
+    sortNpc(this.list);
 
     this.change();
   }
