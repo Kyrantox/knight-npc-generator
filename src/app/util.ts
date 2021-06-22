@@ -1,5 +1,3 @@
-import { colors, Npc } from './model/Npc';
-
 export function isString(variable: any) {
   return typeof variable === 'string' || variable instanceof String;
 }
@@ -20,7 +18,7 @@ export function arrayDown<T>(array: T[], element: T) {
   }
 }
 
-export function sortNpc(array: Npc[]) {
+export function sortNpc(array: { name: string; color: string; }[], colors: string[]) {
   array.sort((a, b) => {
     if (a.color !== b.color) {
       const aIndex = colors.indexOf(a.color);

@@ -28,7 +28,7 @@ export class BestiaryComponent implements OnInit {
         }
       }
 
-      sortNpc(this.list);
+      sortNpc(this.list, colors);
     }
 
     json = localStorage.getItem('bestiary.cache');
@@ -66,7 +66,7 @@ export class BestiaryComponent implements OnInit {
     this.data = this.data.filter(l => l !== line);
 
     this.list.push(line.npc);
-    sortNpc(this.list);
+    sortNpc(this.list, colors);
 
     this.change();
   }

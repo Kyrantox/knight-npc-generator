@@ -41,7 +41,7 @@ export class GeneratorComponent implements OnInit {
         }
       }
 
-      sortNpc(this.list);
+      sortNpc(this.list, colors);
     }
   }
 
@@ -74,7 +74,7 @@ export class GeneratorComponent implements OnInit {
     this.list = this.list.filter(e => e.name !== npc.name);
     this.list.push(new Npc(npc));
 
-    sortNpc(this.list);
+    sortNpc(this.list, colors);
     localStorage.setItem('list', JSON.stringify(this.list));
 
     if (!colors.includes(npc.color)) {
