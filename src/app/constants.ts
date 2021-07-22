@@ -1087,7 +1087,7 @@ export const GRID = {
 				"max": 50
 			},
 			"shield": {
-				"min": 10,
+				"min": 20,
 				"max": 30
 			},
 			"energy": {
