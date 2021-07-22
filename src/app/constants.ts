@@ -464,7 +464,7 @@ export const GRID = {
 				"min": 10,
 				"max": 50
 			},
-      "resilience": 0.03,
+      "resilience": 0.033,
 			"capacities": 5,
 			"elite": {
 				"major_aspects": 2,
@@ -598,7 +598,7 @@ export const GRID = {
 				"min": 10,
 				"max": 50
 			},
-      "resilience": 0.1,
+      "resilience": 0.033,
 			"capacities": 5,
 			"elite": {
 				"major_aspects": 2,
@@ -642,7 +642,7 @@ export const GRID = {
 				"min": 50,
 				"max": 100
 			},
-      "resilience": 0.2,
+      "resilience": 0.05,
 			"capacities": 7,
 			"elite": {
 				"major_aspects": 2,
@@ -686,7 +686,7 @@ export const GRID = {
 				"min": 100,
 				"max": 200
 			},
-      "resilience": 0.3,
+      "resilience": 0.1,
 			"capacities": 9,
 			"elite": {
 				"major_aspects": 2,
