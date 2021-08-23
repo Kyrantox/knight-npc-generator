@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ALLIE, BANDE, HEROS, HOSTILE, INITIE, PATRON, PATRON_COLOSSE, RECRUE, SALOPARD } from '../constants';
+import { ALLIE, BANDE, COLOSSE, HEROS, HOSTILE, INITIE, PATRON, PATRON_COLOSSE, RECRUE, SALOPARD } from '../constants';
 import { effects as allEffects } from '../model/Effect';
 import { grid, NpcGrid } from '../model/Npc';
 
@@ -15,8 +15,7 @@ export class ConstantsComponent implements OnInit {
 
   constructor() {
 
-    for (const type of [HOSTILE, SALOPARD, PATRON, PATRON_COLOSSE, BANDE, ALLIE]) {
-
+    for (const type of [HOSTILE, SALOPARD, COLOSSE, PATRON, PATRON_COLOSSE, BANDE, ALLIE]) {
       for (const level of [RECRUE, INITIE, HEROS]) {
         this.lines.push({ type, level, infos: grid(type, level) });
       }

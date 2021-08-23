@@ -95,6 +95,15 @@ export class GeneratorComponent implements OnInit {
     this.exportComponent.open(npc.export());
   }
 
+  rename(npc: Npc) {
+    const name = prompt('Nouveau nom', npc.name);
+
+    if (name && name !== npc.name) {
+      npc.name = name;
+      this.save(npc);
+    }
+  }
+
   import(npc: Npc) {
     this.importComponent.open(npc);
   }
