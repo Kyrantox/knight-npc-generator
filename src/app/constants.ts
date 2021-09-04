@@ -1107,3 +1107,123 @@ export const GRID = {
 		}
 	}
 };
+
+export const WEAPON = {
+	damage: [
+		{ dice: 2, cost: 0 },
+		{ dice: 3, cost: 5 },
+		{ dice: 4, cost: 10 },
+		{ dice: 5, cost: 15 },
+		{ dice: 6, cost: 20 },
+		{ dice: 7, cost: 25 },
+		{ dice: 8, cost: 30 },
+		{ dice: 9, cost: 35 },
+		{ dice: 10, cost: 40 },
+		{ dice: 11, cost: 50 },
+		{ dice: 12, cost: 60 },
+		{ dice: 13, cost: 70 },
+		{ dice: 14, cost: 80 },
+		{ dice: 15, cost: 90 }
+	],
+	damageRaw: [
+		{ bonus: 0, cost: 0 },
+		{ bonus: 3, cost: 5 },
+		{ bonus: 6, cost: 10 },
+		{ bonus: 9, cost: 15 }
+	],
+	violence: [
+		{ dice: 2, cost: 0 },
+		{ dice: 3, cost: 5 },
+		{ dice: 4, cost: 10 },
+		{ dice: 5, cost: 15 },
+		{ dice: 6, cost: 20 },
+		{ dice: 7, cost: 25 },
+		{ dice: 8, cost: 30 },
+		{ dice: 9, cost: 35 },
+		{ dice: 10, cost: 40 },
+		{ dice: 11, cost: 50 },
+		{ dice: 12, cost: 60 },
+		{ dice: 13, cost: 70 },
+		{ dice: 14, cost: 80 },
+		{ dice: 15, cost: 90 }
+	],
+	violenceRaw: [
+		{ bonus: 0, cost: 0 },
+		{ bonus: 3, cost: 5 },
+		{ bonus: 6, cost: 10 },
+		{ bonus: 9, cost: 15 }
+	],
+	ranges: {
+		contact: [
+			{ range: CONTACT, cost: 0 },
+			{ range: COURTE, cost: 10 }
+		],
+		ranged: [
+			{ range: COURTE, cost: 0 },
+			{ range: MOYENNE, cost: 5 },
+			{ range: LONGUE, cost: 10 },
+			{ range: LOINTAINE, cost: 15 }
+		]
+	},
+	types: [
+		{ name: 'Une main', cost: 0, effects: [] },
+		{ name: 'Deux mains', cost: -20, effects: ['Deux mains'] },
+		{ name: 'Lourde', cost: -30, effects: ['Deux mains', 'Lourd'] }
+	],
+	effects: [
+		'Ténébricide | -20',
+		'Anti-Anathème | 20',
+		'Anti-véhicule | 20',
+		'Artillerie | 10',
+		'Assassin 2 | 5',
+		'Assassin 4 | 10',
+		'Assistance à l’attaque | 10',
+		'Barrage 2 | 5',
+		'Barrage 4 | 10',
+		'Barrage 6 | 15',
+		'Barrage 8 | 20',
+		'Cadence 2 | 10',
+		'Cadence 3 | 20',
+		'Choc 2 | 10',
+		'Choc 4 | 15',
+		'Choc 6 | 20',
+		'Défense 2 | 10',
+		'Défense 3 | 15',
+		'Défense 4 | 20',
+		'Dispersion 3 | 10',
+		'Dispersion 6 | 20',
+		'Dégâts continus 3 | 5',
+		'Dégâts continus 6 | 15',
+		'Démoralisant | 15',
+		'Désignation | 5',
+		'Destructeur | 10',
+		'En chaîne | 15',
+		'Espérance | 15',
+		'Fureur | 20',
+		'Ignore armure | 20',
+		'Ignore CdF | 20',
+		'Jumelé (akimbo) | 10',
+		'Jumelé (ambidextrie) | 10',
+		'Lesté | 10',
+		'Lumière 2 | 5',
+		'Lumière 4 | 15',
+		'Lumière 6 | 20',
+		'Meurtrier | 10',
+		'Oblitération | 15',
+		'Orfèvrerie | 10',
+		'Pénétrant 5 | 5',
+		'Pénétrant 10 | 10',
+		'Perce armure 20 | 5',
+		'Perce armure 40 | 10',
+		'Perce armure 60 | 15',
+		'Précision | 10',
+		'Réaction 2 | 10',
+		'Réaction 3 | 15',
+		'Réaction 4 | 20',
+		'Silencieux | 10',
+		'Soumission | 15',
+		'Tir en rafale | 15',
+		'Tir en sécurité | 10',
+		'Ultraviolence | 10'
+	]
+};

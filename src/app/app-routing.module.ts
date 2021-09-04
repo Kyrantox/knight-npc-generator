@@ -5,6 +5,7 @@ import { BestiaryComponent } from './bestiary/bestiary.component';
 import { ConstantsComponent } from './constants/constants.component';
 import { GeneratorComponent } from './generator/generator.component';
 import { MainComponent } from './main/main.component';
+import { WeaponComponent } from './weapon/weapon.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
     children: [
       { path: '', component: GeneratorComponent },
       { path: 'bestiary', component: BestiaryComponent },
+      { path: 'weapon', component: WeaponComponent },
       { path: 'about', component: AboutComponent },
       { path: 'constants', component: ConstantsComponent }
     ]

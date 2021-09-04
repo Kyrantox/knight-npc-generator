@@ -19,6 +19,7 @@ import { BestiaryComponent } from './bestiary/bestiary.component';
 import { MassImportComponent } from './mass-import/mass-import.component';
 import { MassExportComponent } from './mass-export/mass-export.component';
 import { ConstantsComponent } from './constants/constants.component';
+import { WeaponComponent } from './weapon/weapon.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ConstantsComponent } from './constants/constants.component';
     BestiaryComponent,
     MassImportComponent,
     MassExportComponent,
-    ConstantsComponent
+    ConstantsComponent,
+    WeaponComponent
   ],
   imports: [
     BrowserModule,
