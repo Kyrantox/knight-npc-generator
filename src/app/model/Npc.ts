@@ -421,6 +421,9 @@ export class Npc {
 
     for (const weapon of this.weapons) {
       weapon.dices = Math.floor(weapon.dices * 1.5);
+      if (weapon.violenceDices) {
+        weapon.violenceDices = Math.floor(weapon.violenceDices * 1.5);
+      }
     }
 
     const boosted = new Set<Aspect>();
