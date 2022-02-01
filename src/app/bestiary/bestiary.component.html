@@ -41,28 +41,28 @@
 
 <div class="bestiary-wrapper">
   <div id="bestiary" *ngIf="bestiary.length">
-    <div class="npc-summary page">
+    <div class="npc-summary page" *ngFor="let summary of summaries; let summaryIndex = index;">
       <div class="page-content">
         <div class="page-summary-content">
-          <div class="h1-wrapper">
+          <div class="h1-wrapper" *ngIf="summaryIndex == 0">
             <h1>{{ title }}</h1>
           </div>
 
-          <p class="summary-text">
+          <p class="summary-text" *ngIf="summaryIndex == 0">
             Ce bestiaire a été généré en utilisant <a href="http://kng.magusgeek.com/">Knight NPC Generator</a> disponible à <a href="http://kng.magusgeek.com/">http://kng.magusgeek.com/</a>. Le contenu des capacités standards est soumis aux droits d'auteur de ©Antre-Monde Editions.
           </p>
 
-          <div class="summary-list">
-            <div class="summary-line" *ngFor="let page of bestiary; let index = index;" [style.background-color]="page.npc.color">
-              <span class="summary-name">{{ page.npc.name }}</span>
-              <span class="summary-page">{{ index + 2 }}</span>
+          <div class="summary-list {{ summaryIndex > 0 ? 'summary-list-full' :'' }}">
+            <div class="summary-line" *ngFor="let line of summary;" [style.background-color]="line.npc.color">
+              <span class="summary-name">{{ line.npc.name }}</span>
+              <span class="summary-page">{{ line.page }}</span>
             </div>
           </div>
         </div>
       </div>
 
       <div class="page-number-wrapper">
-        <div class="page-number"><span>1</span></div>
+        <div class="page-number"><span>{{ summaryIndex + 1 }}</span></div>
       </div>
     </div>
 
@@ -87,7 +87,7 @@
 
       <div class="page-number-wrapper">
         <div class="page-number" [style.background-color]="page.npc.color">
-          <span>{{ index + 2 }}</span>
+          <span>{{ index + summaries.length + 1 }}</span>
         </div>
       </div>
     </div>

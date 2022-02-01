@@ -15,6 +15,7 @@ export class BestiaryComponent implements OnInit {
   data: { npc: Npc; description: string }[] = [];
   bestiary: { npc: Npc; description: string }[] = [];
   changed: Subject<void> = new Subject<void>();
+  summaries: { npc: Npc; page: number }[][] = [];
 
   constructor() {
     let json = localStorage.getItem('list');
@@ -92,6 +93,20 @@ export class BestiaryComponent implements OnInit {
       return;
     }
 
+    this.summaries = [];
+    this.summaries[0] = this.bestiary.map(e => ({ npc: e.npc, page: 0 }));
+
+    while (this.summaries[0].length > 60) {
+      this.summaries[this.summaries.length] = this.summaries[0].splice(60, 78);
+    }
+
+    let page = this.summaries.length + 1;
+    for (const summary of this.summaries) {
+      for (const line of summary) {
+        line.page = page++;
+      }
+    }
+
     setTimeout(() => {
       const blocks = Array.from(document.querySelectorAll('#bestiary .npc-block-wrap'));
 
@@ -101,23 +116,12 @@ export class BestiaryComponent implements OnInit {
         style.width = (block.children[0].clientWidth * 0.7) + 'px';
       }
 
-      // Fix summary page first
-      const summaryPage = document.querySelector('.npc-summary .page-content')!;
-
-      if (summaryPage.children[0].clientHeight + 20 > summaryPage.clientHeight) {
-        const summary = summaryPage.querySelector('.summary-list')!;
-
-        if (summary) {
-          const diff = summaryPage.children[0].clientHeight + 20 - summaryPage.clientHeight;
-          (<any> summary).style.height = (summary.clientHeight - diff) + 'px';
-        }
-      }
-
       const pages = Array.from(document.querySelectorAll('.page-content'));
 
       for (const page of pages) {
-        if (page.children[0].clientHeight + 20 > page.clientHeight) {
-          page.querySelector('.page-npc-content')!.classList.add('two-columns');
+        const npcContent = page.querySelector('.page-npc-content');
+        if (npcContent && page.children[0].clientHeight + 20 > page.clientHeight) {
+          npcContent.classList.add('two-columns');
         }
       }
 
