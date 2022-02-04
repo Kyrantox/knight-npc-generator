@@ -16,6 +16,7 @@ export class BestiaryComponent implements OnInit {
   bestiary: { npc: Npc; description: string }[] = [];
   changed: Subject<void> = new Subject<void>();
   summaries: { npc: Npc; page: number }[][] = [];
+  json: string = '';
 
   constructor() {
     let json = localStorage.getItem('list');
@@ -86,7 +87,15 @@ export class BestiaryComponent implements OnInit {
     this.changed.next();
   }
 
-  generate() {
+  generateJSON() {
+    this.bestiary = [];
+    this.json = JSON.stringify(this.data.map(({ npc }) => npc.export()));
+
+    setTimeout(() => window.scrollTo(0, document.getElementById('bestiary-json')!.getBoundingClientRect().top + window.scrollY - 50), 1);
+  }
+
+  generatePDF() {
+    this.json = '';
     this.bestiary = this.data.map(e => ({ npc: new Npc(e.npc), description: e.description }));
 
     if (!this.bestiary.length) {

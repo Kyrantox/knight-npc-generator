@@ -28,11 +28,16 @@
             </textarea>
           </div>
 
-          <button class="btn btn-outline-primary" *ngIf="data.length" (click)="generate()">Générer</button>
+          <button class="btn btn-outline-primary" *ngIf="data.length" (click)="generatePDF()">Générer le PDF</button>
+          <button class="btn btn-outline-primary" *ngIf="data.length" (click)="generateJSON()">Générer le JSON</button>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<div id="bestiary-json" *ngIf="json">
+  <textarea>{{ json }}</textarea>
 </div>
 
 <p class="help" *ngIf="bestiary.length">

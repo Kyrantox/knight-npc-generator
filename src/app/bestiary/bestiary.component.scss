@@ -199,6 +199,10 @@ h2 {
   }
 }
 
+.btn-outline-primary {
+  margin-right: 20px;
+}
+
 .bestiary-list {
   margin-bottom: 5px;
   flex-wrap: nowrap;
@@ -235,8 +239,24 @@ h2 {
   font-size: 20px;
 }
 
+#bestiary-json {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  textarea {
+    width: 950px;
+    height: 500px;
+    margin-bottom: 50px;
+  }
+}
+
 @media print {
   .help {
+    display: none;
+  }
+
+  #bestiary-json {
     display: none;
   }
 
