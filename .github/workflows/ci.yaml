@@ -31,7 +31,7 @@ jobs:
         with:
           export_environment_variables: true
           create_credentials_file: true
-          credentials_json: ${{ secrets.credentials_json }}
+          credentials_json: ${{ secrets.GCP_API_KEY }}
 
       - name: Setup gcloud
         id: setup-gcloud
